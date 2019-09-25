@@ -28,10 +28,10 @@ double enIpeps<T>::meaOneSiteNorm( const vector<UniTensor<T>>& gammas, int isite
   theta.SetLabel( vector<int> {-1,1,2,3,4} );
   UniTensor<T> thetaDag = Conj( theta );
   thetaDag.SetLabel( vector<int> {-1,11,12,13,14} );
-  theta = Contract( theta, thetaDag, false );
+  theta = Contract( theta, thetaDag );
   combineTwoLayer( theta );
 
-  Network_dev meaNorm_net( "./ctmIpepsNets/meaOneSiteNorm.net" );
+  Network meaNorm_net( "./ctmIpepsNets/meaOneSiteNorm.net" );
   UniTensor<T> norm;
   uni10::ContractArgs
   (
@@ -71,20 +71,20 @@ double enIpeps<T>::meaTwoSiteNorm( const vector<UniTensor<T>>& gammas, int ibond
   UniTensor<T> theta;
   if (ibond%2)
   {
-    theta = Contract( gammaTmp[1], gammaTmp[0], false ); 
+    theta = Contract( gammaTmp[1], gammaTmp[0] ); 
   }
   else
   {
-    theta = Contract( gammaTmp[0], gammaTmp[1], false ); 
+    theta = Contract( gammaTmp[0], gammaTmp[1] ); 
   }
 
   UniTensor<T> thetaDag = Conj( theta );
   theta.SetLabel( vector<int> {-1,-11,-12,-13,-2,-14,-15,-16} );
   thetaDag.SetLabel( vector<int> {-1,11,12,13,-2,14,15,16} );
-  theta = Contract( theta, thetaDag, false );
+  theta = Contract( theta, thetaDag );
   combineTwoLayer( theta );
 
-  Network_dev meaNorm_net( "./ctmIpepsNets/meaTwoSiteNorm.net" );
+  Network meaNorm_net( "./ctmIpepsNets/meaTwoSiteNorm.net" );
   UniTensor<T> norm;
 
   int il, ir, lu0;
@@ -136,12 +136,12 @@ double enIpeps<T>::meaOneSiteExp ( const vector<UniTensor<T>>& gammas, uni10::Un
   theta.SetLabel( vector<int> {-1,1,2,3,4} );
   UniTensor<T> thetaDag = Conj( theta );
   oneSiteOp.SetLabel( vector<int> {-2,-1} );
-  theta = Contract( oneSiteOp, theta, false );
+  theta = Contract( oneSiteOp, theta );
   thetaDag.SetLabel( vector<int> {-2,11,12,13,14} );
-  theta = Contract( theta, thetaDag, false );
+  theta = Contract( theta, thetaDag );
   combineTwoLayer( theta );
 
-  Network_dev meaNorm_net( "./ctmIpepsNets/meaOneSiteNorm.net" );
+  Network meaNorm_net( "./ctmIpepsNets/meaOneSiteNorm.net" );
   UniTensor<T> exp;
   uni10::ContractArgs
   (
@@ -181,20 +181,20 @@ double enIpeps<T>::meaTwoSiteExp ( const vector<UniTensor<T>>& gammas, uni10::Un
   UniTensor<T> theta;
   if (ibond%2)
   { 
-    theta = Contract( gammaTmp[1], gammaTmp[0], false ); 
+    theta = Contract( gammaTmp[1], gammaTmp[0] ); 
   }
   else
   {
-    theta = Contract( gammaTmp[0], gammaTmp[1], false ); 
+    theta = Contract( gammaTmp[0], gammaTmp[1] ); 
   }
 
   UniTensor<T> thetaDag = Conj( theta );
   theta.SetLabel( vector<int> {-1,1,2,3,-2,4,5,6} );
   twoSiteOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  theta = Contract( theta, twoSiteOp, false );//1,2,3,4,5,6;-3,-4
+  theta = Contract( theta, twoSiteOp );//1,2,3,4,5,6;-3,-4
   thetaDag.SetLabel( vector<int> {-3,11,12,13,-4,14,15,16} );
   thetaDag = Permute( thetaDag, vector<int> {-3,-4,11,12,13,14,15,16}, 2 );
-  theta = Contract( theta, thetaDag, false );
+  theta = Contract( theta, thetaDag );
   combineTwoLayer( theta );
 
   int il, ir, lu0;
@@ -217,7 +217,7 @@ double enIpeps<T>::meaTwoSiteExp ( const vector<UniTensor<T>>& gammas, uni10::Un
   int lu2 = (lu0+2)%4;
   int lu3 = (lu0+3)%4;
 
-  Network_dev meaNorm_net( "./ctmIpepsNets/meaTwoSiteNorm.net" );
+  Network meaNorm_net( "./ctmIpepsNets/meaTwoSiteNorm.net" );
   UniTensor<T> exp;
   uni10::ContractArgs
   (

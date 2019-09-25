@@ -201,9 +201,9 @@ vector<UniTensor<T>> ctmBase<T>::findIsometryQR( vector<int> order, const int id
   char buffer[16];
   sprintf( buffer, "%i", idir );
   string netString = string("../ctmBase/ctmBaseNets/isoUp") + string(buffer) + string(".net");
-  Network_dev isoUp_net( netString );
+  Network isoUp_net( netString );
   netString = string("../ctmBase/ctmBaseNets/isoDn") + string(buffer) + string(".net");
-  Network_dev isoDn_net( netString );
+  Network isoDn_net( netString );
 
   Matrix<T> pinv, pmat;
   int indim = 0;
@@ -289,9 +289,9 @@ vector<UniTensor<T>> ctmBase<T>::findIsometrySVD( vector<int> order, const int i
   char buffer[16];
   sprintf( buffer, "%i", idir );
   string netString = string("../ctmBase/ctmBaseNets/isoUp") + string(buffer) + string(".net");
-  Network_dev isoUp_net( netString );
+  Network isoUp_net( netString );
   netString = string("../ctmBase/ctmBaseNets/isoDn") + string(buffer) + string(".net");
-  Network_dev isoDn_net( netString );
+  Network isoDn_net( netString );
 
   Matrix<T> pinv, pmat;
   int indim = 0;
@@ -469,12 +469,12 @@ void ctmBase<T>::move( const int idir, bool ifsvd )
     int s1 = (idir+1)%4;
     int s2 = (idir+2)%4;
     int s3 = (idir+3)%4;
-    Network_dev C0_net( "../ctmBase/ctmBaseNets/C0.net" );
+    Network C0_net( "../ctmBase/ctmBaseNets/C0.net" );
     char buffer[8];
     sprintf( buffer, "%i", idir );
     string netString = string("../ctmBase/ctmBaseNets/T3_") + string(buffer) + string(".net");
-    Network_dev T3_net( netString );
-    Network_dev C3_net( "../ctmBase/ctmBaseNets/C3.net" );
+    Network T3_net( netString );
+    Network C3_net( "../ctmBase/ctmBaseNets/C3.net" );
 
     //isometries 
     vector<vector<UniTensor<T>>> isometries(nrowTmp);

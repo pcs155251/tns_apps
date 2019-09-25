@@ -172,9 +172,9 @@ void oneSiteiMPS<T>::isometries( const double arpackErr ){
   UniTensor<complex<double>> DaggerAL = Dagger( aL );
   UniTensor<complex<double>> DaggerAR = Dagger( aR );
   //finding transfer matrix and dominant Eigenvector
-  Network<complex<double>> tranMatL_net("./Networks/tranMatL.net");
+  Network tranMatL_net("./Networks/tranMatL.net");
   ContractArgs( tranMatL, tranMatL_net, aL, evolComplex, DaggerAL );
-  Network<complex<double>> tranMatR_net("./Networks/tranMatR.net");
+  Network tranMatR_net("./Networks/tranMatR.net");
   ContractArgs( tranMatR, tranMatR_net, aR, evolComplex, DaggerAR );
 
   const int arpackIter = 10000;
@@ -208,7 +208,7 @@ template<typename T>
 void oneSiteiMPS<T>::Normalize( ){
   UniTensor<complex<double>> cten( cmat );
   UniTensor<complex<double>> NormTensor;
-  Network<complex<double>> NormTensor_net("./Networks/normTensor.net");
+  Network NormTensor_net("./Networks/normTensor.net");
   Matrix<complex<double>> cdag = Dagger( cmat );
   UniTensor<complex<double>> cdagten( cdag );
   ContractArgs( NormTensor, NormTensor_net, cten, isometryLeft, isometryRight, cdagten );
@@ -227,7 +227,7 @@ void oneSiteiMPS<T>::improveAcC( const int arpackIter, const double arpackErr ){
   temp = Permute( temp, 2);
   vectC = temp.GetBlock();
 
-  Network<complex<double>> updateAC_net("./Networks/updateAC.net");
+  Network updateAC_net("./Networks/updateAC.net");
   ContractArgs( updateAC, updateAC_net, isometryLeft, isometryRight, evolComplex );
   arCompEignRight( updateAC.GetBlock(), lambdaAC, vectAC, arpackIter, arpackErr, 1 );
   complex<double> factor = lambdaAC/lambdaL;
@@ -239,7 +239,7 @@ void oneSiteiMPS<T>::improveAcC( const int arpackIter, const double arpackErr ){
   vector<int> irLab = isometryRight.label();
   isometryLeft.SetLabel( { 4, 1, 3} );
   isometryRight.SetLabel( { 2, 3, 5} );
-  updateC = Contract( isometryLeft, isometryRight, false );
+  updateC = Contract( isometryLeft, isometryRight );
   updateC = Permute( updateC, {4, 5, 1, 2}, 2);
   isometryLeft.SetLabel( ilLab );
   isometryLeft.SetLabel( irLab );
@@ -303,7 +303,7 @@ void oneSiteiMPS<T>::fixedPoint( const int maxIter, const double errTor, const d
   complex<double> lambdaAC;
   Matrix<complex<double>> vectAC;
   UniTensor<complex<double>> updateAC;
-  Network<complex<double>> updateAC_net("./Networks/updateAC.net");
+  Network updateAC_net("./Networks/updateAC.net");
   ContractArgs( updateAC, updateAC_net, isometryLeft, isometryRight, evolComplex );
   arCompEignRight( updateAC.GetBlock(), lambdaAC, vectAC, 10000, arpackErr, 0 );
   complex<double> factor = lambdaAC/lambdaL;
@@ -320,12 +320,12 @@ void oneSiteiMPS<T>::testFixedPoint( ){
   UniTensor<complex<double>> DaggerAL = Dagger( aL );
   UniTensor<complex<double>> DaggerAR = Dagger( aR );
 
-  Network<complex<double>> tranMatL_net("./Networks/tranMatL.net");
+  Network tranMatL_net("./Networks/tranMatL.net");
   ContractArgs( tranMatL, tranMatL_net, aL, evolComplex, DaggerAL );
   UniTensor<complex<double>> temp = Permute( isometryLeft, {1,2,3}, 0 );
   cout<<"left vector diff: "<<Norm( lambdaL*temp.GetBlock() - Dot( temp.GetBlock(), tranMatL.GetBlock()) )<<endl;
 
-  Network<complex<double>> tranMatR_net("./Networks/tranMatR.net");
+  Network tranMatR_net("./Networks/tranMatR.net");
   ContractArgs( tranMatR, tranMatR_net, aR, evolComplex, DaggerAR );
   temp = Permute( isometryRight, 3);
   cout<<"right vector diff: "<<Norm( lambdaR*temp.GetBlock() - Dot(tranMatR.GetBlock(),temp.GetBlock()) )<<endl;
@@ -333,7 +333,7 @@ void oneSiteiMPS<T>::testFixedPoint( ){
   cout<<"test Ac"<<endl;
   Matrix<complex<double>> vectAC, vectC; 
   UniTensor<complex<double>> updateAC;
-  Network<complex<double>> updateAC_net("./Networks/updateAC.net");
+  Network updateAC_net("./Networks/updateAC.net");
   ContractArgs( updateAC, updateAC_net, isometryLeft, isometryRight, evolComplex );
   temp = Permute( aC, 3);
   cout<<"Ac diff: "<<Norm( lambdaAC*temp.GetBlock() - Dot(updateAC.GetBlock(),temp.GetBlock()) )<<endl;
@@ -344,7 +344,7 @@ void oneSiteiMPS<T>::testFixedPoint( ){
   vector<int> irLab = isometryRight.label();
   isometryLeft.SetLabel( { 4, 1, 3} );
   isometryRight.SetLabel( { 2, 3, 5} );
-  updateC = Contract( isometryLeft, isometryRight, false );
+  updateC = Contract( isometryLeft, isometryRight );
   updateC = Permute( updateC, {4, 5, 1, 2}, 2);
   UniTensor<complex<double>> cten( cmat );
   cten = Permute( cten, 2);

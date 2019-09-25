@@ -9,10 +9,10 @@ UniTensor<double> pess<T,enType>::constructBten( const bool ifUp )
 {
   uni10::UniTensor<double> out;
   if (ifUp){
-    Network_dev out_net( "./pessNets/aUp.net" );
+    Network out_net( "./pessNets/aUp.net" );
     ContractArgs( out, out_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//8, 7, -5, -4; 1, 2, 3
   } else {
-    Network_dev out_net( "./pessNets/aDn.net" );
+    Network out_net( "./pessNets/aDn.net" );
     ContractArgs( out, out_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//5, 4, 8, 7; 1, 2, 3
   }
   out.SetLabel( vector<int> {1,2,3,4,5,6,7} );
@@ -26,7 +26,7 @@ UniTensor<double> pess<T,enType>::getaten( UniTensor<double> &bten )
   bten.SetLabel( vector<int> {1,2,3,4,5,6,7} );
   UniTensor<double> bDag = Conj( bten );
   bDag.SetLabel( vector<int> {-1,-2,-3,-4,5,6,7} );
-  UniTensor<double> aten = Contract( bten, bDag, false );
+  UniTensor<double> aten = Contract( bten, bDag );
   combineTwoLayer( aten );
   //aten = Permute( aten, vector<int> {1,-1,2,-2,3,-3,4,-4}, 8 );
   return aten;
@@ -95,18 +95,18 @@ double pess<T,enType>::meaTriSiteLocal( const UniTensor<T> &oper, const int iCor
   UniTensor<T> operCopy = oper;
   UniTensor<T> theta  = ContractCore(iCore);
   UniTensor<T> thetaT = Conj( theta );
-  UniTensor<T> value = Contract( theta, thetaT, false );
+  UniTensor<T> value = Contract( theta, thetaT );
 
   //vector<int> tempLab = {1,2,3,-1,-2,-3};
   vector<int> tempLab = {-1,-2,-3,1,2,3};
   operCopy.SetLabel(tempLab);
-  UniTensor<T> thetaH = Contract( theta, operCopy, false );
+  UniTensor<T> thetaH = Contract( theta, operCopy );
   vector<int> newLab = thetaH.label();
   for (int i=0; i!=nBdsOfCore; i++){
     newLab.at( nBdsOfCore+i ) *= -1;
   }
   thetaH.SetLabel( newLab );
-  UniTensor<T> expec = Contract( thetaH, thetaT, false );
+  UniTensor<T> expec = Contract( thetaH, thetaT );
   T energy = expec[0]/value[0];
   complex<double> complexEnergy = (complex<double> (0,0))+energy;
   assert( fabs(complexEnergy.imag())<1.0e-14 );
@@ -196,9 +196,9 @@ UniTensor<T> pess<T,enType>::ContractCore( const int iCore ){
     bondcat( projCopy.at(i), bondVectors.at(!iCore).at(i), (!iCore)+1 );
   }
   //Contract theta
-  UniTensor<T> theta = Contract( coreTensors.at(iCore), projCopy.at(0), false );
+  UniTensor<T> theta = Contract( coreTensors.at(iCore), projCopy.at(0) );
   for ( int i=1; i!=nBdsOfCore; i++){
-    theta = Contract( theta, projCopy.at(i), false );
+    theta = Contract( theta, projCopy.at(i) );
   }
   return theta;
 }
@@ -207,7 +207,7 @@ template<typename T, template<typename T> class enType>
 double pess<T,enType>::timeEvoAstep( UniTensor<T> &evoOperator, const int iCore ){
   //act evoOperator and prepare for Hosvd
   UniTensor<T> theta = ContractCore(iCore);
-  theta = Contract( theta, evoOperator, false );
+  theta = Contract( theta, evoOperator );
   theta = Permute( theta, thetaLabForHosvd.at(iCore), 2*nBdsOfCore );
 
   //Hosvd

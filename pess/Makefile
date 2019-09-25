@@ -1,6 +1,7 @@
-UNI10_ROOT := /home/pcs155251/newLib
-UNI10INC := $(UNI10_ROOT)/include
-UNI10LIB := $(UNI10_ROOT)/lib
+UNI10ROOT := /home/pcs155251/newLib/
+UNI10INC := $(UNI10ROOT)/include
+UNI10LIB := $(UNI10ROOT)/lib
+UNI10STAT := $(UNI10LIB)/libuni10.a
 
 CC := g++
 FLAGS:= -m64 -DUNI_CPU -DUNI_LAPACK -std=c++11
@@ -20,7 +21,7 @@ $(OBJE): %.o: %.cpp
 	$(CC) -c $< -o $@ -I$(UNI10INC) $(FLAGS) 
 
 $(EXU) : %.e: %.o $(OBJO)
-	$(CC) -o $@ $< $(OBJO) $(FLAGS) -L$(UNI10LIB) -luni10_lapack_cpu -Wl,-rpath,$(UNI10LIB)
+	$(CC) -o $@ $< $(OBJO) $(FLAGS) -L$(UNI10LIB) $(UNI10STAT) -llapack -lblas
 
 clean:
 	rm -f *.o *.e 

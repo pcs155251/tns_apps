@@ -228,7 +228,7 @@ UniTensor<T> ContractSelf( UniTensor<T> &tin, const vector<int> &posits){
   UniTensor<T> tcopy = tin;
   tcopy.SetLabel( tcopyLab );
   UniTensor<T> tout;
-  tout = Contract( tin, tcopy, false );
+  tout = Contract( tin, tcopy );
   return tout;
 }
 
@@ -247,7 +247,7 @@ UniTensor<T> ContractDagger( UniTensor<T> &tin, const vector<int> &posits){
   tcopy.SetLabel( tcopyLab );
   UniTensor<T> tout;
   //note that tin is first input here, in my convention tin should be ket state tensors
-  tout = Contract( tin, tcopy, false );
+  tout = Contract( tin, tcopy );
   return tout;
 }
 
@@ -870,7 +870,7 @@ void absorbMatrixtoTensor( UniTensor<T1> &ten, const Matrix<T2> &mat, const int 
   else {
     matT.SetLabel(vector<int> {-(posit+1), (posit+1)});
   }
-  ten = Contract( ten, matT, false );
+  ten = Contract( ten, matT );
   //permute back
   ten.SetLabel( posit+1, allbdN-1 );
   ten = Permute( ten, newlab, inbdN );
@@ -904,7 +904,7 @@ double tebdHastings( UniTensor<T> &theta, UniTensor<T> &tenL, UniTensor<T> &tenR
   thetaRLab.insert( thetaRLab.begin(), thetaBds.size() );
   tenR.SetLabel( thetaRLab );
   UniTensor<T> tenRc=  Conj(tenR);
-  tenL = Contract( theta, tenRc, false );
+  tenL = Contract( theta, tenRc );
   double trunErr = 1.0-Norm(usv[1]);
   matC = usv[1];
   matC *= 1.0/( Norm(matC) );

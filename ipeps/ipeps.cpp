@@ -66,7 +66,7 @@ UniTensor<T> ipeps<T>::contractAB( int idir )
   blab[1+(idir+2)%4] = 9;
   gammas[0].SetLabel( alab );
   gammas[1].SetLabel( blab );
-  UniTensor<T> out = Contract( gammas[0], gammas[1], false ); 
+  UniTensor<T> out = Contract( gammas[0], gammas[1] ); 
   return out; 
 }
 
@@ -75,7 +75,7 @@ UniTensor<T> ipeps<T>::actTwoSiteOp( UniTensor<T>& twoSiteOp, int idir )
 {
   UniTensor<T> out = contractAB( idir );
   twoSiteOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  out = Contract( out, twoSiteOp, false ); 
+  out = Contract( out, twoSiteOp ); 
   vector<int> newLab = out.label();
   newLab.erase( newLab.begin()+6, newLab.end() );
   newLab.push_back( -1 );
@@ -148,7 +148,7 @@ UniTensor<T> ipeps<T>::contractSkel( int ibond, const UniTensor<T> &xten, const 
 
   UniTensor<T> xdagten = Conj( xten );
   UniTensor<T> ydagten = Conj( yten );
-  Network_dev contractSkel_net( netFile );
+  Network contractSkel_net( netFile );
   uni10::ContractArgs
   (
     out, contractSkel_net,
@@ -167,7 +167,7 @@ UniTensor<T> ipeps<T>::contractT( const UniTensor<T> &skel, const UniTensor<T> &
   UniTensor<T> thetaPrimeDag = Conj( thetaPrime );
   string netFile;
   netFile = "./fullUpdateNets/contractT.net";
-  Network_dev contractT_net( netFile );
+  Network contractT_net( netFile );
   UniTensor<T> out;
   uni10::ContractArgs
   (
@@ -194,7 +194,7 @@ UniTensor<T> ipeps<T>::contractR( const UniTensor<T> &skel, const UniTensor<T> &
   {
     cerr<<"undefined type for contracting R: type = "<<type<<endl;
   }
-  Network_dev contractR_net( netFile );
+  Network contractR_net( netFile );
   UniTensor<T> out;
   uni10::ContractArgs
   (
@@ -221,7 +221,7 @@ UniTensor<T> ipeps<T>::contractS( const UniTensor<T> &skel, const UniTensor<T> &
   {
     cerr<<"undefined type for contracting S: type = "<<type<<endl;
   }
-  Network_dev contractS_net( netFile );
+  Network contractS_net( netFile );
   UniTensor<T> out;
   uni10::ContractArgs
   (
@@ -255,7 +255,7 @@ UniTensor<T> ipeps<T>::contractRInv( const UniTensor<T>& rten, const UniTensor<T
     cerr<<"undefined type for new Subten: type = "<<type<<endl;
   }
 
-  Network_dev contractRinv_net( netFile );
+  Network contractRinv_net( netFile );
   UniTensor<T> out;
   uni10::ContractArgs
   (
@@ -284,13 +284,13 @@ double ipeps<T>::costFunction( UniTensor<T> subten, UniTensor<T> rten, UniTensor
     cerr<<"undefined type for input subten : type = "<<type<<endl;
   }
   rten.SetLabel( vector<int> {-1,-2,1,2} );
-  UniTensor<T> aRa = Contract( subten, rten, false );
-  aRa = Contract( aRa, subDag, false );
+  UniTensor<T> aRa = Contract( subten, rten );
+  aRa = Contract( aRa, subDag );
   UniTensor<T> sdag = Conj( sten );
   sten.SetLabel( vector<int> {-1,-2,0 } );
   sdag.SetLabel( vector<int> {1,2,0 } );
-  UniTensor<T> aS = Contract( subDag, sten, false );
-  UniTensor<T> Sa = Contract( sdag, subten, false );
+  UniTensor<T> aS = Contract( subDag, sten );
+  UniTensor<T> Sa = Contract( sdag, subten );
   return aRa[0]-aS[0]-Sa[0]+tten[0];
 }
 
@@ -304,8 +304,8 @@ bool ipeps<T>::fullUpdateAstep( UniTensor<T>& ham, UniTensor<T>& evolOp, double 
   arten.SetLabel( vector<int> {1,-1,2} );
   blten.SetLabel( vector<int> {-2,2,3} );
   evolOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  UniTensor<T> thetaP = Contract( arten, blten, false );
-  thetaP = Contract( thetaP, evolOp, false );
+  UniTensor<T> thetaP = Contract( arten, blten );
+  thetaP = Contract( thetaP, evolOp );
   UniTensor<T> skel = contractSkel( idir, xten, yten );
   skel *= 1.0/abs(maxAbsElem(skel));
   double cost = 100;
@@ -447,7 +447,7 @@ void ipeps<T>::herPosApproxGauge( UniTensor<T> &skel, UniTensor<T> &arten, UniTe
     zten.SetLabel( vector<int> {1,2,0} );
     UniTensor<T> zdag = Conj( zten );
     zdag.SetLabel( vector<int> {-1,-2,0} );
-    UniTensor<T> result = Contract( zten, zdag, false );
+    UniTensor<T> result = Contract( zten, zdag );
     cout<<setprecision(10)<<Norm( result.GetBlock() - test.GetBlock() )<<endl;
   } else {}
   
@@ -473,7 +473,7 @@ void ipeps<T>::herPosApproxGauge( UniTensor<T> &skel, UniTensor<T> &arten, UniTe
 
   UniTensor<T> zdag = Conj( zten );
   zdag.SetLabel( vector<int> {0,-1,-2} );
-  skel = Contract( zdag, zten, false );
+  skel = Contract( zdag, zten );
 }
 
 template<typename T>
@@ -496,8 +496,8 @@ bool ipeps<T>::fullUpdateAstepGauge( UniTensor<T>& ham, UniTensor<T>& evolOp, do
   arten.SetLabel( vector<int> {1,-1,2} );
   blten.SetLabel( vector<int> {-2,2,3} );
   evolOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  UniTensor<T> thetaP = Contract( arten, blten, false );
-  thetaP = Contract( thetaP, evolOp, false );
+  UniTensor<T> thetaP = Contract( arten, blten );
+  thetaP = Contract( thetaP, evolOp );
 
   double cost = 100;
   for (int i=0; i!=costIter; ++i )
@@ -636,8 +636,8 @@ void ipeps<T>::test( UniTensor<T>& evolOp, int idir )
   arten.SetLabel( vector<int> {1,-1,2} );
   blten.SetLabel( vector<int> {-2,2,3} );
   evolOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  UniTensor<T> thetaP = Contract( arten, blten, false );
-  thetaP = Contract( thetaP, evolOp, false );
+  UniTensor<T> thetaP = Contract( arten, blten );
+  thetaP = Contract( thetaP, evolOp );
   UniTensor<T> skel = contractSkel( idir, xten, yten );
   cout<<"b"<<endl;
   UniTensor<T> tten = contractT( skel, thetaP );
@@ -692,8 +692,8 @@ void ipeps<T>::updateSubTens( int idir, UniTensor<T> &xten, UniTensor<T>& arten,
   lab0 = vector<int> {(idir+1)%4+1, (idir+2)%4+1, (idir+3)%4+1, -1, idir+1};
   lab1 = vector<int> {-2, 5+(idir+2)%4, 5+(idir+3)%4, 5+(idir)%4, 5+(idir+1)%4 };
 
-  gammas[0] = Contract( xten, arten, false );
-  gammas[1] = Contract( blten, yten, false );
+  gammas[0] = Contract( xten, arten );
+  gammas[1] = Contract( blten, yten );
   gammas[0].SetLabel( lab0 );
   gammas[1].SetLabel( lab1 );
   gammas[0] = Permute( gammas[0], vector<int> {-1,1,2,3,4}, 1 );
@@ -710,8 +710,8 @@ double ipeps<T>::simpUpdateAstepReduced( UniTensor<T>& evolOp, int idir )
   arten.SetLabel( vector<int> {1,-1,2} );
   blten.SetLabel( vector<int> {-2,2,3} );
   evolOp.SetLabel( vector<int> {-3,-4,-1,-2} );
-  UniTensor<T> theta = Contract( arten, blten, false );
-  theta = Contract( theta, evolOp, false );
+  UniTensor<T> theta = Contract( arten, blten );
+  theta = Contract( theta, evolOp );
   theta = Permute( theta, vector<int> {-3, 1, -4, 3}, 2 );
   double trunErr = svdSeperateGeneral( theta, arten, blten, lambdas[idir], _virDim );
   arten.SetLabel( vector<int> {0,1,2} );
@@ -765,7 +765,7 @@ T ipeps<T>::meaSimpNorm( int idir )
   absrobSimpEn( idir );
   UniTensor<T> tmp = contractAB( idir );
   UniTensor<T> tmpDag = Conj( tmp );
-  UniTensor<T> net = Contract( tmp, tmpDag, false );
+  UniTensor<T> net = Contract( tmp, tmpDag );
   releaseSimpEn( idir );
   return net[0];
 }
@@ -778,9 +778,9 @@ T ipeps<T>::meaSimpTwoSiteOp( UniTensor<T>& twoSiteOp, int idir )
   absrobSimpEn( idir );
   UniTensor<T> tmp = contractAB( idir );
   UniTensor<T> tmpDag = Conj( tmp );
-  UniTensor<T> norm = Contract( tmp, tmpDag, false );
+  UniTensor<T> norm = Contract( tmp, tmpDag );
   UniTensor<T> theta = actTwoSiteOp( twoSiteOp, idir );
-  UniTensor<T> exp = Contract( theta, tmpDag, false );
+  UniTensor<T> exp = Contract( theta, tmpDag );
   releaseSimpEn( idir );
   return exp[0]/norm[0];
 }
@@ -794,13 +794,13 @@ T ipeps<T>::meaSimpOneSiteOp( UniTensor<T>& oneSiteOp, int isite )
 
   UniTensor<T> tmp = contractAB( idir );
   UniTensor<T> tmpDag = Conj( tmp );
-  UniTensor<T> norm = Contract( tmp, tmpDag, false );
+  UniTensor<T> norm = Contract( tmp, tmpDag );
   oneSiteOp.SetLabel( vector<int> {-1-int(isite)-2, -1-int(isite)} );
-  tmp = Contract( oneSiteOp, tmp, false );
+  tmp = Contract( oneSiteOp, tmp );
   vector<int> newLab = tmp.label();
   newLab[0] = -1-isite;
   tmp.SetLabel( newLab );
-  UniTensor<T> exp = Contract( tmp, tmpDag, false );
+  UniTensor<T> exp = Contract( tmp, tmpDag );
 
   releaseSimpEn( idir );
   return abs( exp[0]/norm[0] );
@@ -823,13 +823,13 @@ vector<UniTensor<T>> ipeps<T>::getUnit()
   gammaTmp[0].SetLabel( vector<int> {-1,1,2,3,4} );
   UniTensor<T> gammaDag = Conj( gammaTmp[0] );
   gammaDag.SetLabel( vector<int> {-1,5,6,7,8} );
-  UniTensor<T> aten = Contract( gammaTmp[0], gammaDag, false );
+  UniTensor<T> aten = Contract( gammaTmp[0], gammaDag );
   combineTwoLayer( aten );
 
   gammaTmp[1].SetLabel( vector<int> {-2,5,6,7,8} );
   gammaDag = Conj( gammaTmp[1] );
   gammaDag.SetLabel( vector<int> {-2,1,2,3,4} );
-  UniTensor<T> bten = Contract( gammaTmp[1], gammaDag, false );
+  UniTensor<T> bten = Contract( gammaTmp[1], gammaDag );
   combineTwoLayer( bten );
 
   return vector<UniTensor<T>> { aten, bten, bten, aten };

@@ -69,9 +69,9 @@ uni10::UniTensor<double> Heisenberg(float spin, double J){
 
 uni10::UniTensor<double> Pij(float spin){
   uni10::UniTensor<double> H = Heisenberg(spin,1.0);
-  uni10::UniTensor<double> I = H;
-  I.Identity();
-  H = 0.25*I + (-1.0*H);
+  uni10::UniTensor<double> Id = H;
+  Id.Identity();
+  H = 0.25*Id + (-1.0*H);
   return H;
 }
 
@@ -170,11 +170,11 @@ uni10::UniTensor<double> transverseIsing(float spin, float h, bool isAnti){
 
   uni10::Matrix<double> sx = matSx(spin);
   uni10::Matrix<double> sz = matSz(spin);
-  uni10::Matrix<double> I(sx.row(), sx.col(), true);
-  I.Identity();
+  uni10::Matrix<double> Id(sx.row(), sx.col(), true);
+  Id.Identity();
   uni10::Matrix<double> ham = (isAnti) ? uni10::Otimes((double)2*sz, (double)2*sz) : ((double)-1.) * uni10::Otimes((double)2*sz, (double)2*sz); // Otimes(sigma_z, sizga_z);
-  uni10::Matrix<double> sxl = uni10::Otimes((h/(double)2) * (double)2*sx, I);
-  uni10::Matrix<double> sxr = uni10::Otimes(I, (h/(double)2) * (double)2*sx);
+  uni10::Matrix<double> sxl = uni10::Otimes((h/(double)2) * (double)2*sx, Id);
+  uni10::Matrix<double> sxr = uni10::Otimes(Id, (h/(double)2) * (double)2*sx);
   ham = ham + 0.5 * (sxl + sxr) ;
   uni10::Bond bdi = spin_bond(spin, uni10::BD_IN);
   uni10::Bond bdo = spin_bond(spin, uni10::BD_OUT);
@@ -284,11 +284,11 @@ uni10::UniTensor<double> periodicHamiltonian(int N, const uni10::UniTensor<doubl
   }
   std::vector<uni10::Bond> bondI;
   bondI.push_back(H0.bond(0)), bondI.push_back(H0.bond(2));
-  uni10::UniTensor<double> I(bondI);
-  I.Identity();
+  uni10::UniTensor<double> Id(bondI);
+  Id.Identity();
   uni10::UniTensor<double> nH = H0;
   for(int i=0; i!=N-2; i++){
-    nH = Otimes(nH, I);
+    nH = Otimes(nH, Id);
   }
   uni10::UniTensor<double> perH = nH;
   std::vector<int> labels = perH.label();
@@ -313,11 +313,11 @@ uni10::UniTensor<complex<double>> periodicHamiltonian(int N, const uni10::UniTen
   }
   std::vector<uni10::Bond> bondI;
   bondI.push_back(H0.bond(0)), bondI.push_back(H0.bond(2));
-  uni10::UniTensor<complex<double>> I(bondI);
-  I.Identity();
+  uni10::UniTensor<complex<double>> Id(bondI);
+  Id.Identity();
   uni10::UniTensor<complex<double>> nH = H0;
   for(int i=0; i!=N-2; i++){
-    nH = Otimes(nH, I);
+    nH = Otimes(nH, Id);
   }
   uni10::UniTensor<complex<double>> perH = nH;
   std::vector<int> labels = perH.label();

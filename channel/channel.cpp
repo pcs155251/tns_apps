@@ -23,7 +23,7 @@ channel::channel( const int dimMPSIn, const UniTensor<complex<double>> &ansazIn,
 }
 
 void channel::findOneBlueI( const int iDir ){
-  Network<complex<double>> blueI_net("./Networks/blueI.net");
+  Network blueI_net("./Networks/blueI.net");
   UniTensor<complex<double>> conjAnsaz = Conj(edges[iDir].getAnsaz());
   ContractArgs( bluesI[iDir], blueI_net, edges[iDir].getAnsaz(), edges[iDir].getAnsaz(), hamiltonian, conjAnsaz, conjAnsaz );
 
@@ -44,7 +44,7 @@ void channel::findOneBlueII( const int iDir ){
   idBds.insert( idBds.end(), idOutBds.begin(), idOutBds.end() );
   UniTensor<double> iden(idBds);
   iden.Identity();
-  Network<complex<double>> blueII_net("./Networks/blueII.net");
+  Network blueII_net("./Networks/blueII.net");
   UniTensor<complex<double>> conjAnsaz = Conj(edges[iDir].getAnsaz());
   ContractArgs( bluesII[iDir], blueII_net, edges[iDir].getAnsaz(), edges[iDir].getAnsaz(), hamiltonian, iden, conjAnsaz );
 
@@ -66,7 +66,7 @@ void channel::findOneRed( const int iDir ){
   UniTensor<double> iden(idBds);
   iden.Identity();
 
-  Network<complex<double>> red_net("./Networks/red.net");
+  Network red_net("./Networks/red.net");
   ContractArgs( reds[iDir], red_net, edges[iDir].getAnsaz(), iden );
 
   vector<int> oldLab = reds[iDir].label();
@@ -196,7 +196,7 @@ void channel::findOneCorner( const int iDir, unsigned int max_iter, double err_t
   
   UniTensor<complex<double>> ConjaL = Conj( relTopEdge.getAL() );
   UniTensor<complex<double>> ConjaR = Conj( relLeftEdge.getAR() );
-  Network<complex<double>> target_net("./Networks/matrix_for_corner.net");
+  Network target_net("./Networks/matrix_for_corner.net");
   ContractArgs( target, target_net, relTopEdge.getIsometryL(), relLeftEdge.getIsometryR(), relLeftEdge.getEvolOperator(), ConjaL, ConjaR); 
   Matrix<complex<double>> cornerMat;
   arCompEignRight( target.GetBlock(), EigVal, cornerMat, max_iter, err_tol, 0);
@@ -211,7 +211,7 @@ void channel::findOneCap( const int iDir, unsigned int max_iter, double err_tol,
   const oneSiteiMPS<complex<double>>& Cedge = edges[iDir];
   UniTensor<complex<double>> transfer;
   complex<double> EigVal;
-  Network<complex<double>> transfer_net("./Networks/transferForCap.net");
+  Network transfer_net("./Networks/transferForCap.net");
   //UniTensor<complex<double>> evo = Permute( Cedge.getEvolOperator(), 0);
   ContractArgs( transfer, transfer_net, Ledge.getAR(), Redge.getAL(),Cedge.getEvolOperator());
   Matrix<complex<double>> capMat;
@@ -227,7 +227,7 @@ void channel::findOneSup( const int iDir, const double q_y ){
   const oneSiteiMPS<complex<double>> &Redge = edges[(iDir+1)%4];
   const oneSiteiMPS<complex<double>> &Cedge = edges[iDir];
   UniTensor<complex<double>> transfer;
-  Network<complex<double>> transfer_net("./Networks/transferForCap.net");
+  Network transfer_net("./Networks/transferForCap.net");
   ContractArgs( transfer, transfer_net, Ledge.getAR(), Redge.getAL(), Cedge.getEvolOperator());
   transfer = Transpose( transfer );
 
@@ -241,26 +241,26 @@ void channel::findOneSup( const int iDir, const double q_y ){
   cap_dg.PutBlock( leftVect );
   cap_dg.SetLabel( {-1,-2,-3} );
   caps[iDir].SetLabel( {-1,-2,-3});
-  UniTensor<complex<double>> norm = Contract( caps[iDir], cap_dg, false );
+  UniTensor<complex<double>> norm = Contract( caps[iDir], cap_dg );
   cap_dg *= 1.0/norm[0];
   caps[iDir].SetLabel( {1,2,3});
-  UniTensor<complex<double>> capcap = Contract( caps[iDir], cap_dg, false);
+  UniTensor<complex<double>> capcap = Contract( caps[iDir], cap_dg);
   capcap = Permute( capcap, {-1,-2,-3,1,2,3}, 3 );
   
   complex<double> ci(0,1);
-  Matrix<complex<double>> tmp, I;
-  I = capcap.GetBlock();
-  I.Identity();
+  Matrix<complex<double>> tmp, id;
+  id = capcap.GetBlock();
+  id.Identity();
 
   if (q_y==0){
     //tmp = Inverse( I-transfer.GetBlock()+capcap.GetBlock() );
-    tmp = Inverse( I-transfer.GetBlock()+capcap.GetBlock() ) -capcap.GetBlock();
+    tmp = Inverse( id-transfer.GetBlock()+capcap.GetBlock() ) -capcap.GetBlock();
     sups[iDir].Assign( transfer.bond() );
     sups[iDir].PutBlock( tmp );
   }
   else {
     // need to check
-    tmp = Inverse( I - exp(ci*q_y)*(transfer - capcap).GetBlock() );
+    tmp = Inverse( id - exp(ci*q_y)*(transfer - capcap).GetBlock() );
     sups[iDir].Assign( transfer.bond() );
     sups[iDir].PutBlock( tmp );
   }
@@ -279,7 +279,7 @@ void channel::findOneSup( const int iDir, const double q_y ){
 void channel::findOneBlueCap( const int iDir ){ 
   const oneSiteiMPS<complex<double>> &Ledge = edges[(iDir+3)%4];
   const oneSiteiMPS<complex<double>> &Redge = edges[(iDir+1)%4];
-  Network<complex<double>> bluecap_net("./Networks/bluecap.net");
+  Network bluecap_net("./Networks/bluecap.net");
   ContractArgs( bluecaps[iDir], bluecap_net, caps[iDir], Ledge.getAR(), Ledge.getAR(), Redge.getAL(), Redge.getAL(), bluesI[iDir], sups[iDir]);
 }
 
@@ -289,7 +289,7 @@ UniTensor<complex<double>> channel::grad0( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad0;
-  Network<complex<double>> grad0_net("./Networks/grad0.net");
+  Network grad0_net("./Networks/grad0.net");
   ContractArgs( grad0, grad0_net, caps.at(s0), caps.at(s1), caps.at(s2), caps.at(s3), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), edges[s3].getAR(), edges[s1].getAL(), bluesII.at(s0) );
   return grad0;
 }
@@ -300,7 +300,7 @@ UniTensor<complex<double>> channel::grad1( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad1;
-  Network<complex<double>> grad1_net("./Networks/grad1.net");
+  Network grad1_net("./Networks/grad1.net");
   ContractArgs( grad1, grad1_net, bluecaps.at(s0), caps.at(s1), caps.at(s2), caps.at(s3), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), reds[s0]);
   return grad1;
 } 
@@ -311,7 +311,7 @@ UniTensor<complex<double>> channel::grad2( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad2;
-  Network<complex<double>> grad2_net("./Networks/grad2.net");
+  Network grad2_net("./Networks/grad2.net");
   ContractArgs( grad2, grad2_net, edges[s0].getEvolOperator(), bluecaps.at(s3), caps.at(s0), caps.at(s1), caps.at(s2), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), edges[s3].getAR(), edges[s1].getAL(), sups.at(s0), reds[s0]);
   return grad2;
 }
@@ -322,7 +322,7 @@ UniTensor<complex<double>> channel::grad3( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad3;
-  Network<complex<double>> grad3_net("./Networks/grad2.net");
+  Network grad3_net("./Networks/grad2.net");
   ContractArgs( grad3, grad3_net, edges[s0].getEvolOperator(), caps.at(s3), caps.at(s0), bluecaps.at(s1), caps.at(s2), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), edges[s3].getAR(), edges[s1].getAL(), sups.at(s0), reds[s0]);
   return grad3;
 }
@@ -333,7 +333,7 @@ UniTensor<complex<double>> channel::grad4( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad4;
-  Network<complex<double>> grad4_net("./Networks/grad4.net");
+  Network grad4_net("./Networks/grad4.net");
   ContractArgs( grad4, grad4_net, caps.at(s0), caps.at(s1), caps.at(s2), caps.at(s3), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), edges[s3].getAR(), edges[s1].getAL(), edges[s0].getAL(), edges[s2].getAR(), sups.at(s0), bluesI[s3], reds[s0]);
   return grad4; 
 }
@@ -344,14 +344,14 @@ UniTensor<complex<double>> channel::grad5( const int iDir ){
   int s2 = (iDir+2)%4;
   int s3 = (iDir+3)%4;
   UniTensor<complex<double>> grad5;
-  Network<complex<double>> grad5_net("./Networks/grad5.net");
+  Network grad5_net("./Networks/grad5.net");
   ContractArgs( grad5, grad5_net, caps.at(s0), caps.at(s1), caps.at(s2), caps.at(s3), corners.at(s0), corners.at(s1), corners.at(s2), corners.at(s3), edges[s3].getAR(), edges[s1].getAL(), edges[s0].getAR(), edges[s2].getAL(), sups.at(s0), bluesI.at(s1), reds[s0]);
   return grad5;
 }
 
 complex<double> channel::findNorm( ){
   UniTensor<complex<double>> Norm;
-  Network<complex<double>> Norm_net("./Networks/normForChannel.net");
+  Network Norm_net("./Networks/normForChannel.net");
   ContractArgs( Norm, Norm_net, corners.at(0), corners.at(1), corners.at(2), corners.at(3), caps.at(0), caps.at(1), caps.at(2), caps.at(3), edges.at(0).getEvolOperator() );
   return Norm[0];
 }
@@ -360,7 +360,7 @@ UniTensor<double> channel::twoSiteCluster( UniTensor<double> twoSiteOp, const in
   assert( (iDir>=0)&&(iDir<=3) );
   UniTensor<double> tempAnsaz = ansaz;
   UniTensor<double> cluster;
-  Network<double> twoSiteCluster_net("./Networks/twoSiteOpCluster.net");
+  Network twoSiteCluster_net("./Networks/twoSiteOpCluster.net");
 
   vector<int> oldLab = tempAnsaz.label();
   for ( int i=0; i!=iDir; i++){
@@ -376,7 +376,7 @@ UniTensor<double> channel::twoSiteCluster( UniTensor<double> twoSiteOp, const in
 
 complex<double> channel::twoSiteOpExpec( const UniTensor<double> &twoSiteOp, const int iDir ) const {
   UniTensor<complex<double>> expectation;
-  Network<complex<double>> twoSiteOpExpec_net("./Networks/twoSiteOpExpec.net");
+  Network twoSiteOpExpec_net("./Networks/twoSiteOpExpec.net");
   UniTensor<double> cluster = twoSiteCluster( twoSiteOp, iDir );
   UniTensor<complex<double>> clusterC( cluster.bond() );
   clusterC.PutBlock( cMatrix( cluster.GetBlock() ) );

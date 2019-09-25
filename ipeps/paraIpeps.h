@@ -45,7 +45,7 @@ struct paraIpeps
   //! Transverse fields wish to simulate
   std::vector<double> fields;
   //! Root folder
-  std::string rootFolder
+  std::string rootFolder;
   //! Folder where wave function is loaded
   std::string wvLoadFolder;
   //! Folder where environment tensors are loaded

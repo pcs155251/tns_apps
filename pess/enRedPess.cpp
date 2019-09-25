@@ -5,10 +5,10 @@
 void fromPessToCTM( const vector<UniTensor<double>> &coreTensors, const vector<UniTensor<double>> &projTensors, UniTensor<double> &cross, UniTensor<double> &crossDag, UniTensor<double> &ket, UniTensor<double> &bra, const bool ifUp )
 {
   if (ifUp){
-    Network_dev cross_net( "./enRedPessNets/cross.net" );
+    Network cross_net( "./enRedPessNets/cross.net" );
     ContractArgs( cross, cross_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//-8,3,-7,-5,-4,1,2
   } else {
-    Network_dev cross_net( "./enRedPessNets/crossDn.net" );
+    Network cross_net( "./enRedPessNets/crossDn.net" );
     ContractArgs( cross, cross_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//-8,3,-7,-5,-4,1,2
   }
   cross.SetLabel( vector<int> {-8,3,-7,-5,-4,1,2} );
@@ -81,7 +81,7 @@ ctmBase<T> ( 2, 2, coresIn, edgeDimIn )
 
 template<typename T>
 double enRedPess<T>::measureNorm( const int isite ){
-  Network_dev measureNorm_net( "./enRedPessNets/measureNorm.net" );
+  Network measureNorm_net( "./enRedPessNets/measureNorm.net" );
   UniTensor<T> norm;
   ContractArgs( norm, measureNorm_net, 
                 ctmBase<T>::groups.at(0).core, ctmBase<T>::groups.at(0).corners.at(0), 
@@ -103,7 +103,7 @@ double enRedPess<T>::measureOneSite( const UniTensor<T> &oneSiteOp, const int iS
   char buffer[16];
   sprintf( buffer, "%i", iSite );
   string netString = string("./enRedPessNets/measureOneExpec") + string(buffer) + string(".net");
-  Network_dev measureExpec_net( netString );
+  Network measureExpec_net( netString );
   UniTensor<T> expec;
   ContractArgs( expec, measureExpec_net, 
                 auxTens[0], ctmBase<T>::groups.at(0).corners.at(0), ctmBase<T>::groups.at(0).edges.at(0), ctmBase<T>::groups.at(0).edges.at(3),
@@ -117,7 +117,7 @@ double enRedPess<T>::measureOneSite( const UniTensor<T> &oneSiteOp, const int iS
 template<typename T>
 double enRedPess<T>::measureTriSite( const UniTensor<T> &threeSiteOp, const int posit )
 {
-  Network_dev measureExpec_net( "./enRedPessNets/measureTriExpec.net" );
+  Network measureExpec_net( "./enRedPessNets/measureTriExpec.net" );
   UniTensor<T> expec;
   ContractArgs( expec, measureExpec_net, 
                 auxTens[0], ctmBase<T>::groups.at(0).corners.at(0), ctmBase<T>::groups.at(0).edges.at(0), ctmBase<T>::groups.at(0).edges.at(3),

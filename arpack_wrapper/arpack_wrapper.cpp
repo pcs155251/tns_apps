@@ -376,7 +376,7 @@ int arRealEignLeft( const Matrix<double> &A_m, double& EigVal, Matrix<double> &E
 
 void arpack_for_corner ( const UniTensor<double> &target, Matrix<double> &corner, unsigned int & max_iter, double err_tol ){
   
-  Network<double> Eigen_net("./Networks/operation_for_corner.net");
+  Network Eigen_net("./Networks/operation_for_corner.net");
 
   int dim = target.bond(0).dim();
   int n = dim*dim*dim*dim;
@@ -450,7 +450,7 @@ void arpack_for_corner ( const UniTensor<double> &target, Matrix<double> &corner
   delete [] z;
 }
 
-int arEignRightBMPS( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, Network_dev &transfer_net, const UniTensor<double> &mpsUpL, const UniTensor<double> &mpsUpR, const UniTensor<double> &mpsDnL, const UniTensor<double> &mpsDnR, const UniTensor<double> &evolUp ){
+int arEignRightBMPS( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, Network &transfer_net, const UniTensor<double> &mpsUpL, const UniTensor<double> &mpsUpR, const UniTensor<double> &mpsDnL, const UniTensor<double> &mpsDnR, const UniTensor<double> &evolUp ){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be complex, so the input EigVal and EigVec_t should be complex.
@@ -542,7 +542,7 @@ int arEignRightBMPS( double& EigVal, UniTensor<double> &EigVec_t, const int max_
   return count;
 }
 
-int arEignRightBMPS( complex<double>& EigVal, UniTensor<complex<double>> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const UniTensor<complex<double>> &mpsUpL, const UniTensor<complex<double>> &mpsUpR, const UniTensor<complex<double>> &mpsDnR, const UniTensor<complex<double>> &mpsDnL, const UniTensor<complex<double>> &evolUp ){
+int arEignRightBMPS( complex<double>& EigVal, UniTensor<complex<double>> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const UniTensor<complex<double>> &mpsUpL, const UniTensor<complex<double>> &mpsUpR, const UniTensor<complex<double>> &mpsDnR, const UniTensor<complex<double>> &mpsDnL, const UniTensor<complex<double>> &evolUp ){
 //int arCompEignRight( const Matrix<complex<double>> &A_m, complex<double>& EigVal, Matrix<complex<double>> &EigVec_m, const int max_iter, double err_tol, const bool ifinit ){
   //this routine find the max magnitude Eigenvalue and its Eigenvector with znaupd and zneupd for a nonhermitian matrix
   //if one want to find other kind of or more Eigen pairs, tune which and nev.
@@ -627,7 +627,7 @@ int arEignRightBMPS( complex<double>& EigVal, UniTensor<complex<double>> &EigVec
   return count;
 }
 
-int arRealEignRightBMPSCompress( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const UniTensor<double> &up0, const UniTensor<double> &up1, const UniTensor<double> &triangleUp, const UniTensor<double> &dn0, const UniTensor<double> &dn1, const UniTensor<double> &triangleDn ){
+int arRealEignRightBMPSCompress( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const UniTensor<double> &up0, const UniTensor<double> &up1, const UniTensor<double> &triangleUp, const UniTensor<double> &dn0, const UniTensor<double> &dn1, const UniTensor<double> &triangleDn ){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be complex, so the input EigVal and EigVec_t should be complex.
@@ -720,7 +720,7 @@ int arRealEignRightBMPSCompress( double& EigVal, UniTensor<double> &EigVec_t, co
   return count;
 }
 
-int arCompEignRightBMPSCompress( complex<double> &EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const UniTensor<double> &up0, const UniTensor<double> &up1, const UniTensor<double> &triangleUp, const UniTensor<double> &dn0, const UniTensor<double> &dn1, const UniTensor<double> &triangleDn ){
+int arCompEignRightBMPSCompress( complex<double> &EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const UniTensor<double> &up0, const UniTensor<double> &up1, const UniTensor<double> &triangleUp, const UniTensor<double> &dn0, const UniTensor<double> &dn1, const UniTensor<double> &triangleDn ){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be complex, so the input EigVal and EigVec_t should be complex.
@@ -820,7 +820,7 @@ int arCompEignRightBMPSCompress( complex<double> &EigVal, UniTensor<double> &Eig
   return count;
 }
 
-int arRealEignRightFivePess( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, Network_dev &transfer_net, const UniTensor<double> &mpsUpL, const UniTensor<double> &mpsUpR, const UniTensor<double> &mpsDnL, const UniTensor<double> &mpsDnR, const vector<UniTensor<double>> &evolUp ){
+int arRealEignRightFivePess( double& EigVal, UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, Network &transfer_net, const UniTensor<double> &mpsUpL, const UniTensor<double> &mpsUpR, const UniTensor<double> &mpsDnL, const UniTensor<double> &mpsDnR, const vector<UniTensor<double>> &evolUp ){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be complex, so the input EigVal and EigVec_t should be complex.

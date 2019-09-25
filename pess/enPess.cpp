@@ -10,10 +10,10 @@ UniTensor<T> constructBten( const vector<UniTensor<T>> &coreTensors, const vecto
 {
   uni10::UniTensor<double> out;
   if (ifUp){
-    Network_dev out_net( "./pessNets/aUp.net" );
+    Network out_net( "./pessNets/aUp.net" );
     ContractArgs( out, out_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//8, 7, -5, -4; 1, 2, 3
   } else {
-    Network_dev out_net( "./pessNets/aDn.net" );
+    Network out_net( "./pessNets/aDn.net" );
     ContractArgs( out, out_net, coreTensors[0], coreTensors[1], projTensors[0], projTensors[1], projTensors[2] );//5, 4, 8, 7; 1, 2, 3
   }
   out.SetLabel( vector<int> {1,2,3,4,5,6,7} );
@@ -27,7 +27,7 @@ UniTensor<T> getaten( UniTensor<T> &bten )
   bten.SetLabel( vector<int> {1,2,3,4,5,6,7} );
   UniTensor<double> bDag = Conj( bten );
   bDag.SetLabel( vector<int> {-1,-2,-3,-4,5,6,7} );
-  UniTensor<double> aten = Contract( bten, bDag, false );
+  UniTensor<double> aten = Contract( bten, bDag );
   combineTwoLayer( aten );
   return aten;
 }
@@ -94,7 +94,7 @@ template<typename T>
 double enPess<T>::measureNorm( ){
   const int posit = 0;
   UniTensor<T> norm;
-  Network_dev measureNorm_net( "./enPessNets/measureNorm.net" );
+  Network measureNorm_net( "./enPessNets/measureNorm.net" );
   ContractArgs( norm, measureNorm_net, 
                 ctmBase<T>::groups.at(posit).corners.at(0), ctmBase<T>::groups.at(posit).corners.at(1), ctmBase<T>::groups.at(posit).corners.at(2), ctmBase<T>::groups.at(posit).corners.at(3), 
                 ctmBase<T>::groups.at(posit).edges.at(0)  , ctmBase<T>::groups.at(posit).edges.at(1)  , ctmBase<T>::groups.at(posit).edges.at(2)  , ctmBase<T>::groups.at(posit).edges.at(3)  , 
@@ -112,7 +112,7 @@ double enPess<T>::measureOneSite( UniTensor<T> &oneSiteOp, const int isite ){
     case 1: oneSiteOp.SetLabel( vector<int> { 9,6} ); break; 
     case 2: oneSiteOp.SetLabel( vector<int> {10,7} ); break;
   }
-  UniTensor<T> bop = Contract( auxTens[0], oneSiteOp, false );//1,2,3,4,8,9,10
+  UniTensor<T> bop = Contract( auxTens[0], oneSiteOp );//1,2,3,4,8,9,10
   UniTensor<T> bdag = Conj( auxTens[0] );
   bdag.SetLabel( vector<int> {-1,-2,-3,-4,5,6,7} );
   switch(isite){
@@ -120,11 +120,11 @@ double enPess<T>::measureOneSite( UniTensor<T> &oneSiteOp, const int isite ){
     case 1: bop.SetLabel ( vector<int> {1,2,3,4,5,7,6} ); break;
     case 2: bop.SetLabel ( vector<int> {1,2,3,4,5,6,7} ); break;
   }
-  UniTensor<T> bOpBdag = Contract( bop, bdag, false );
+  UniTensor<T> bOpBdag = Contract( bop, bdag );
   combineTwoLayer( bOpBdag );
 
   UniTensor<T> expec;
-  Network_dev measureTriSite_net( "./enPessNets/measureNorm.net" );
+  Network measureTriSite_net( "./enPessNets/measureNorm.net" );
   ContractArgs( expec, measureTriSite_net, 
                 ctmBase<T>::groups.at(posit).corners.at(0), ctmBase<T>::groups.at(posit).corners.at(1), ctmBase<T>::groups.at(posit).corners.at(2), ctmBase<T>::groups.at(posit).corners.at(3), 
                 ctmBase<T>::groups.at(posit).edges.at(0)  , ctmBase<T>::groups.at(posit).edges.at(1)  , ctmBase<T>::groups.at(posit).edges.at(2)  , ctmBase<T>::groups.at(posit).edges.at(3)  , 
@@ -138,13 +138,13 @@ double enPess<T>::measureTriSite( UniTensor<T> &threeSiteOp ){
   UniTensor<T> bDag = Conj(auxTens[0]);
   auxTens[0].SetLabel( vector<int> {1,2,3,4,5,6,7} );
   threeSiteOp.SetLabel( vector<int> {8,9,10,5,6,7} );
-  UniTensor<T> bop = Contract( auxTens[0], threeSiteOp, false );//1,2,3,4,8,9,10
+  UniTensor<T> bop = Contract( auxTens[0], threeSiteOp );//1,2,3,4,8,9,10
   UniTensor<T> bdag = Conj( auxTens[0] );
   bdag.SetLabel( vector<int> {-1,-2,-3,-4,8,9,10} );
-  UniTensor<T> bOpBdag = Contract( bop, bdag, false );
+  UniTensor<T> bOpBdag = Contract( bop, bdag );
   combineTwoLayer( bOpBdag );
   UniTensor<T> expec;
-  Network_dev measureTriSite_net( "./enPessNets/measureNorm.net" );
+  Network measureTriSite_net( "./enPessNets/measureNorm.net" );
   ContractArgs( expec, measureTriSite_net, 
                 ctmBase<T>::groups.at(posit).corners.at(0), ctmBase<T>::groups.at(posit).corners.at(1), ctmBase<T>::groups.at(posit).corners.at(2), ctmBase<T>::groups.at(posit).corners.at(3), 
                 ctmBase<T>::groups.at(posit).edges.at(0)  , ctmBase<T>::groups.at(posit).edges.at(1)  , ctmBase<T>::groups.at(posit).edges.at(2)  , ctmBase<T>::groups.at(posit).edges.at(3)  , 

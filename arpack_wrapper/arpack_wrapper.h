@@ -39,18 +39,18 @@ int arCompEignLeft( const uni10::Matrix<std::complex<double>> &A_m, std::complex
 void arpack_for_corner ( const uni10::UniTensor<double> &target, uni10::Matrix<double> &corner, unsigned int & max_iter, double err_tol );
 
 /*
-int arRealEignRightBMPS( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const uni10::UniTensor<double> &evolUp );
+int arRealEignRightBMPS( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const uni10::UniTensor<double> &evolUp );
 */
 
-int arEignRightBMPS( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const uni10::UniTensor<double> &evolUp );
+int arEignRightBMPS( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const uni10::UniTensor<double> &evolUp );
 
-int arEignRightBMPS( std::complex<double>& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<std::complex<double>> &mpsUpL, const uni10::UniTensor<std::complex<double>> &mpsUpR, const uni10::UniTensor<std::complex<double>> &mpsDnR, const uni10::UniTensor<std::complex<double>> &mpsDnL, const uni10::UniTensor<std::complex<double>> &evolUp );
+int arEignRightBMPS( std::complex<double>& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<std::complex<double>> &mpsUpL, const uni10::UniTensor<std::complex<double>> &mpsUpR, const uni10::UniTensor<std::complex<double>> &mpsDnR, const uni10::UniTensor<std::complex<double>> &mpsDnL, const uni10::UniTensor<std::complex<double>> &evolUp );
 
-int arRealEignRightBMPSCompress( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<double> &up0, const uni10::UniTensor<double> &up1, const uni10::UniTensor<double> &triangleUp, const uni10::UniTensor<double> &dn0, const uni10::UniTensor<double> &dn1, const uni10::UniTensor<double> &triangleDn );
+int arRealEignRightBMPSCompress( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<double> &up0, const uni10::UniTensor<double> &up1, const uni10::UniTensor<double> &triangleUp, const uni10::UniTensor<double> &dn0, const uni10::UniTensor<double> &dn1, const uni10::UniTensor<double> &triangleDn );
 
-int arCompEignRightBMPSCompress( std::complex<double> &EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<double> &up0, const uni10::UniTensor<double> &up1, const uni10::UniTensor<double> &triangleUp, const uni10::UniTensor<double> &dn0, const uni10::UniTensor<double> &dn1, const uni10::UniTensor<double> &triangleDn );
+int arCompEignRightBMPSCompress( std::complex<double> &EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<double> &up0, const uni10::UniTensor<double> &up1, const uni10::UniTensor<double> &triangleUp, const uni10::UniTensor<double> &dn0, const uni10::UniTensor<double> &dn1, const uni10::UniTensor<double> &triangleDn );
 
-int arRealEignRightFivePess( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network_dev &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const std::vector<uni10::UniTensor<double>> &evolUp );
+int arRealEignRightFivePess( double& EigVal, uni10::UniTensor<double> &EigVec_t, const int max_iter, double err_tol, const double imagLimit, uni10::Network &transfer_net, const uni10::UniTensor<double> &mpsUpL, const uni10::UniTensor<double> &mpsUpR, const uni10::UniTensor<double> &mpsDnR, const uni10::UniTensor<double> &mpsDnL, const std::vector<uni10::UniTensor<double>> &evolUp );
 
 void arRealSymEignRight( const uni10::Matrix<double> &amat, const int nEigVal, uni10::Matrix<double> &EigVal, uni10::Matrix<double> &EigVec, const int maxIter, const double errTol);
 
@@ -58,7 +58,7 @@ void arRealSVD( const uni10::Matrix<double> &amat, const int nEigVal, uni10::Mat
 
 
 template<typename ... Args>
-int arEignArgs( double& EigVal, uni10::UniTensor<double> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network_dev &transfer_net, const Args&... args){
+int arEignArgs( double& EigVal, uni10::UniTensor<double> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network &transfer_net, const Args&... args){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be std::complex, so the input EigVal and EigVec_t should be std::complex.
@@ -146,7 +146,7 @@ int arEignArgs( double& EigVal, uni10::UniTensor<double> &EigVec_t, int max_iter
 }
 
 template<typename ... Args>
-int arEignArgs( double& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network_dev &transfer_net, const Args&... args){
+int arEignArgs( double& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network &transfer_net, const Args&... args){
   ///this routine find the max magnitude Eigenvalue and its Eigenvector with dnaupd and dneupd for a nonsymmetric matrix
   ///if one want to find other kind of or more Eigen pairs, tune which and nev.
   ///since the matrix is nonsymmetric, the Eigenpairs can be std::complex, so the input EigVal and EigVec_t should be std::complex.
@@ -249,7 +249,7 @@ int arEignArgs( double& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t
 }
 
 template<typename ... Args>
-int arEignArgs( std::complex<double>& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network_dev &transfer_net, const Args&... args){
+int arEignArgs( std::complex<double>& EigVal, uni10::UniTensor<std::complex<double>> &EigVec_t, int max_iter, double err_tol, double imagLimit, uni10::Network &transfer_net, const Args&... args){
 //int arCompEignRight( const Matrix<std::complex<double>> &A_m, std::complex<double>& EigVal, Matrix<std::complex<double>> &EigVec_m, const int max_iter, double err_tol, const bool ifinit ){
   //this routine find the max magnitude Eigenvalue and its Eigenvector with znaupd and zneupd for a nonhermitian matrix
   //if one want to find other kind of or more Eigen pairs, tune which and nev.
@@ -334,7 +334,7 @@ int arEignArgs( std::complex<double>& EigVal, uni10::UniTensor<std::complex<doub
 /*
 //void arRealSymEignRight( const Matrix<double> &amat, const int nEigVal, Matrix<double> &EigVal, Matrix<double> &EigVec, const int maxIter, const double errTol){
 template<typename ... Args>
-void arRealSymEignArgs( const int dim, const int nEigVal, Matrix<double> &EigVal, Matrix<double> &EigVec, const int maxIter, const double errTol, uni10::Network_dev &transfer_net, const Args&... args){
+void arRealSymEignArgs( const int dim, const int nEigVal, Matrix<double> &EigVal, Matrix<double> &EigVec, const int maxIter, const double errTol, uni10::Network &transfer_net, const Args&... args){
   ///should specify eigenvector dimension and initialize before calling 
   ///For symmetric matrix this function finds given number of Eigenvalue and its Eigenvector with dsaupd and dseupd.
   int ido = 0; 
