@@ -1,16 +1,17 @@
-\mainpage TNS algorithms
-\section Introduction
+//!\mainpage 
+# TNS algorithms
+## Introduction
 This is a collection of TNS algorithms, including:
 
-- computation of environment of 2D tensor network with translational invariance:
- + Corner transfer matrix (CTM) for iPEPS and 3-PESS.
- + CTM with dimension reduction technique for 3-PESS.
- + Channel environment.
-- optimization method: 
- + Simple update for iPEPS and PESS. 
- + Full update for iPEPS.
- + Variational update for iPEPS (under development).
-- auxiliary TNS functions
+* computation of environment of 2D tensor network with translational invariance:
+ * Corner transfer matrix (CTM) for iPEPS and 3-PESS.
+ * CTM with dimension reduction technique for 3-PESS.
+ * Channel environment.
+* optimization method: 
+ * Simple update for iPEPS and PESS. 
+ * Full update for iPEPS.
+ * Variational update for iPEPS (under development).
+* auxiliary TNS functions
  
 Where iPEPS is defined on square lattice and 3-PESS is defined on kagome lattice.
 \section Usage
