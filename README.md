@@ -35,6 +35,7 @@ For the meaning of each parameters, please refer to class `paraIpeps` and `paraP
     * nsy_ham/ hamiltonians.
     * nsy_op/ operators.
 * One can create its own main function based on the class and method which have been implemented.
+* For more detail documentation, please see html/index.html.
  
 ## Referece
 * TNS:
