@@ -17,7 +17,7 @@ Where iPEPS is defined on square lattice and 3-PESS is defined on kagome lattice
 
 ## Usage
 * Requirement
- * uni10 v2.1.0: https://gitlab.com/uni10/uni10
+  * uni10 v2.1.0: https://gitlab.com/uni10/uni10
 * Executable: Below directories include main function and corresponding input parameters which can be compiled and execute.
  * channel: Compute channel environment for 2D transverse Ising model.
  * ipeps: Simple update and full update with CTM environment for transverse Ising model.
