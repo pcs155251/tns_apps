@@ -1,0 +1,76 @@
+\hypertarget{group__aux}{}\section{Auxiliary functions}
+\label{group__aux}\index{Auxiliary functions@{Auxiliary functions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_ga42668cf57e3df286e6d9775aff8e0549}{X\+XZ} (float Jx, float Jz, float spin=0.\+5)\hypertarget{group__aux_ga42668cf57e3df286e6d9775aff8e0549}{}\label{group__aux_ga42668cf57e3df286e6d9775aff8e0549}
+
+\begin{DoxyCompactList}\small\item\em Two site X\+XZ hamiltonian. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_gaa4dd61a79cd0e9da24162a51b09f990f}{Heisenberg} (float spin=0.\+5, double J=1.\+0)\hypertarget{group__aux_gaa4dd61a79cd0e9da24162a51b09f990f}{}\label{group__aux_gaa4dd61a79cd0e9da24162a51b09f990f}
+
+\begin{DoxyCompactList}\small\item\em Two site Heisenberg hamiltonian. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_ga531013bbaa93b9f9796fc77bf7f19153}{transverse\+Ising} (float spin, float h, bool is\+Anti)\hypertarget{group__aux_ga531013bbaa93b9f9796fc77bf7f19153}{}\label{group__aux_ga531013bbaa93b9f9796fc77bf7f19153}
+
+\begin{DoxyCompactList}\small\item\em Transverse Ising hamiltonian. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_ga603111db160cf93a9a2d15ff0d6a9541}{Pij} (float spin)\hypertarget{group__aux_ga603111db160cf93a9a2d15ff0d6a9541}{}\label{group__aux_ga603111db160cf93a9a2d15ff0d6a9541}
+
+\begin{DoxyCompactList}\small\item\em Pij = 1/4( Si dot Sj ) \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_gadb0a1702f2b5455384ea168b74ae35d5}{J\+Qfour\+Sites} (double J, double Q)\hypertarget{group__aux_gadb0a1702f2b5455384ea168b74ae35d5}{}\label{group__aux_gadb0a1702f2b5455384ea168b74ae35d5}
+
+\begin{DoxyCompactList}\small\item\em Four site J-\/Q model. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_gafe43f9cda4abd51592e3f02ced641d81}{horizontal\+J\+\_\+vertical\+Jp} (double J, double Jp)\hypertarget{group__aux_gafe43f9cda4abd51592e3f02ced641d81}{}\label{group__aux_gafe43f9cda4abd51592e3f02ced641d81}
+
+\begin{DoxyCompactList}\small\item\em Four site J1-\/\+J2 model. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_ga60fdd51cf7a17b7428a323812dad1637}{periodic\+Hamiltonian} (int N, const uni10\+::\+Uni\+Tensor$<$ double $>$ \&H0)\hypertarget{group__aux_ga60fdd51cf7a17b7428a323812dad1637}{}\label{group__aux_ga60fdd51cf7a17b7428a323812dad1637}
+
+\begin{DoxyCompactList}\small\item\em Create a product hamiltonian by two site hamiltonian with P\+BC. \end{DoxyCompactList}\item 
+uni10\+::\+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_gadc015ea2a7bbc43a8e0fc8be1fdfcfd5}{D\+Minteraction} ()\hypertarget{group__aux_gadc015ea2a7bbc43a8e0fc8be1fdfcfd5}{}\label{group__aux_gadc015ea2a7bbc43a8e0fc8be1fdfcfd5}
+
+\begin{DoxyCompactList}\small\item\em DM interatcion zhat dot (Si curl Sj ) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{group__aux_gab89ab95575d2dbffe963736a7e570f70}{change\+One\+Bond} (Uni\+Tensor$<$ T $>$ \&ten, const int posit, const int new\+Dim)
+\item 
+Uni\+Tensor$<$ double $>$ \hyperlink{group__aux_ga0e4a0b7260bf31a6b0fdec947605771c}{get\+Evo\+Operator} (const Uni\+Tensor$<$ double $>$ \&hamiltonian, const double tau)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Auxiliary functions@{Auxiliary functions}!change\+One\+Bond@{change\+One\+Bond}}
+\index{change\+One\+Bond@{change\+One\+Bond}!Auxiliary functions@{Auxiliary functions}}
+\subsubsection[{\texorpdfstring{change\+One\+Bond(\+Uni\+Tensor$<$ T $>$ \&ten, const int posit, const int new\+Dim)}{changeOneBond(UniTensor< T > &ten, const int posit, const int newDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void change\+One\+Bond (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ten, }
+\item[{const int}]{posit, }
+\item[{const int}]{new\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{group__aux_gab89ab95575d2dbffe963736a7e570f70}{}\label{group__aux_gab89ab95575d2dbffe963736a7e570f70}
+Change one bond dimension of a tensor.
+
+Truncate original elements/ filled with zeros if new bond dimension is smaller/ larger than original one. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ten} & Tensor being changed. \\
+\hline
+\mbox{\tt in}  & {\em posit} & Bond being changed. \\
+\hline
+\mbox{\tt in}  & {\em new\+Dim} & New bond dimension. \\
+\hline
+\end{DoxyParams}
+\index{Auxiliary functions@{Auxiliary functions}!get\+Evo\+Operator@{get\+Evo\+Operator}}
+\index{get\+Evo\+Operator@{get\+Evo\+Operator}!Auxiliary functions@{Auxiliary functions}}
+\subsubsection[{\texorpdfstring{get\+Evo\+Operator(const Uni\+Tensor$<$ double $>$ \&hamiltonian, const double tau)}{getEvoOperator(const UniTensor< double > &hamiltonian, const double tau)}}]{\setlength{\rightskip}{0pt plus 5cm}Uni\+Tensor$<$double$>$ get\+Evo\+Operator (
+\begin{DoxyParamCaption}
+\item[{const Uni\+Tensor$<$ double $>$ \&}]{hamiltonian, }
+\item[{const double}]{tau}
+\end{DoxyParamCaption}
+)}\hypertarget{group__aux_ga0e4a0b7260bf31a6b0fdec947605771c}{}\label{group__aux_ga0e4a0b7260bf31a6b0fdec947605771c}
+Get imaginary time evolution operator from given two site hamiltonain.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hamiltonian} & \\
+\hline
+\mbox{\tt in}  & {\em tau} & Imaginary time step. \\
+\hline
+\end{DoxyParams}

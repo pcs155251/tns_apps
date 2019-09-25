@@ -1,0 +1,103 @@
+\hypertarget{classoneSiteiMPS}{}\section{one\+Sitei\+M\+PS$<$ T $>$ Class Template Reference}
+\label{classoneSiteiMPS}\index{one\+Sitei\+M\+P\+S$<$ T $>$@{one\+Sitei\+M\+P\+S$<$ T $>$}}
+
+
+A class describing infinite M\+PS with single site unit cell.  
+
+
+
+
+{\ttfamily \#include $<$one\+Sitei\+M\+P\+S.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoneSiteiMPS_a810153594be9dfd91a97910bd0f0a0dc}{one\+Sitei\+M\+PS} (const int horiz\+Dim\+In, const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$$>$ \&ansaz\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classoneSiteiMPS_a2487b0d1fcc99ba19a2d31de608bf32f}{one\+Sitei\+M\+PS} (const \hyperlink{classoneSiteiMPS}{one\+Sitei\+M\+PS} \&input)\hypertarget{classoneSiteiMPS_a2487b0d1fcc99ba19a2d31de608bf32f}{}\label{classoneSiteiMPS_a2487b0d1fcc99ba19a2d31de608bf32f}
+
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classoneSiteiMPS}{one\+Sitei\+M\+PS} $\ast$ \hyperlink{classoneSiteiMPS_ad80915102b316ab16826bb87f2ca73e1}{operator$\ast$=} (const complex$<$ double $>$ rhs)\hypertarget{classoneSiteiMPS_ad80915102b316ab16826bb87f2ca73e1}{}\label{classoneSiteiMPS_ad80915102b316ab16826bb87f2ca73e1}
+
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+Ansaz} () const \hypertarget{classoneSiteiMPS_ad94a57b8e2c00f4e651322b9a9bd70b9}{}\label{classoneSiteiMPS_ad94a57b8e2c00f4e651322b9a9bd70b9}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+Evol\+Operator} () const \hypertarget{classoneSiteiMPS_a360449fdde46bbb67a2839f66b6cb973}{}\label{classoneSiteiMPS_a360449fdde46bbb67a2839f66b6cb973}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+IsometryL} () const \hypertarget{classoneSiteiMPS_a1ceddfab7dd4765ab81b64763cb5d4ac}{}\label{classoneSiteiMPS_a1ceddfab7dd4765ab81b64763cb5d4ac}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+IsometryR} () const \hypertarget{classoneSiteiMPS_ac19bec84d5addcad9588be569e4bf6b7}{}\label{classoneSiteiMPS_ac19bec84d5addcad9588be569e4bf6b7}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+AC} () const \hypertarget{classoneSiteiMPS_a9d0fb845fd811ba744b1c6f9ff70310f}{}\label{classoneSiteiMPS_a9d0fb845fd811ba744b1c6f9ff70310f}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+AL} () const \hypertarget{classoneSiteiMPS_ac0fb7cd0cd625dba9a3aba589111f55a}{}\label{classoneSiteiMPS_ac0fb7cd0cd625dba9a3aba589111f55a}
+
+\item 
+const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \& {\bfseries get\+AR} () const \hypertarget{classoneSiteiMPS_ab0e8d458b0740b7101b1688d9e66d715}{}\label{classoneSiteiMPS_ab0e8d458b0740b7101b1688d9e66d715}
+
+\item 
+void {\bfseries set\+Evol\+Operator} (const uni10\+::\+Uni\+Tensor$<$ double $>$ \&evol\+Operator\+In)\hypertarget{classoneSiteiMPS_a7c713c3bbed8894cbf884742a4b13c5d}{}\label{classoneSiteiMPS_a7c713c3bbed8894cbf884742a4b13c5d}
+
+\item 
+void {\bfseries canonical} (const int max\+Iter, const double err\+Tor)\hypertarget{classoneSiteiMPS_ae14eb900d22570bf761a47d1508644eb}{}\label{classoneSiteiMPS_ae14eb900d22570bf761a47d1508644eb}
+
+\item 
+void {\bfseries fixed\+Point} (const int max\+Iter, const double err\+Tor, const double arpack\+Err)\hypertarget{classoneSiteiMPS_a403845d9838b8da737513216f4b6d121}{}\label{classoneSiteiMPS_a403845d9838b8da737513216f4b6d121}
+
+\item 
+void {\bfseries print\+Tensors} ()\hypertarget{classoneSiteiMPS_a9419f84b80b19fdd55c52e97317814ff}{}\label{classoneSiteiMPS_a9419f84b80b19fdd55c52e97317814ff}
+
+\item 
+void {\bfseries test\+Canonical} ()\hypertarget{classoneSiteiMPS_a6e30cf95686adc8e6e1f7d023ba02e82}{}\label{classoneSiteiMPS_a6e30cf95686adc8e6e1f7d023ba02e82}
+
+\item 
+void {\bfseries test\+Fixed\+Point} ()\hypertarget{classoneSiteiMPS_a27bf448675220b1b902b0c6b7aa8a7fd}{}\label{classoneSiteiMPS_a27bf448675220b1b902b0c6b7aa8a7fd}
+
+\item 
+void {\bfseries Save\+Tensors} (const std\+::string \&root\+Folder)\hypertarget{classoneSiteiMPS_ac0e8d708036a3bf5662ecf34c9ea7a4d}{}\label{classoneSiteiMPS_ac0e8d708036a3bf5662ecf34c9ea7a4d}
+
+\item 
+void {\bfseries Load\+Tensors} (const std\+::string \&root\+Folder)\hypertarget{classoneSiteiMPS_a714e1f7490902fd67741e8abe2f69c3c}{}\label{classoneSiteiMPS_a714e1f7490902fd67741e8abe2f69c3c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class one\+Sitei\+M\+P\+S$<$ T $>$}
+
+A class describing infinite M\+PS with single site unit cell. 
+
+\hyperlink{classoneSiteiMPS}{one\+Sitei\+M\+PS} is used for the channel environment. The method described in P\+RB 94, 155123 is implemented to find the canonical form of the M\+PS. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{one\+Sitei\+M\+PS@{one\+Sitei\+M\+PS}!one\+Sitei\+M\+PS@{one\+Sitei\+M\+PS}}
+\index{one\+Sitei\+M\+PS@{one\+Sitei\+M\+PS}!one\+Sitei\+M\+PS@{one\+Sitei\+M\+PS}}
+\subsubsection[{\texorpdfstring{one\+Sitei\+M\+P\+S(const int horiz\+Dim\+In, const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$$>$ \&ansaz\+In)}{oneSiteiMPS(const int horizDimIn, const uni10::UniTensor< complex< double >> &ansazIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf one\+Sitei\+M\+PS}$<$ T $>$\+::{\bf one\+Sitei\+M\+PS} (
+\begin{DoxyParamCaption}
+\item[{const int}]{horiz\+Dim\+In, }
+\item[{const uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$$>$ \&}]{ansaz\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classoneSiteiMPS_a810153594be9dfd91a97910bd0f0a0dc}{}\label{classoneSiteiMPS_a810153594be9dfd91a97910bd0f0a0dc}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em horiz\+Dim\+In} & Boundary bond dimension of M\+PS. \\
+\hline
+\mbox{\tt in}  & {\em ansatz\+In} & Tensor appears successively and infinitely on the M\+PS. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+one\+Sitei\+M\+P\+S/one\+Sitei\+M\+P\+S.\+h\item 
+one\+Sitei\+M\+P\+S/one\+Sitei\+M\+P\+S.\+cpp\end{DoxyCompactItemize}

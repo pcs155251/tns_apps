@@ -1,0 +1,78 @@
+\hypertarget{index_Introduction}{}\section{Introduction}\label{index_Introduction}
+This is a collection of T\+NS algorithms, including\+:
+
+
+\begin{DoxyItemize}
+\item computation of environment of 2D tensor network with translational invariance\+:
+\begin{DoxyItemize}
+\item Corner transfer matrix (C\+TM) for i\+P\+E\+PS and 3-\/\+P\+E\+SS.
+\item C\+TM with dimension reduction technique for 3-\/\+P\+E\+SS.
+\item Channel environment.
+\end{DoxyItemize}
+\item optimization method\+:
+\begin{DoxyItemize}
+\item Simple update for i\+P\+E\+PS and P\+E\+SS.
+\item Full update for i\+P\+E\+PS.
+\item Variational update for i\+P\+E\+PS (under development).
+\end{DoxyItemize}
+\item auxiliary T\+NS functions
+\end{DoxyItemize}
+
+Where i\+P\+E\+PS is defined on square lattice and 3-\/\+P\+E\+SS is defined on kagome lattice. \hypertarget{index_Usage}{}\section{Usage}\label{index_Usage}
+
+\begin{DoxyItemize}
+\item Requirement
+\begin{DoxyItemize}
+\item uni10 v2.\+1.\+0\+: \href{https://gitlab.com/uni10/uni10}{\tt https\+://gitlab.\+com/uni10/uni10}
+\end{DoxyItemize}
+\item Executable\+: Below directories include main function and corresponding input parameters which can be compiled and execute. The dependency is handled by Makefile in each directory. To build the executable, just type {\ttfamily make}.
+\begin{DoxyItemize}
+\item channel\+: Compute channel environment for 2D transverse Ising model.
+\item ipeps\+: Simple update and full update with C\+TM environment for transverse Ising model.
+\item pess\+: Simple update and C\+TM, C\+TM with dimension reduction scheme for Heisenberg model with DM interations.
+\end{DoxyItemize}
+\item Input Files\+: In the directories with executable, there is corresponding $\ast$.rc file where input parameters are set. For the meaning of each parameters, please refer to class {\ttfamily \hyperlink{structparaIpeps}{para\+Ipeps}} and {\ttfamily \hyperlink{structparaPess}{para\+Pess}}.
+\item Output Files\+:
+\begin{DoxyItemize}
+\item The data will stored in data/ automatically
+\item The tensors will stored in Output\+T/ automatically
+\end{DoxyItemize}
+\item Auxiliary T\+NS functions\+:
+\begin{DoxyItemize}
+\item tools/ some useful functions.
+\item nsy\+\_\+ham/ hamiltonians.
+\item nsy\+\_\+op/ operators.
+\end{DoxyItemize}
+\item One can create its own main function based on the class and method which have been implemented.
+\end{DoxyItemize}\hypertarget{index_Referece}{}\section{Referece}\label{index_Referece}
+
+\begin{DoxyItemize}
+\item T\+NS\+:
+\begin{DoxyItemize}
+\item Annals of Physics 349 (2014) 117-\/158
+\end{DoxyItemize}
+\item i\+P\+E\+PS\+:
+\begin{DoxyItemize}
+\item P\+RL 101, 250602 (2008)
+\item Phys. Rev. B 92, 035142 (2015)
+\end{DoxyItemize}
+\item P\+E\+SS\+:
+\begin{DoxyItemize}
+\item Phys. Rev. X 4, 011025 (2014)
+\item Phys. Rev. B 93, 075154 (2016)
+\end{DoxyItemize}
+\item C\+TM\+:
+\begin{DoxyItemize}
+\item J. Phys. Soc. Jpn. 66 (1997) 3040
+\item Phys. Rev. B 84, 041108(R) (2011)
+\end{DoxyItemize}
+\item Dimension reduction technique\+:
+\begin{DoxyItemize}
+\item Phys. Rev. B 96, 045128 (2017)
+\end{DoxyItemize}
+\item Channel environment\+:
+\begin{DoxyItemize}
+\item Phys. Rev. B 94, 155123 (2016)
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_Author}{}\section{Author}\label{index_Author}
+Chih-\/\+Yuan Lee 

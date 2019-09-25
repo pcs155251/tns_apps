@@ -1,0 +1,212 @@
+\hypertarget{classctmBase}{}\section{ctm\+Base$<$ T $>$ Class Template Reference}
+\label{classctmBase}\index{ctm\+Base$<$ T $>$@{ctm\+Base$<$ T $>$}}
+
+
+Base class for C\+TM.  
+
+
+
+
+{\ttfamily \#include $<$ctm\+Base.\+h$>$}
+
+
+
+Inheritance diagram for ctm\+Base$<$ T $>$\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classctmBase_af61de726f4319fa4b2310b53291f40c2}{ctm\+Base} (const int nrow\+In, const int ncol\+In, const int edge\+Dim\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classctmBase_a61fd0cfc2cbe6419b53503f6103b9ea2}{ctm\+Base} (const int nrow\+In, const int ncol\+In, const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit, const int edge\+Dim\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_af6af1cb87e17302725055a80b20e5727}{change\+Edge\+Dim} (const int new\+Dim)
+\begin{DoxyCompactList}\small\item\em Change the boundary bond dimension of the C\+TM. \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_a4bed9c38293f383b875ee611294c0abc}{save\+Tensors} (const std\+::string \&folder) const 
+\begin{DoxyCompactList}\small\item\em Save tensors into a given path. \end{DoxyCompactList}\item 
+bool \hyperlink{classctmBase_ab3eab6beba46c28a38f4cc16cbbe94d5}{load\+Tensors} (const std\+::string \&folder)
+\begin{DoxyCompactList}\small\item\em Load tensors from a given path. \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_a0d0080d972d11b12bae089ecdcad81ea}{ctmrg\+Astep} (bool ifsvd)
+\begin{DoxyCompactList}\small\item\em Perform a step of RG, i.\+e. left move, right move, up move, and down move successively. \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_ad6709d51771df5fd7298db3ba7a60f1a}{set\+Groups} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit)
+\begin{DoxyCompactList}\small\item\em Set the tensors within the unit cell and it\textquotesingle{}s corresponding environment tensor (stored as \hyperlink{structnineTens}{nine\+Tens}). \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_a05d2d125ee4d631274d7220ff524bd13}{update\+Unit} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit)
+\begin{DoxyCompactList}\small\item\em Set the tensors within the unit cell and it\textquotesingle{}s corresponding environment tensor (stored as \hyperlink{structnineTens}{nine\+Tens}). \end{DoxyCompactList}\item 
+void \hyperlink{classctmBase_a3deafa895b727e182c5d6ae350daf758}{print\+All} ()\hypertarget{classctmBase_a3deafa895b727e182c5d6ae350daf758}{}\label{classctmBase_a3deafa895b727e182c5d6ae350daf758}
+
+\begin{DoxyCompactList}\small\item\em Print the tensor diagrams for all the tensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classctmBase_a86ef60b7f3eac881151aaf188b527c3d}{ctm\+Dim}\hypertarget{classctmBase_a86ef60b7f3eac881151aaf188b527c3d}{}\label{classctmBase_a86ef60b7f3eac881151aaf188b527c3d}
+
+\begin{DoxyCompactList}\small\item\em Boundary bond dimension. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structnineTens}{nine\+Tens}$<$ T $>$ $>$ \hyperlink{classctmBase_a2ade4bcb48e4315a749089dab9b47d08}{groups}\hypertarget{classctmBase_a2ade4bcb48e4315a749089dab9b47d08}{}\label{classctmBase_a2ade4bcb48e4315a749089dab9b47d08}
+
+\begin{DoxyCompactList}\small\item\em Tensors consist of unit cell and its environemnts (4 C\textquotesingle{}s and 4 T\textquotesingle{}s). Each stored as a \hyperlink{structnineTens}{nine\+Tens}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class ctm\+Base$<$ T $>$}
+
+Base class for C\+TM. 
+
+This class handle the convergence of corner transfer matrix. In principal 2D T\+NS with translation invariance can be represented by repeated unit cell consist of reduced tensors. For each reduced tensor within the unit cell, a \hyperlink{structnineTens}{nine\+Tens} is defined to stored the reduced tensor and its environment. I implemented the C\+TM method to iteratively find the environment which can approximate the effect of the 2D infinite T\+NS. One can define a derived class for computing environment for specific T\+NS ansatz or lattice. For example, \hyperlink{classenIpeps}{en\+Ipeps} is defined for ipeps on square lattice and \hyperlink{classenPess}{en\+Pess} is defined for pess on kagome lattice. \hyperlink{classenRedPess}{en\+Red\+Pess} is defined for dimension-\/reduced environment for pess on kagome lattice. Since the measurement procedures does vary for different ansatz or lattice, one should defined the measurement method and ctm iteration function in the derived class, as which is done in \hyperlink{classenIpeps}{en\+Ipeps}, \hyperlink{classenPess}{en\+Pess} and \hyperlink{classenRedPess}{en\+Red\+Pess}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ctm\+Base@{ctm\+Base}!ctm\+Base@{ctm\+Base}}
+\index{ctm\+Base@{ctm\+Base}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{ctm\+Base(const int nrow\+In, const int ncol\+In, const int edge\+Dim\+In)}{ctmBase(const int nrowIn, const int ncolIn, const int edgeDimIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf ctm\+Base}$<$ T $>$\+::{\bf ctm\+Base} (
+\begin{DoxyParamCaption}
+\item[{const int}]{nrow\+In, }
+\item[{const int}]{ncol\+In, }
+\item[{const int}]{edge\+Dim\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_af61de726f4319fa4b2310b53291f40c2}{}\label{classctmBase_af61de726f4319fa4b2310b53291f40c2}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nrow\+In} & Number of rows of unit cell. \\
+\hline
+\mbox{\tt in}  & {\em ncol\+In} & Number of columns of unit cell. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension of C\+TM. \\
+\hline
+\end{DoxyParams}
+\index{ctm\+Base@{ctm\+Base}!ctm\+Base@{ctm\+Base}}
+\index{ctm\+Base@{ctm\+Base}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{ctm\+Base(const int nrow\+In, const int ncol\+In, const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit, const int edge\+Dim\+In)}{ctmBase(const int nrowIn, const int ncolIn, const std::vector< uni10::UniTensor< T >> &unit, const int edgeDimIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf ctm\+Base}$<$ T $>$\+::{\bf ctm\+Base} (
+\begin{DoxyParamCaption}
+\item[{const int}]{nrow\+In, }
+\item[{const int}]{ncol\+In, }
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{unit, }
+\item[{const int}]{edge\+Dim\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_a61fd0cfc2cbe6419b53503f6103b9ea2}{}\label{classctmBase_a61fd0cfc2cbe6419b53503f6103b9ea2}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nrow\+In} & Number of rows of unit cell. \\
+\hline
+\mbox{\tt in}  & {\em ncol\+In} & Number of columns of unit cell. \\
+\hline
+\mbox{\tt in}  & {\em unit} & Tensors consist of the unit cell. The tensors stored in unit cell should be specified form left to right and up to down in the unit cell. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension of C\+TM. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{ctm\+Base@{ctm\+Base}!change\+Edge\+Dim@{change\+Edge\+Dim}}
+\index{change\+Edge\+Dim@{change\+Edge\+Dim}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{change\+Edge\+Dim(const int new\+Dim)}{changeEdgeDim(const int newDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ctm\+Base}$<$ T $>$\+::change\+Edge\+Dim (
+\begin{DoxyParamCaption}
+\item[{const int}]{new\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_af6af1cb87e17302725055a80b20e5727}{}\label{classctmBase_af6af1cb87e17302725055a80b20e5727}
+
+
+Change the boundary bond dimension of the C\+TM. 
+
+If new\+Dim is smaller than the original boundary bond dimension, the excessive element will be truncated. If new\+Dim is larger than the original one, the empty elements will be filled by zeros. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+Dim} & new boundary bond dimension. \\
+\hline
+\end{DoxyParams}
+\index{ctm\+Base@{ctm\+Base}!ctmrg\+Astep@{ctmrg\+Astep}}
+\index{ctmrg\+Astep@{ctmrg\+Astep}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{ctmrg\+Astep(bool ifsvd)}{ctmrgAstep(bool ifsvd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ctm\+Base}$<$ T $>$\+::ctmrg\+Astep (
+\begin{DoxyParamCaption}
+\item[{bool}]{ifsvd}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_a0d0080d972d11b12bae089ecdcad81ea}{}\label{classctmBase_a0d0080d972d11b12bae089ecdcad81ea}
+
+
+Perform a step of RG, i.\+e. left move, right move, up move, and down move successively. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ifsvd} & If use svd to find isometries. If it is set to false, then QR deomposition is employee to find isometries. \\
+\hline
+\end{DoxyParams}
+\index{ctm\+Base@{ctm\+Base}!load\+Tensors@{load\+Tensors}}
+\index{load\+Tensors@{load\+Tensors}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{load\+Tensors(const std\+::string \&folder)}{loadTensors(const std::string &folder)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf ctm\+Base}$<$ T $>$\+::load\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{folder}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_ab3eab6beba46c28a38f4cc16cbbe94d5}{}\label{classctmBase_ab3eab6beba46c28a38f4cc16cbbe94d5}
+
+
+Load tensors from a given path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & Path to load the tensors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the tensors are being saved successfully. 
+\end{DoxyReturn}
+\index{ctm\+Base@{ctm\+Base}!save\+Tensors@{save\+Tensors}}
+\index{save\+Tensors@{save\+Tensors}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{save\+Tensors(const std\+::string \&folder) const }{saveTensors(const std::string &folder) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ctm\+Base}$<$ T $>$\+::save\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{folder}
+\end{DoxyParamCaption}
+) const}\hypertarget{classctmBase_a4bed9c38293f383b875ee611294c0abc}{}\label{classctmBase_a4bed9c38293f383b875ee611294c0abc}
+
+
+Save tensors into a given path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & Path to save the tensors. \\
+\hline
+\end{DoxyParams}
+\index{ctm\+Base@{ctm\+Base}!set\+Groups@{set\+Groups}}
+\index{set\+Groups@{set\+Groups}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{set\+Groups(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit)}{setGroups(const std::vector< uni10::UniTensor< T >> &unit)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ctm\+Base}$<$ T $>$\+::set\+Groups (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{unit}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_ad6709d51771df5fd7298db3ba7a60f1a}{}\label{classctmBase_ad6709d51771df5fd7298db3ba7a60f1a}
+
+
+Set the tensors within the unit cell and it\textquotesingle{}s corresponding environment tensor (stored as \hyperlink{structnineTens}{nine\+Tens}). 
+
+The environment tensors will be reinitialized. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em unit} & Tensors within unit cell. \\
+\hline
+\end{DoxyParams}
+\index{ctm\+Base@{ctm\+Base}!update\+Unit@{update\+Unit}}
+\index{update\+Unit@{update\+Unit}!ctm\+Base@{ctm\+Base}}
+\subsubsection[{\texorpdfstring{update\+Unit(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit)}{updateUnit(const std::vector< uni10::UniTensor< T >> &unit)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ctm\+Base}$<$ T $>$\+::update\+Unit (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{unit}
+\end{DoxyParamCaption}
+)}\hypertarget{classctmBase_a05d2d125ee4d631274d7220ff524bd13}{}\label{classctmBase_a05d2d125ee4d631274d7220ff524bd13}
+
+
+Set the tensors within the unit cell and it\textquotesingle{}s corresponding environment tensor (stored as \hyperlink{structnineTens}{nine\+Tens}). 
+
+The environment tensors will not be reinitialized. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em unit} & Tensors within unit cell. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ctm\+Base/ctm\+Base.\+h\item 
+ctm\+Base/ctm\+Base.\+cpp\end{DoxyCompactItemize}

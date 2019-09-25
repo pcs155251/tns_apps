@@ -1,0 +1,333 @@
+\hypertarget{classpess}{}\section{pess$<$ T, en\+Type $>$ Class Template Reference}
+\label{classpess}\index{pess$<$ T, en\+Type $>$@{pess$<$ T, en\+Type $>$}}
+
+
+A 3-\/\+P\+E\+SS ansatz on square kagome lattice. Simple update and measurement considering full environment by C\+TM is implemented.  
+
+
+
+
+{\ttfamily \#include $<$pess.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpess_affe9cbee1e0d1536498ad766e8c44d87}{pess} ()\hypertarget{classpess_affe9cbee1e0d1536498ad766e8c44d87}{}\label{classpess_affe9cbee1e0d1536498ad766e8c44d87}
+
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classpess_a1701e98a18d01946f8af9a54fa9c5e7d}{pess} (const int dim\+Vir\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a998e0185678e6d3a913962727c4a4365}{Randomize} ()\hypertarget{classpess_a998e0185678e6d3a913962727c4a4365}{}\label{classpess_a998e0185678e6d3a913962727c4a4365}
+
+\begin{DoxyCompactList}\small\item\em Randomize the 3-\/\+P\+E\+SS ansatz. \end{DoxyCompactList}\item 
+int \hyperlink{classpess_aa908b672293063eec17e4edaccbc7f94}{optimize1st\+Order} (uni10\+::\+Uni\+Tensor$<$ T $>$ ham, const double tau, const int max\+Iter, const double criterion)
+\begin{DoxyCompactList}\small\item\em Perform simple update iterativley with first order Suzuki-\/\+Trotter decomposition. \end{DoxyCompactList}\item 
+int \hyperlink{classpess_a546a17b45825a7b45a44b1d820b2b62d}{optimize2nd\+Order} (uni10\+::\+Uni\+Tensor$<$ T $>$ ham, const double tau, const int max\+Iter, const double criterion)
+\begin{DoxyCompactList}\small\item\em Perform simple update iterativley with second order Suzuki-\/\+Trotter decomposition. \end{DoxyCompactList}\item 
+double \hyperlink{classpess_aabc2e8ba2916ea568bb5ac148de03d60}{mea\+Tri\+Site\+Local} (const uni10\+::\+Uni\+Tensor$<$ T $>$ \&op, const int i\+Core)
+\begin{DoxyCompactList}\small\item\em Measure expectation value of three site operator on up triangle or down triangle with simple environment. \end{DoxyCompactList}\item 
+int \hyperlink{classpess_a8c22d7381d7c0a804bb080f0131f221c}{get\+Vir\+Dim} () const 
+\begin{DoxyCompactList}\small\item\em Get virtual bond dimension of 3-\/\+P\+E\+SS ansatz. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a2c3eced4bcaa4bb6bb009f5c4c10efe4}{save\+Wv} (const std\+::string \&tensor\+Folder, double field)
+\begin{DoxyCompactList}\small\item\em Save i\+P\+E\+PS ansatz tensors into given folder and field. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a2f68a0fb1a32c65ca34fce74d6c98bb1}{load\+Wv} (const std\+::string \&tensor\+Folder, double field)
+\begin{DoxyCompactList}\small\item\em Load i\+P\+E\+PS ansatz tensors from given folder and field. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a24a9f46518e05043c8339ad17cb9a07e}{mea\+Quantities} (uni10\+::\+Uni\+Tensor$<$ T $>$ ham, double \&energy\+Up, double \&energy\+Dn, std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&spin\+Comp)
+\begin{DoxyCompactList}\small\item\em Measure important physical quantities. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a89fc5debed3799c0f59441a4ad632a43}{init\+En} (int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Initialized environment. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_aa994635ee08e0fbe5b524e19da931393}{change\+Edge\+Dim} (int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Change boundary bond dimension of envionment. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a7ffb2691c794a6aa3203442c853c410d}{compute\+En} (int niter, double err\+Tol, Uni\+Tensor$<$ T $>$ \&ham, bool ifsvd)
+\begin{DoxyCompactList}\small\item\em Compute the environment by C\+TM. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_af8e3d9da9b33339ff9010b2345873862}{release\+En} ()\hypertarget{classpess_af8e3d9da9b33339ff9010b2345873862}{}\label{classpess_af8e3d9da9b33339ff9010b2345873862}
+
+\begin{DoxyCompactList}\small\item\em Release the memory for storing envionment tensors. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a0c0c94a2179d57cb8e0422f57ff3f522}{save\+En} (string folder, double field)
+\begin{DoxyCompactList}\small\item\em Save envionment tensors into given folder and field. \end{DoxyCompactList}\item 
+void \hyperlink{classpess_a5d2e848d856ed6150bef209f30f9d033}{load\+En} (string folder, double field, int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Load envionment tensors from given folder and field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, template$<$ typename T $>$ typename en\+Type$>$\\*
+class pess$<$ T, en\+Type $>$}
+
+A 3-\/\+P\+E\+SS ansatz on square kagome lattice. Simple update and measurement considering full environment by C\+TM is implemented. 
+
+There are two conventional C\+TM approach is implemented as \hyperlink{classenPess}{en\+Pess} and dimension reduction C\+TM approach is implemneted as \hyperlink{classenRedPess}{en\+Red\+Pess}. One should declare the type of environment as second argument of the template class pess. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{pess@{pess}!pess@{pess}}
+\index{pess@{pess}!pess@{pess}}
+\subsubsection[{\texorpdfstring{pess(const int dim\+Vir\+In)}{pess(const int dimVirIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ {\bf pess}$<$ T, en\+Type $>$\+::{\bf pess} (
+\begin{DoxyParamCaption}
+\item[{const int}]{dim\+Vir\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a1701e98a18d01946f8af9a54fa9c5e7d}{}\label{classpess_a1701e98a18d01946f8af9a54fa9c5e7d}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dim\+Vir\+In} & Virtual bond dimension of 3-\/\+P\+E\+SS ansatz. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{pess@{pess}!change\+Edge\+Dim@{change\+Edge\+Dim}}
+\index{change\+Edge\+Dim@{change\+Edge\+Dim}!pess@{pess}}
+\subsubsection[{\texorpdfstring{change\+Edge\+Dim(int edge\+Dim)}{changeEdgeDim(int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::change\+Edge\+Dim (
+\begin{DoxyParamCaption}
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_aa994635ee08e0fbe5b524e19da931393}{}\label{classpess_aa994635ee08e0fbe5b524e19da931393}
+
+
+Change boundary bond dimension of envionment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em edge\+Dim} & New boundary bond dimension of envionment. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!compute\+En@{compute\+En}}
+\index{compute\+En@{compute\+En}!pess@{pess}}
+\subsubsection[{\texorpdfstring{compute\+En(int niter, double err\+Tol, Uni\+Tensor$<$ T $>$ \&ham, bool ifsvd)}{computeEn(int niter, double errTol, UniTensor< T > &ham, bool ifsvd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::compute\+En (
+\begin{DoxyParamCaption}
+\item[{int}]{niter, }
+\item[{double}]{err\+Tol, }
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{bool}]{ifsvd}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a7ffb2691c794a6aa3203442c853c410d}{}\label{classpess_a7ffb2691c794a6aa3203442c853c410d}
+
+
+Compute the environment by C\+TM. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em niter} & Maximum iteration step of C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em ham} & Three site hamiltonian. It is used to measure energy to monitor the convergence of environment. \\
+\hline
+\mbox{\tt in}  & {\em ifsvd} & Whether S\+VD is employed to find isometries in C\+TM. It it is set to false, QR decomposition is employed. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!get\+Vir\+Dim@{get\+Vir\+Dim}}
+\index{get\+Vir\+Dim@{get\+Vir\+Dim}!pess@{pess}}
+\subsubsection[{\texorpdfstring{get\+Vir\+Dim() const }{getVirDim() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ int {\bf pess}$<$ T, en\+Type $>$\+::get\+Vir\+Dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classpess_a8c22d7381d7c0a804bb080f0131f221c}{}\label{classpess_a8c22d7381d7c0a804bb080f0131f221c}
+
+
+Get virtual bond dimension of 3-\/\+P\+E\+SS ansatz. 
+
+\begin{DoxyReturn}{Returns}
+Virtual bond dimension. 
+\end{DoxyReturn}
+\index{pess@{pess}!init\+En@{init\+En}}
+\index{init\+En@{init\+En}!pess@{pess}}
+\subsubsection[{\texorpdfstring{init\+En(int edge\+Dim)}{initEn(int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::init\+En (
+\begin{DoxyParamCaption}
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a89fc5debed3799c0f59441a4ad632a43}{}\label{classpess_a89fc5debed3799c0f59441a4ad632a43}
+
+
+Initialized environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em edge\+Dim} & Boundary bond dimension of envionment. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!load\+En@{load\+En}}
+\index{load\+En@{load\+En}!pess@{pess}}
+\subsubsection[{\texorpdfstring{load\+En(string folder, double field, int edge\+Dim)}{loadEn(string folder, double field, int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::load\+En (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field, }
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a5d2e848d856ed6150bef209f30f9d033}{}\label{classpess_a5d2e848d856ed6150bef209f30f9d033}
+
+
+Load envionment tensors from given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where environment tensors are loaded. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter of hamiltonian. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim} & Environment tensors are loaded from folder/field\+Sub\+Folder/edge\+Dim\+Sub\+Folder/. Environment tensors of up and down triangle will be load automatically. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!load\+Wv@{load\+Wv}}
+\index{load\+Wv@{load\+Wv}!pess@{pess}}
+\subsubsection[{\texorpdfstring{load\+Wv(const std\+::string \&tensor\+Folder, double field)}{loadWv(const std::string &tensorFolder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::load\+Wv (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{tensor\+Folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a2f68a0fb1a32c65ca34fce74d6c98bb1}{}\label{classpess_a2f68a0fb1a32c65ca34fce74d6c98bb1}
+
+
+Load i\+P\+E\+PS ansatz tensors from given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensors are loaded. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter in hamiltonian. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!mea\+Quantities@{mea\+Quantities}}
+\index{mea\+Quantities@{mea\+Quantities}!pess@{pess}}
+\subsubsection[{\texorpdfstring{mea\+Quantities(uni10\+::\+Uni\+Tensor$<$ T $>$ ham, double \&energy\+Up, double \&energy\+Dn, std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&spin\+Comp)}{meaQuantities(uni10::UniTensor< T > ham, double &energyUp, double &energyDn, std::vector< std::vector< double >> &spinComp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::mea\+Quantities (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$}]{ham, }
+\item[{double \&}]{energy\+Up, }
+\item[{double \&}]{energy\+Dn, }
+\item[{std\+::vector$<$ std\+::vector$<$ double $>$$>$ \&}]{spin\+Comp}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a24a9f46518e05043c8339ad17cb9a07e}{}\label{classpess_a24a9f46518e05043c8339ad17cb9a07e}
+
+
+Measure important physical quantities. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & \\
+\hline
+\mbox{\tt out}  & {\em energy\+Up} & Three site energy of up triangle. \\
+\hline
+\mbox{\tt out}  & {\em energy\+Dn} & Three site energy of down triangle. \\
+\hline
+\mbox{\tt out}  & {\em spin\+Comp} & Spin component of each site. spin\+Comp = vector$<$vector$<$double$>$$>$ \{ S0, S1, S2\}, where Si = vector$<$double$>$ \{ Six, Siy, Siz\}. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!mea\+Tri\+Site\+Local@{mea\+Tri\+Site\+Local}}
+\index{mea\+Tri\+Site\+Local@{mea\+Tri\+Site\+Local}!pess@{pess}}
+\subsubsection[{\texorpdfstring{mea\+Tri\+Site\+Local(const uni10\+::\+Uni\+Tensor$<$ T $>$ \&op, const int i\+Core)}{meaTriSiteLocal(const uni10::UniTensor< T > &op, const int iCore)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ double {\bf pess}$<$ T, en\+Type $>$\+::mea\+Tri\+Site\+Local (
+\begin{DoxyParamCaption}
+\item[{const uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{op, }
+\item[{const int}]{i\+Core}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_aabc2e8ba2916ea568bb5ac148de03d60}{}\label{classpess_aabc2e8ba2916ea568bb5ac148de03d60}
+
+
+Measure expectation value of three site operator on up triangle or down triangle with simple environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em op} & Three site operator. \\
+\hline
+\mbox{\tt in}  & {\em i\+Core} & i\+Core=0 -\/$>$ up triangle, i\+Core=! down triangle. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!optimize1st\+Order@{optimize1st\+Order}}
+\index{optimize1st\+Order@{optimize1st\+Order}!pess@{pess}}
+\subsubsection[{\texorpdfstring{optimize1st\+Order(uni10\+::\+Uni\+Tensor$<$ T $>$ ham, const double tau, const int max\+Iter, const double criterion)}{optimize1stOrder(uni10::UniTensor< T > ham, const double tau, const int maxIter, const double criterion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ int {\bf pess}$<$ T, en\+Type $>$\+::optimize1st\+Order (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$}]{ham, }
+\item[{const double}]{tau, }
+\item[{const int}]{max\+Iter, }
+\item[{const double}]{criterion}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_aa908b672293063eec17e4edaccbc7f94}{}\label{classpess_aa908b672293063eec17e4edaccbc7f94}
+
+
+Perform simple update iterativley with first order Suzuki-\/\+Trotter decomposition. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Three site hamiltonian acting on up or down triangle of Husimi lattice. it is used to create the time evolution operator and measure energy. \\
+\hline
+\mbox{\tt in}  & {\em tau} & Time step for time evolution. \\
+\hline
+\mbox{\tt in}  & {\em max\+Iter} & Maximum iteration step of simple update. \\
+\hline
+\mbox{\tt in}  & {\em criterion} & Convergence criterion of simple update. If energy difference between two time steps is smaller than criterion, the ansatz is considered converged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of steps to reach convergence. If the ansatz is not converge within maximum iteration step, returns -\/1. 
+\end{DoxyReturn}
+\index{pess@{pess}!optimize2nd\+Order@{optimize2nd\+Order}}
+\index{optimize2nd\+Order@{optimize2nd\+Order}!pess@{pess}}
+\subsubsection[{\texorpdfstring{optimize2nd\+Order(uni10\+::\+Uni\+Tensor$<$ T $>$ ham, const double tau, const int max\+Iter, const double criterion)}{optimize2ndOrder(uni10::UniTensor< T > ham, const double tau, const int maxIter, const double criterion)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ int {\bf pess}$<$ T, en\+Type $>$\+::optimize2nd\+Order (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$}]{ham, }
+\item[{const double}]{tau, }
+\item[{const int}]{max\+Iter, }
+\item[{const double}]{criterion}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a546a17b45825a7b45a44b1d820b2b62d}{}\label{classpess_a546a17b45825a7b45a44b1d820b2b62d}
+
+
+Perform simple update iterativley with second order Suzuki-\/\+Trotter decomposition. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Three site hamiltonian acting on up or down triangle of Husimi lattice. it is used to create the time evolution operator and measure energy. \\
+\hline
+\mbox{\tt in}  & {\em tau} & Time step for time evolution. \\
+\hline
+\mbox{\tt in}  & {\em max\+Iter} & Maximum iteration step of simple update. \\
+\hline
+\mbox{\tt in}  & {\em criterion} & Convergence criterion of simple update. If energy difference between two time steps is smaller than criterion, the ansatz is considered converged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of steps to reach convergence. If the ansatz is not converge within maximum iteration step, returns -\/1. 
+\end{DoxyReturn}
+\index{pess@{pess}!save\+En@{save\+En}}
+\index{save\+En@{save\+En}!pess@{pess}}
+\subsubsection[{\texorpdfstring{save\+En(string folder, double field)}{saveEn(string folder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ class en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::save\+En (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a0c0c94a2179d57cb8e0422f57ff3f522}{}\label{classpess_a0c0c94a2179d57cb8e0422f57ff3f522}
+
+
+Save envionment tensors into given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where environment tensors are saved. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter of hamiltonian. A corresponding subfolder will be created. A subsubfolder indicating currentent boundary bond dimension and up environment or down environment will be created to save the environment tensors. \\
+\hline
+\end{DoxyParams}
+\index{pess@{pess}!save\+Wv@{save\+Wv}}
+\index{save\+Wv@{save\+Wv}!pess@{pess}}
+\subsubsection[{\texorpdfstring{save\+Wv(const std\+::string \&tensor\+Folder, double field)}{saveWv(const std::string &tensorFolder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , template$<$ typename T $>$ typename en\+Type$>$ void {\bf pess}$<$ T, en\+Type $>$\+::save\+Wv (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{tensor\+Folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classpess_a2c3eced4bcaa4bb6bb009f5c4c10efe4}{}\label{classpess_a2c3eced4bcaa4bb6bb009f5c4c10efe4}
+
+
+Save i\+P\+E\+PS ansatz tensors into given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensors are saved. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter in hamiltonian. A corresponding subfolder will be created to save the wave function evolved by the hamiltonian with specified field. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pess/pess.\+h\item 
+pess/pess.\+cpp\end{DoxyCompactItemize}

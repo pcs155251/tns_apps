@@ -1,0 +1,156 @@
+\hypertarget{structnineTens}{}\section{nine\+Tens$<$ T $>$ Struct Template Reference}
+\label{structnineTens}\index{nine\+Tens$<$ T $>$@{nine\+Tens$<$ T $>$}}
+
+
+A data structure to stored a tensor and its environemnt ( 4 corners and 4 edges ).  
+
+
+
+
+{\ttfamily \#include $<$ctm\+Base.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structnineTens_a8755d41287a4b242bd60f29668010b38}{nine\+Tens} (const uni10\+::\+Uni\+Tensor$<$ T $>$ \&core\+In, const int edge\+Dim\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{structnineTens_a651dd1bbbf924079a5d1f3c1d1ff4ee1}{normalize} ()
+\begin{DoxyCompactList}\small\item\em Normalize all tensors. \end{DoxyCompactList}\item 
+void \hyperlink{structnineTens_ae897a65e46c8353e4243672ea0db1442}{print\+All} () const \hypertarget{structnineTens_ae897a65e46c8353e4243672ea0db1442}{}\label{structnineTens_ae897a65e46c8353e4243672ea0db1442}
+
+\begin{DoxyCompactList}\small\item\em Print tensor diagrams of all tensors. \end{DoxyCompactList}\item 
+void \hyperlink{structnineTens_a6c2c802cce007a935b62ef87c9887ddb}{change\+Edge\+Dim} (const int new\+Dim)
+\begin{DoxyCompactList}\small\item\em Change boundary bond dimension. \end{DoxyCompactList}\item 
+void \hyperlink{structnineTens_aca2559511613f5113e5035e99658ee1d}{save\+Tensors} (const std\+::string \&folder) const 
+\begin{DoxyCompactList}\small\item\em Save tensors into given folder. \end{DoxyCompactList}\item 
+bool \hyperlink{structnineTens_a0c54b917445113fc20e908c73b0b8d9a}{load\+Tensors} (const std\+::string \&folder)
+\begin{DoxyCompactList}\small\item\em Load tensors from given folder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uni10\+::\+Uni\+Tensor$<$ T $>$ \hyperlink{structnineTens_ad2611d1189bff9072e6013075f586b78}{core}
+\begin{DoxyCompactList}\small\item\em A tensor within unit cell. \end{DoxyCompactList}\item 
+std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$ $>$ \hyperlink{structnineTens_ace5b2090355a7503925b0e767d836f26}{corners}
+\begin{DoxyCompactList}\small\item\em Corner tensors (C) in ref. \end{DoxyCompactList}\item 
+std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$ $>$ \hyperlink{structnineTens_a4e6679c9e3ca9b919d3ed95587451e74}{edges}
+\begin{DoxyCompactList}\small\item\em Edge tensors (T) in ref. \end{DoxyCompactList}\item 
+int \hyperlink{structnineTens_a478ce0cba22d1c1392bafc1bb1463609}{edge\+Dim}\hypertarget{structnineTens_a478ce0cba22d1c1392bafc1bb1463609}{}\label{structnineTens_a478ce0cba22d1c1392bafc1bb1463609}
+
+\begin{DoxyCompactList}\small\item\em boundary bond dimension \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+struct nine\+Tens$<$ T $>$}
+
+A data structure to stored a tensor and its environemnt ( 4 corners and 4 edges ). 
+
+This class is used in \hyperlink{classctmBase}{ctm\+Base} to stored the a tensor obtained from tracing out the physical bond (reduced tensor) of T\+NS wave function. There are 9 tensors in total, the reduced tensor, and 4 corner tensors (start form upper left), and 4 edge tensors (start upper edge) The accuracy of environment is tuned by the boundary bond dimension edge\+Dim. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{nine\+Tens@{nine\+Tens}!nine\+Tens@{nine\+Tens}}
+\index{nine\+Tens@{nine\+Tens}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{nine\+Tens(const uni10\+::\+Uni\+Tensor$<$ T $>$ \&core\+In, const int edge\+Dim\+In)}{nineTens(const uni10::UniTensor< T > &coreIn, const int edgeDimIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf nine\+Tens}$<$ T $>$\+::{\bf nine\+Tens} (
+\begin{DoxyParamCaption}
+\item[{const uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{core\+In, }
+\item[{const int}]{edge\+Dim\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{structnineTens_a8755d41287a4b242bd60f29668010b38}{}\label{structnineTens_a8755d41287a4b242bd60f29668010b38}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em core\+In} & Core tensor. The core tensor is obtain by tracing out the physical bond of T\+NS wave function. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{nine\+Tens@{nine\+Tens}!change\+Edge\+Dim@{change\+Edge\+Dim}}
+\index{change\+Edge\+Dim@{change\+Edge\+Dim}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{change\+Edge\+Dim(const int new\+Dim)}{changeEdgeDim(const int newDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nine\+Tens}$<$ T $>$\+::change\+Edge\+Dim (
+\begin{DoxyParamCaption}
+\item[{const int}]{new\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{structnineTens_a6c2c802cce007a935b62ef87c9887ddb}{}\label{structnineTens_a6c2c802cce007a935b62ef87c9887ddb}
+
+
+Change boundary bond dimension. 
+
+If new\+Dim is smaller than the original boundary bond dimension, the excessive element will be truncated. If new\+Dim is larger than the original one, the empty elements will be filled by zeros. \index{nine\+Tens@{nine\+Tens}!load\+Tensors@{load\+Tensors}}
+\index{load\+Tensors@{load\+Tensors}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{load\+Tensors(const std\+::string \&folder)}{loadTensors(const std::string &folder)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf nine\+Tens}$<$ T $>$\+::load\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{folder}
+\end{DoxyParamCaption}
+)}\hypertarget{structnineTens_a0c54b917445113fc20e908c73b0b8d9a}{}\label{structnineTens_a0c54b917445113fc20e908c73b0b8d9a}
+
+
+Load tensors from given folder. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensor is load. \\
+\hline
+\end{DoxyParams}
+\index{nine\+Tens@{nine\+Tens}!normalize@{normalize}}
+\index{normalize@{normalize}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{normalize()}{normalize()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nine\+Tens}$<$ T $>$\+::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structnineTens_a651dd1bbbf924079a5d1f3c1d1ff4ee1}{}\label{structnineTens_a651dd1bbbf924079a5d1f3c1d1ff4ee1}
+
+
+Normalize all tensors. 
+
+Each tensors is normalized such that the maximum element is unity. \index{nine\+Tens@{nine\+Tens}!save\+Tensors@{save\+Tensors}}
+\index{save\+Tensors@{save\+Tensors}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{save\+Tensors(const std\+::string \&folder) const }{saveTensors(const std::string &folder) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf nine\+Tens}$<$ T $>$\+::save\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{folder}
+\end{DoxyParamCaption}
+) const}\hypertarget{structnineTens_aca2559511613f5113e5035e99658ee1d}{}\label{structnineTens_aca2559511613f5113e5035e99658ee1d}
+
+
+Save tensors into given folder. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensor is stored. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{nine\+Tens@{nine\+Tens}!core@{core}}
+\index{core@{core}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{core}{core}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ uni10\+::\+Uni\+Tensor$<$T$>$ {\bf nine\+Tens}$<$ T $>$\+::core}\hypertarget{structnineTens_ad2611d1189bff9072e6013075f586b78}{}\label{structnineTens_ad2611d1189bff9072e6013075f586b78}
+
+
+A tensor within unit cell. 
+
+Obtained by tracing out the physical bond of T\+NS wave function. \index{nine\+Tens@{nine\+Tens}!corners@{corners}}
+\index{corners@{corners}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{corners}{corners}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\+::vector$<$uni10\+::\+Uni\+Tensor$<$T$>$ $>$ {\bf nine\+Tens}$<$ T $>$\+::corners}\hypertarget{structnineTens_ace5b2090355a7503925b0e767d836f26}{}\label{structnineTens_ace5b2090355a7503925b0e767d836f26}
+
+
+Corner tensors (C) in ref. 
+
+There are 4 corner tensors, starting from upper left corner and oriented in counterclockwise order. \index{nine\+Tens@{nine\+Tens}!edges@{edges}}
+\index{edges@{edges}!nine\+Tens@{nine\+Tens}}
+\subsubsection[{\texorpdfstring{edges}{edges}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\+::vector$<$uni10\+::\+Uni\+Tensor$<$T$>$ $>$ {\bf nine\+Tens}$<$ T $>$\+::edges}\hypertarget{structnineTens_a4e6679c9e3ca9b919d3ed95587451e74}{}\label{structnineTens_a4e6679c9e3ca9b919d3ed95587451e74}
+
+
+Edge tensors (T) in ref. 
+
+There are 4 edge tensors, starting from upper edge and oriented in counterclockwise order. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ctm\+Base/ctm\+Base.\+h\item 
+ctm\+Base/ctm\+Base.\+cpp\end{DoxyCompactItemize}

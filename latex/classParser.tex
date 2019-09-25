@@ -1,0 +1,224 @@
+\hypertarget{classParser}{}\section{Parser Class Reference}
+\label{classParser}\index{Parser@{Parser}}
+
+
+A class to parse input parmeters.  
+
+
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structParser_1_1rElem}{r\+Elem}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Init} ()\hypertarget{classParser_a3069965eb5c0eed4f02d63e8e8d47423}{}\label{classParser_a3069965eb5c0eed4f02d63e8e8d47423}
+
+\item 
+void \hyperlink{classParser_a5042cdca6bcf677d6bc06217df9dd42b}{Bind} (const std\+::string \&key, bool \&Var)
+\begin{DoxyCompactList}\small\item\em Bind a key with a bool variable. \end{DoxyCompactList}\item 
+void \hyperlink{classParser_a70da33e59fbb74db75b2d919079281e1}{Bind} (const std\+::string \&key, int \&Var)
+\item 
+void \hyperlink{classParser_a39b5ff2fea44aeef70cfef20a68c597d}{Bind} (const std\+::string \&key, float \&Var)
+\item 
+void \hyperlink{classParser_a3b87fe10ae02a5c5a383b1f229257c4b}{Bind} (const std\+::string \&key, unsigned int \&Var)
+\item 
+void \hyperlink{classParser_a5d433020290f39f62361c52de6c5baf1}{Bind} (const std\+::string \&key, unsigned long \&Var)
+\item 
+void \hyperlink{classParser_ae0cb89794f25074b4ed03e4aa10f8388}{Bind} (const std\+::string \&key, long \&Var)
+\item 
+void \hyperlink{classParser_a3ad7875f82b7f9f532477bd44176afac}{Bind} (const std\+::string \&key, double \&Var)
+\item 
+void \hyperlink{classParser_a11369b4475bcf2d301d78445afa0e89d}{Bind} (const std\+::string \&key, std\+::string \&Var)
+\item 
+void \hyperlink{classParser_a8440bd87185e06409eb41f578809d8a8}{Bind} (const std\+::string \&key, long long \&Var)
+\item 
+void \hyperlink{classParser_abb2e4361f66e292bf2ba77ed92929e85}{Bind} (const std\+::string \&key, std\+::vector$<$ int $>$ \&Var)
+\item 
+void \hyperlink{classParser_a9875593b3872f545e9b6005563c07537}{Bind} (const std\+::string \&key, std\+::vector$<$ double $>$ \&Var)
+\item 
+int {\bfseries Try\+Read} (const std\+::string \&rawkey, const std\+::string \&readin\+\_\+\+Var\+String)\hypertarget{classParser_aae8ba101202c19cec8472b4ef20e907f}{}\label{classParser_aae8ba101202c19cec8472b4ef20e907f}
+
+\item 
+void \hyperlink{classParser_a9df4698487e5b291314e06513d631313}{Parse} (const std\+::string \&rc\+\_\+fname)
+\begin{DoxyCompactList}\small\item\em Parse parameters from given file. \end{DoxyCompactList}\item 
+void \hyperlink{classParser_aa7cd392e8eabcf38e91d94f5e44d5cd2}{Print\+Binds} ()\hypertarget{classParser_aa7cd392e8eabcf38e91d94f5e44d5cd2}{}\label{classParser_aa7cd392e8eabcf38e91d94f5e44d5cd2}
+
+\begin{DoxyCompactList}\small\item\em Print the stirngs being binded. \end{DoxyCompactList}\item 
+void \hyperlink{classParser_a075c412b68aa4493232b7d13d4a1ca3f}{Print\+Vars} ()
+\begin{DoxyCompactList}\small\item\em Print the stirngs being and its binding variables. \end{DoxyCompactList}\item 
+void {\bfseries Remove} (const std\+::string \&keys)\hypertarget{classParser_ac02e205bd7e52ac24c35f9d1aa74a419}{}\label{classParser_ac02e205bd7e52ac24c35f9d1aa74a419}
+
+\item 
+void {\bfseries Check\+\_\+\+All} ()\hypertarget{classParser_a3cfacca735213fc62696d7ff24bed6ec}{}\label{classParser_a3cfacca735213fc62696d7ff24bed6ec}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, unsigned int $>$ {\bfseries Matcher}\hypertarget{classParser_a6d9aacba48a3a145fdf0b88e703d7b53}{}\label{classParser_a6d9aacba48a3a145fdf0b88e703d7b53}
+
+\item 
+std\+::vector$<$ \hyperlink{structParser_1_1rElem}{r\+Elem} $>$ {\bfseries Keys}\hypertarget{classParser_ad1903e09aef42075e0643303d7767a40}{}\label{classParser_ad1903e09aef42075e0643303d7767a40}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to parse input parmeters. 
+
+One can specify the input parameters in input\+File and \hyperlink{classParser}{Parser} will handle the parsing automatically. For example, 
+\begin{DoxyCode}
+\hyperlink{classParser}{Parser} pars;
+\textcolor{keywordtype}{int} dimD;
+pars.bind( \textcolor{stringliteral}{"virtual bond dimension"}, dimD );
+pars.\hyperlink{classParser_a9df4698487e5b291314e06513d631313}{Parse}( \textcolor{stringliteral}{"inputFile"} );
+\end{DoxyCode}
+ And in input\+File\+: 
+\begin{DoxyCode}
+1 virtual bond dimension = 3
+\end{DoxyCode}
+ will do the job. 
+
+\subsection{Member Function Documentation}
+\index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, bool \&\+Var)}{Bind(const std::string &key, bool &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{bool \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a5042cdca6bcf677d6bc06217df9dd42b}{}\label{classParser_a5042cdca6bcf677d6bc06217df9dd42b}
+
+
+Bind a key with a bool variable. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Key} & being binded. \\
+\hline
+ & {\em } & \\
+\hline
+\end{DoxyParams}
+\index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, int \&\+Var)}{Bind(const std::string &key, int &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{int \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a70da33e59fbb74db75b2d919079281e1}{}\label{classParser_a70da33e59fbb74db75b2d919079281e1}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, float \&\+Var)}{Bind(const std::string &key, float &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{float \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a39b5ff2fea44aeef70cfef20a68c597d}{}\label{classParser_a39b5ff2fea44aeef70cfef20a68c597d}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, unsigned int \&\+Var)}{Bind(const std::string &key, unsigned int &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{unsigned int \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a3b87fe10ae02a5c5a383b1f229257c4b}{}\label{classParser_a3b87fe10ae02a5c5a383b1f229257c4b}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, unsigned long \&\+Var)}{Bind(const std::string &key, unsigned long &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{unsigned long \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a5d433020290f39f62361c52de6c5baf1}{}\label{classParser_a5d433020290f39f62361c52de6c5baf1}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, long \&\+Var)}{Bind(const std::string &key, long &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{long \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_ae0cb89794f25074b4ed03e4aa10f8388}{}\label{classParser_ae0cb89794f25074b4ed03e4aa10f8388}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, double \&\+Var)}{Bind(const std::string &key, double &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{double \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a3ad7875f82b7f9f532477bd44176afac}{}\label{classParser_a3ad7875f82b7f9f532477bd44176afac}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, std\+::string \&\+Var)}{Bind(const std::string &key, std::string &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{std\+::string \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a11369b4475bcf2d301d78445afa0e89d}{}\label{classParser_a11369b4475bcf2d301d78445afa0e89d}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, long long \&\+Var)}{Bind(const std::string &key, long long &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{long long \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a8440bd87185e06409eb41f578809d8a8}{}\label{classParser_a8440bd87185e06409eb41f578809d8a8}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, std\+::vector$<$ int $>$ \&\+Var)}{Bind(const std::string &key, std::vector< int > &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{std\+::vector$<$ int $>$ \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_abb2e4361f66e292bf2ba77ed92929e85}{}\label{classParser_abb2e4361f66e292bf2ba77ed92929e85}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Bind@{Bind}}
+\index{Bind@{Bind}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Bind(const std\+::string \&key, std\+::vector$<$ double $>$ \&\+Var)}{Bind(const std::string &key, std::vector< double > &Var)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Bind (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key, }
+\item[{std\+::vector$<$ double $>$ \&}]{Var}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a9875593b3872f545e9b6005563c07537}{}\label{classParser_a9875593b3872f545e9b6005563c07537}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \index{Parser@{Parser}!Parse@{Parse}}
+\index{Parse@{Parse}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Parse(const std\+::string \&rc\+\_\+fname)}{Parse(const std::string &rc_fname)}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Parse (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{rc\+\_\+fname}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a9df4698487e5b291314e06513d631313}{}\label{classParser_a9df4698487e5b291314e06513d631313}
+
+
+Parse parameters from given file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rc\+\_\+name} & Input files for parameters. \\
+\hline
+\end{DoxyParams}
+\index{Parser@{Parser}!Print\+Vars@{Print\+Vars}}
+\index{Print\+Vars@{Print\+Vars}!Parser@{Parser}}
+\subsubsection[{\texorpdfstring{Print\+Vars()}{PrintVars()}}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::\+Print\+Vars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classParser_a075c412b68aa4493232b7d13d4a1ca3f}{}\label{classParser_a075c412b68aa4493232b7d13d4a1ca3f}
+
+
+Print the stirngs being and its binding variables. 
+
+Example of input file\+: 
+\begin{DoxyCode}
+1 bindedString = 3
+\end{DoxyCode}
+ Where binded\+String is binded with an int variable in the program and is set to 3 after parsing. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+parser/Parser.\+h\item 
+parser/Parser.\+cpp\end{DoxyCompactItemize}

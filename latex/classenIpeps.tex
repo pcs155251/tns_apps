@@ -1,0 +1,211 @@
+\hypertarget{classenIpeps}{}\section{en\+Ipeps$<$ T $>$ Class Template Reference}
+\label{classenIpeps}\index{en\+Ipeps$<$ T $>$@{en\+Ipeps$<$ T $>$}}
+
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment of 2D i\+P\+E\+PS on square lattice.  
+
+
+
+
+{\ttfamily \#include $<$en\+Ipeps.\+h$>$}
+
+
+
+Inheritance diagram for en\+Ipeps$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for en\+Ipeps$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classenIpeps_a1108c1521ab6b3a69f169098ad7b90d6}{en\+Ipeps} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit, const int edge\+Dim\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+double \hyperlink{classenIpeps_a93f82d721d8b302eaa600be2a6c5b281}{mea\+One\+Site\+Norm} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int isite) const 
+\begin{DoxyCompactList}\small\item\em Measure norm of one site environment. \end{DoxyCompactList}\item 
+double \hyperlink{classenIpeps_a7c0b7d6efa8708316e8e856d5d85a488}{mea\+Two\+Site\+Norm} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int ibond) const 
+\begin{DoxyCompactList}\small\item\em Measure norm of two site environment. \end{DoxyCompactList}\item 
+double \hyperlink{classenIpeps_abfb60c5f5d056593bd56a70e8866344c}{mea\+One\+Site\+Exp} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite) const 
+\begin{DoxyCompactList}\small\item\em Measure expecatation value of two one site operator. \end{DoxyCompactList}\item 
+double \hyperlink{classenIpeps_a341c12d0e2f4044a533b538f2eedcfa3}{mea\+Two\+Site\+Exp} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int ibond) const 
+\begin{DoxyCompactList}\small\item\em Measure expecatation value of two site environment. \end{DoxyCompactList}\item 
+bool \hyperlink{classenIpeps_a7211d6a9727da3a2c38c14a03d6b7a58}{ctm\+Iteration} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int niter, double err\+Tol, uni10\+::\+Uni\+Tensor$<$ T $>$ \&ham, double \&energy, bool ifprint, bool ifsvd)
+\begin{DoxyCompactList}\small\item\em Iteratively find the environment which can approximate the 2D infinite T\+NS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries ipeps$<$ T $>$}\hypertarget{classenIpeps_af100c78db2d67026285fc90ce705f761}{}\label{classenIpeps_af100c78db2d67026285fc90ce705f761}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class en\+Ipeps$<$ T $>$}
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment of 2D i\+P\+E\+PS on square lattice. 
+
+By default the wave function has 2 by 2 unit cell with checkerboard pattern. \hyperlink{classenIpeps}{en\+Ipeps} is used in ipeps to measure physical quantities and update the wave function. Methods defined in \hyperlink{classctmBase}{ctm\+Base} are employee to find the converged environment. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{en\+Ipeps@{en\+Ipeps}!en\+Ipeps@{en\+Ipeps}}
+\index{en\+Ipeps@{en\+Ipeps}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{en\+Ipeps(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&unit, const int edge\+Dim\+In)}{enIpeps(const std::vector< uni10::UniTensor< T >> &unit, const int edgeDimIn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf en\+Ipeps}$<$ T $>$\+::{\bf en\+Ipeps} (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{unit, }
+\item[{const int}]{edge\+Dim\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classenIpeps_a1108c1521ab6b3a69f169098ad7b90d6}{}\label{classenIpeps_a1108c1521ab6b3a69f169098ad7b90d6}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em unit} & Tensors consist of unit cell. By default we assume 2 by 2 unit cell. The tensors should be stroed from left to right, top to bottom. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{en\+Ipeps@{en\+Ipeps}!ctm\+Iteration@{ctm\+Iteration}}
+\index{ctm\+Iteration@{ctm\+Iteration}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{ctm\+Iteration(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int niter, double err\+Tol, uni10\+::\+Uni\+Tensor$<$ T $>$ \&ham, double \&energy, bool ifprint, bool ifsvd)}{ctmIteration(const std::vector< uni10::UniTensor< T >> &gammas, int niter, double errTol, uni10::UniTensor< T > &ham, double &energy, bool ifprint, bool ifsvd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf en\+Ipeps}$<$ T $>$\+::ctm\+Iteration (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{int}]{niter, }
+\item[{double}]{err\+Tol, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double \&}]{energy, }
+\item[{bool}]{ifprint, }
+\item[{bool}]{ifsvd}
+\end{DoxyParamCaption}
+)}\hypertarget{classenIpeps_a7211d6a9727da3a2c38c14a03d6b7a58}{}\label{classenIpeps_a7211d6a9727da3a2c38c14a03d6b7a58}
+
+
+Iteratively find the environment which can approximate the 2D infinite T\+NS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS wave function ansatz. \\
+\hline
+\mbox{\tt in}  & {\em niter} & Maximum iteration step. \\
+\hline
+\mbox{\tt in}  & {\em err\+Tol} & Convergence criterion. If the measured energy between two step is smaller than err\+Tol, the environment is considered converged. \\
+\hline
+\mbox{\tt in}  & {\em ham} & Two site hamiltonian. It is used to create the evolution operator and measure energy. \\
+\hline
+\mbox{\tt out}  & {\em energy} & Energy measured in the final step. \\
+\hline
+\mbox{\tt in}  & {\em ifprint} & Whether detailed data is printed or not. \\
+\hline
+\mbox{\tt in}  & {\em ifsvd} & Whether svd is employee to find the isometries in C\+TM procedure or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the iteration is converged or not. 
+\end{DoxyReturn}
+\index{en\+Ipeps@{en\+Ipeps}!mea\+One\+Site\+Exp@{mea\+One\+Site\+Exp}}
+\index{mea\+One\+Site\+Exp@{mea\+One\+Site\+Exp}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{mea\+One\+Site\+Exp(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite) const }{meaOneSiteExp(const std::vector< uni10::UniTensor< T >> &gammas, uni10::UniTensor< T > &oneSiteOp, int isite) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf en\+Ipeps}$<$ T $>$\+::mea\+One\+Site\+Exp (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{one\+Site\+Op, }
+\item[{int}]{isite}
+\end{DoxyParamCaption}
+) const}\hypertarget{classenIpeps_abfb60c5f5d056593bd56a70e8866344c}{}\label{classenIpeps_abfb60c5f5d056593bd56a70e8866344c}
+
+
+Measure expecatation value of two one site operator. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS wave function ansatz. \\
+\hline
+\mbox{\tt in}  & {\em one\+Site\+Op} & One site operator \\
+\hline
+\mbox{\tt in}  & {\em isite} & Site being measured (from 0$\sim$3). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+\index{en\+Ipeps@{en\+Ipeps}!mea\+One\+Site\+Norm@{mea\+One\+Site\+Norm}}
+\index{mea\+One\+Site\+Norm@{mea\+One\+Site\+Norm}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{mea\+One\+Site\+Norm(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int isite) const }{meaOneSiteNorm(const std::vector< uni10::UniTensor< T >> &gammas, int isite) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf en\+Ipeps}$<$ T $>$\+::mea\+One\+Site\+Norm (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{int}]{isite}
+\end{DoxyParamCaption}
+) const}\hypertarget{classenIpeps_a93f82d721d8b302eaa600be2a6c5b281}{}\label{classenIpeps_a93f82d721d8b302eaa600be2a6c5b281}
+
+
+Measure norm of one site environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS wave function ansatz. \\
+\hline
+\mbox{\tt in}  & {\em isite} & Site being measured (from 0$\sim$3). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+norm value. 
+\end{DoxyReturn}
+\index{en\+Ipeps@{en\+Ipeps}!mea\+Two\+Site\+Exp@{mea\+Two\+Site\+Exp}}
+\index{mea\+Two\+Site\+Exp@{mea\+Two\+Site\+Exp}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Two\+Site\+Exp(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int ibond) const }{meaTwoSiteExp(const std::vector< uni10::UniTensor< T >> &gammas, uni10::UniTensor< T > &twoSiteOp, int ibond) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf en\+Ipeps}$<$ T $>$\+::mea\+Two\+Site\+Exp (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{two\+Site\+Op, }
+\item[{int}]{ibond}
+\end{DoxyParamCaption}
+) const}\hypertarget{classenIpeps_a341c12d0e2f4044a533b538f2eedcfa3}{}\label{classenIpeps_a341c12d0e2f4044a533b538f2eedcfa3}
+
+
+Measure expecatation value of two site environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS wave function ansatz. \\
+\hline
+\mbox{\tt in}  & {\em two\+Site\+Op} & Two site operator \\
+\hline
+\mbox{\tt in}  & {\em ibond} & Bond being measured (from 0$\sim$3). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+\index{en\+Ipeps@{en\+Ipeps}!mea\+Two\+Site\+Norm@{mea\+Two\+Site\+Norm}}
+\index{mea\+Two\+Site\+Norm@{mea\+Two\+Site\+Norm}!en\+Ipeps@{en\+Ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Two\+Site\+Norm(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int ibond) const }{meaTwoSiteNorm(const std::vector< uni10::UniTensor< T >> &gammas, int ibond) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf en\+Ipeps}$<$ T $>$\+::mea\+Two\+Site\+Norm (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{int}]{ibond}
+\end{DoxyParamCaption}
+) const}\hypertarget{classenIpeps_a7c0b7d6efa8708316e8e856d5d85a488}{}\label{classenIpeps_a7c0b7d6efa8708316e8e856d5d85a488}
+
+
+Measure norm of two site environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS wave function ansatz. \\
+\hline
+\mbox{\tt in}  & {\em ibond} & Bond being measured (from 0$\sim$3). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+norm value. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ipeps/en\+Ipeps.\+h\item 
+ipeps/en\+Ipeps.\+cpp\end{DoxyCompactItemize}

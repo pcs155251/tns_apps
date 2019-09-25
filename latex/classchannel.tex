@@ -1,0 +1,173 @@
+\hypertarget{classchannel}{}\section{channel Class Reference}
+\label{classchannel}\index{channel@{channel}}
+
+
+A class defined for channel environment of 2D i\+P\+E\+PS ansatz.  
+
+
+
+
+{\ttfamily \#include $<$channel.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classchannel_ad9475139ac4d1f4d96795af6cad4b71d}{channel} (const int dim\+M\+P\+S\+In, const Uni\+Tensor$<$ complex$<$ double $>$$>$ \&ansaz\+In, const Uni\+Tensor$<$ double $>$ \&hamiltonian\+In)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classchannel_a9969f44b4db5e903e7eb05e4f255d38d}{find\+All\+Env} (const int iter\+Max, const double canonical\+Err, const double arp\+Err)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \hyperlink{classchannel_a5de3f9a140017718a2e9e1cb5ab011a6}{find\+Gradient} ()\hypertarget{classchannel_a5de3f9a140017718a2e9e1cb5ab011a6}{}\label{classchannel_a5de3f9a140017718a2e9e1cb5ab011a6}
+
+\begin{DoxyCompactList}\small\item\em Find gradient by the method proposed in the paper. \end{DoxyCompactList}\item 
+complex$<$ double $>$ \hyperlink{classchannel_a53759f2775fb4ee5340b2f58613cc76e}{measure\+Energy} (const bool if\+Show) const \hypertarget{classchannel_a53759f2775fb4ee5340b2f58613cc76e}{}\label{classchannel_a53759f2775fb4ee5340b2f58613cc76e}
+
+\begin{DoxyCompactList}\small\item\em Measure energy with current environment. \end{DoxyCompactList}\item 
+void \hyperlink{classchannel_a8e8bce047890d3f7ad693feb2cc05843}{Save\+Env\+Tensors} (const string \&root\+Folder)
+\begin{DoxyCompactList}\small\item\em Save environment tensors. \end{DoxyCompactList}\item 
+void \hyperlink{classchannel_a1ea23994c6c9eb45726a69f285a9a3bc}{Load\+Env\+Tensors} (const string \&root\+Folder)
+\begin{DoxyCompactList}\small\item\em Load environment tensors. \end{DoxyCompactList}\item 
+void {\bfseries add\+Tensor} (const Uni\+Tensor$<$ complex$<$ double $>$$>$ \&add\+On)\hypertarget{classchannel_afd911769e2339ae9bc35c06fcea2eba8}{}\label{classchannel_afd911769e2339ae9bc35c06fcea2eba8}
+
+\item 
+complex$<$ double $>$ \hyperlink{classchannel_a6cd95cb7ab6c85ea78f202dcb12eadb5}{two\+Site\+Op\+Expec} (const Uni\+Tensor$<$ double $>$ \&two\+Site\+Op, const int i\+Dir) const 
+\begin{DoxyCompactList}\small\item\em Measure expectation of two\+Site operator. \end{DoxyCompactList}\item 
+void \hyperlink{classchannel_a2b90295762c16c073b10144c500dffc1}{normalize} ()\hypertarget{classchannel_a2b90295762c16c073b10144c500dffc1}{}\label{classchannel_a2b90295762c16c073b10144c500dffc1}
+
+\begin{DoxyCompactList}\small\item\em Normalize tensors such that its L2 norm is identity. \end{DoxyCompactList}\item 
+void {\bfseries test} ()\hypertarget{classchannel_a279ea6f4935c4b12b484735c28b89c52}{}\label{classchannel_a279ea6f4935c4b12b484735c28b89c52}
+
+\item 
+Uni\+Tensor$<$ double $>$ {\bfseries numerical\+Gradient\+Real} (const double delta, const int iter\+Max, const double canonical\+Err, const double arp\+Err)\hypertarget{classchannel_a3b4bace51a92771c6f11d76df6d42cb7}{}\label{classchannel_a3b4bace51a92771c6f11d76df6d42cb7}
+
+\item 
+Uni\+Tensor$<$ complex$<$ double $>$ $>$ \hyperlink{classchannel_a7758d3748e69e7f3a2083097bb3b425c}{numerical\+Gradient\+Complex} (const double delta, const int iter\+Max, const double canonical\+Err, const double arp\+Err)\hypertarget{classchannel_a7758d3748e69e7f3a2083097bb3b425c}{}\label{classchannel_a7758d3748e69e7f3a2083097bb3b425c}
+
+\begin{DoxyCompactList}\small\item\em Find gradient numerically. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ $>$ {\bfseries sups}\hypertarget{classchannel_ad20e555228495666f57f7597b185c2eb}{}\label{classchannel_ad20e555228495666f57f7597b185c2eb}
+
+\item 
+vector$<$ uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ $>$ {\bfseries bluesI}\hypertarget{classchannel_ac79abbc9fb627d101ec8cd6bedd192cf}{}\label{classchannel_ac79abbc9fb627d101ec8cd6bedd192cf}
+
+\item 
+vector$<$ uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ $>$ {\bfseries blues\+II}\hypertarget{classchannel_a473096b5e2b2826d0030db24a7bf88b8}{}\label{classchannel_a473096b5e2b2826d0030db24a7bf88b8}
+
+\item 
+vector$<$ uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ $>$ {\bfseries bluecaps}\hypertarget{classchannel_a2742aef57cab734f8053db4e33069796}{}\label{classchannel_a2742aef57cab734f8053db4e33069796}
+
+\item 
+vector$<$ uni10\+::\+Uni\+Tensor$<$ complex$<$ double $>$ $>$ $>$ {\bfseries reds}\hypertarget{classchannel_aa60b6a2febb39324aa6c162751c16249}{}\label{classchannel_aa60b6a2febb39324aa6c162751c16249}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class defined for channel environment of 2D i\+P\+E\+PS ansatz. 
+
+2D infinite i\+P\+E\+PS ansatz with single tensor unit cell is assumed. The method in this class is based on P\+RB 94, 155123. The computation of channel environment is done while variational optimization is under development. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{channel@{channel}!channel@{channel}}
+\index{channel@{channel}!channel@{channel}}
+\subsubsection[{\texorpdfstring{channel(const int dim\+M\+P\+S\+In, const Uni\+Tensor$<$ complex$<$ double $>$$>$ \&ansaz\+In, const Uni\+Tensor$<$ double $>$ \&hamiltonian\+In)}{channel(const int dimMPSIn, const UniTensor< complex< double >> &ansazIn, const UniTensor< double > &hamiltonianIn)}}]{\setlength{\rightskip}{0pt plus 5cm}channel\+::channel (
+\begin{DoxyParamCaption}
+\item[{const int}]{dim\+M\+P\+S\+In, }
+\item[{const Uni\+Tensor$<$ complex$<$ double $>$$>$ \&}]{ansaz\+In, }
+\item[{const Uni\+Tensor$<$ double $>$ \&}]{hamiltonian\+In}
+\end{DoxyParamCaption}
+)}\hypertarget{classchannel_ad9475139ac4d1f4d96795af6cad4b71d}{}\label{classchannel_ad9475139ac4d1f4d96795af6cad4b71d}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dim\+M\+PS} & Boundary bond dimension of channel environment. \\
+\hline
+\mbox{\tt in}  & {\em ansaz\+In} & i\+P\+E\+PS ansatz with single tensor unit cell. The bond start from left bond and continue counterclockwisely. \\
+\hline
+\mbox{\tt in}  & {\em hamiltonian\+In} & Two site hamiltonian which the ground state is optimized for. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{channel@{channel}!find\+All\+Env@{find\+All\+Env}}
+\index{find\+All\+Env@{find\+All\+Env}!channel@{channel}}
+\subsubsection[{\texorpdfstring{find\+All\+Env(const int iter\+Max, const double canonical\+Err, const double arp\+Err)}{findAllEnv(const int iterMax, const double canonicalErr, const double arpErr)}}]{\setlength{\rightskip}{0pt plus 5cm}void channel\+::find\+All\+Env (
+\begin{DoxyParamCaption}
+\item[{const int}]{iter\+Max, }
+\item[{const double}]{canonical\+Err, }
+\item[{const double}]{arp\+Err}
+\end{DoxyParamCaption}
+)}\hypertarget{classchannel_a9969f44b4db5e903e7eb05e4f255d38d}{}\label{classchannel_a9969f44b4db5e903e7eb05e4f255d38d}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em iter\+Max} & Maximum iteration step for finding channel environment. \\
+\hline
+\mbox{\tt in}  & {\em canonical\+Err} & Error criterion for canonical form.\+: \\
+\hline
+\mbox{\tt in}  & {\em arp\+Err} & Error criterion for finding dominant eigen value and eigen vector by arnoldi method. \\
+\hline
+\end{DoxyParams}
+\index{channel@{channel}!Load\+Env\+Tensors@{Load\+Env\+Tensors}}
+\index{Load\+Env\+Tensors@{Load\+Env\+Tensors}!channel@{channel}}
+\subsubsection[{\texorpdfstring{Load\+Env\+Tensors(const string \&root\+Folder)}{LoadEnvTensors(const string &rootFolder)}}]{\setlength{\rightskip}{0pt plus 5cm}void channel\+::\+Load\+Env\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{root\+Folder}
+\end{DoxyParamCaption}
+)}\hypertarget{classchannel_a1ea23994c6c9eb45726a69f285a9a3bc}{}\label{classchannel_a1ea23994c6c9eb45726a69f285a9a3bc}
+
+
+Load environment tensors. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em root\+Folder} & Folder where tensors are loaded from. \\
+\hline
+\end{DoxyParams}
+\index{channel@{channel}!Save\+Env\+Tensors@{Save\+Env\+Tensors}}
+\index{Save\+Env\+Tensors@{Save\+Env\+Tensors}!channel@{channel}}
+\subsubsection[{\texorpdfstring{Save\+Env\+Tensors(const string \&root\+Folder)}{SaveEnvTensors(const string &rootFolder)}}]{\setlength{\rightskip}{0pt plus 5cm}void channel\+::\+Save\+Env\+Tensors (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{root\+Folder}
+\end{DoxyParamCaption}
+)}\hypertarget{classchannel_a8e8bce047890d3f7ad693feb2cc05843}{}\label{classchannel_a8e8bce047890d3f7ad693feb2cc05843}
+
+
+Save environment tensors. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em root\+Folder} & Folder where tensors are saved. \\
+\hline
+\end{DoxyParams}
+\index{channel@{channel}!two\+Site\+Op\+Expec@{two\+Site\+Op\+Expec}}
+\index{two\+Site\+Op\+Expec@{two\+Site\+Op\+Expec}!channel@{channel}}
+\subsubsection[{\texorpdfstring{two\+Site\+Op\+Expec(const Uni\+Tensor$<$ double $>$ \&two\+Site\+Op, const int i\+Dir) const }{twoSiteOpExpec(const UniTensor< double > &twoSiteOp, const int iDir) const }}]{\setlength{\rightskip}{0pt plus 5cm}complex$<$ double $>$ channel\+::two\+Site\+Op\+Expec (
+\begin{DoxyParamCaption}
+\item[{const Uni\+Tensor$<$ double $>$ \&}]{two\+Site\+Op, }
+\item[{const int}]{i\+Dir}
+\end{DoxyParamCaption}
+) const}\hypertarget{classchannel_a6cd95cb7ab6c85ea78f202dcb12eadb5}{}\label{classchannel_a6cd95cb7ab6c85ea78f202dcb12eadb5}
+
+
+Measure expectation of two\+Site operator. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i\+Dir} & Specify which direction of bond is measured. 0-\/$>$ left, 1-\/$>$ up, 2-\/$>$right, 3-\/$>$bottom. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+channel/channel.\+h\item 
+channel/channel.\+cpp\end{DoxyCompactItemize}

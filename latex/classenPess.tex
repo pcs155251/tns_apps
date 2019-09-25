@@ -1,0 +1,186 @@
+\hypertarget{classenPess}{}\section{en\+Pess$<$ T $>$ Class Template Reference}
+\label{classenPess}\index{en\+Pess$<$ T $>$@{en\+Pess$<$ T $>$}}
+
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment of 3-\/\+P\+E\+SS on kagome lattice.  
+
+
+
+
+{\ttfamily \#include $<$en\+Pess.\+h$>$}
+
+
+
+Inheritance diagram for en\+Pess$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for en\+Pess$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classenPess_a22042dc17e149c8c1a30f3fa1699a5c0}{en\+Pess} (std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&core\+Tensors, std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&proj\+Tensors, const int edge\+Dim\+In, bool if\+Up)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+double \hyperlink{classenPess_ac16ae09e08c05c7a705f0bca507ed1fa}{ctm\+Iteration} (const int niter, const double err\+Tol, uni10\+::\+Uni\+Tensor$<$ T $>$ \&tri\+Site\+Ham, bool ifsvd)
+\begin{DoxyCompactList}\small\item\em Find the approximated environment iteratively by C\+TM technique. \end{DoxyCompactList}\item 
+double \hyperlink{classenPess_a5e1fbb61684a82a77073654cf597244c}{measure\+Quantities} (uni10\+::\+Uni\+Tensor$<$ T $>$ \&ham, double \&energy, vector$<$ vector$<$ double $>$$>$ \&spin\+Comp)
+\begin{DoxyCompactList}\small\item\em Measure physical quantities. \end{DoxyCompactList}\item 
+double \hyperlink{classenPess_a2ee28c7ee87b2429dc0bb5ae7a0dd843}{measure\+Norm} ()
+\begin{DoxyCompactList}\small\item\em Measure norm value. \end{DoxyCompactList}\item 
+double \hyperlink{classenPess_ab6c814239e7ab22f37415e91999dabfb}{measure\+One\+Site} (uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, const int isite)
+\begin{DoxyCompactList}\small\item\em Measure one site expectation value. \end{DoxyCompactList}\item 
+double \hyperlink{classenPess_a748a84f5026dbfb3963f2f0b34fa37d6}{measure\+Tri\+Site} (uni10\+::\+Uni\+Tensor$<$ T $>$ \&three\+Site\+Op)
+\begin{DoxyCompactList}\small\item\em Measure three site expectation value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class en\+Pess$<$ T $>$}
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment of 3-\/\+P\+E\+SS on kagome lattice. 
+
+The 3-\/\+P\+E\+SS ansatz with translational invariance is contracted to a 2D infinite T\+NS with single tensor unit cell. For parctical convenience I assume a 2 by 2 unit cell with 4 same tensors (say tensor A). All the measurement is performed within A tensor on the upper left corner (this should not matter if the environment is fully converged). \hyperlink{classenPess}{en\+Pess} is uesd in pess to measure the physical quantites. Methods defined in \hyperlink{classctmBase}{ctm\+Base} are employee to find the converged environment. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{en\+Pess@{en\+Pess}!en\+Pess@{en\+Pess}}
+\index{en\+Pess@{en\+Pess}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{en\+Pess(std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&core\+Tensors, std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&proj\+Tensors, const int edge\+Dim\+In, bool if\+Up)}{enPess(std::vector< uni10::UniTensor< T >> &coreTensors, std::vector< uni10::UniTensor< T >> &projTensors, const int edgeDimIn, bool ifUp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf en\+Pess}$<$ T $>$\+::{\bf en\+Pess} (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{core\+Tensors, }
+\item[{std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{proj\+Tensors, }
+\item[{const int}]{edge\+Dim\+In, }
+\item[{bool}]{if\+Up}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_a22042dc17e149c8c1a30f3fa1699a5c0}{}\label{classenPess_a22042dc17e149c8c1a30f3fa1699a5c0}
+
+
+Constructor. 
+
+The constructor initialized the environment by the parameters below. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em core\+Tensors} & Core tensors of 3-\/\+P\+E\+SS ansatz. \\
+\hline
+\mbox{\tt in}  & {\em proj\+Tensors} & Projected tensors of 3-\/\+P\+E\+SS ansatz. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension for the C\+TM environment. \\
+\hline
+\mbox{\tt in}  & {\em if\+Up} & Whether the environment is for the up triangle or down triangle. Since the unit cell can be defined by up triangle or down triangle, the environment for the two definition are different. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{en\+Pess@{en\+Pess}!ctm\+Iteration@{ctm\+Iteration}}
+\index{ctm\+Iteration@{ctm\+Iteration}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{ctm\+Iteration(const int niter, const double err\+Tol, uni10\+::\+Uni\+Tensor$<$ T $>$ \&tri\+Site\+Ham, bool ifsvd)}{ctmIteration(const int niter, const double errTol, uni10::UniTensor< T > &triSiteHam, bool ifsvd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Pess}$<$ T $>$\+::ctm\+Iteration (
+\begin{DoxyParamCaption}
+\item[{const int}]{niter, }
+\item[{const double}]{err\+Tol, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{tri\+Site\+Ham, }
+\item[{bool}]{ifsvd}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_ac16ae09e08c05c7a705f0bca507ed1fa}{}\label{classenPess_ac16ae09e08c05c7a705f0bca507ed1fa}
+
+
+Find the approximated environment iteratively by C\+TM technique. 
+
+\hyperlink{classctmBase_a0d0080d972d11b12bae089ecdcad81ea}{ctmrg\+Astep()} in \hyperlink{classctmBase}{ctm\+Base} is employee to perform the C\+TM procedure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em niter} & Maximum iteration step. \\
+\hline
+\mbox{\tt in}  & {\em err\+Tol} & Convergence criterion for C\+TM iteration. \\
+\hline
+\mbox{\tt in}  & {\em tri\+Site\+Ham} & Three site opertor acting on up triangle or down triangle. Used to compute the energy. \\
+\hline
+\mbox{\tt in}  & {\em ifsvd} & Whether S\+VD is employee when finding isometries for C\+TM. If it is set to false, QR decomposition is employee. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the C\+TM iteration is converged or not. 
+\end{DoxyReturn}
+\index{en\+Pess@{en\+Pess}!measure\+Norm@{measure\+Norm}}
+\index{measure\+Norm@{measure\+Norm}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Norm()}{measureNorm()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Pess}$<$ T $>$\+::measure\+Norm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_a2ee28c7ee87b2429dc0bb5ae7a0dd843}{}\label{classenPess_a2ee28c7ee87b2429dc0bb5ae7a0dd843}
+
+
+Measure norm value. 
+
+\begin{DoxyReturn}{Returns}
+norm value. 
+\end{DoxyReturn}
+\index{en\+Pess@{en\+Pess}!measure\+One\+Site@{measure\+One\+Site}}
+\index{measure\+One\+Site@{measure\+One\+Site}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+One\+Site(uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, const int isite)}{measureOneSite(uni10::UniTensor< T > &oneSiteOp, const int isite)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Pess}$<$ T $>$\+::measure\+One\+Site (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{one\+Site\+Op, }
+\item[{const int}]{isite}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_ab6c814239e7ab22f37415e91999dabfb}{}\label{classenPess_ab6c814239e7ab22f37415e91999dabfb}
+
+
+Measure one site expectation value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em isite} & Site being measured. 0$<$=isite$<$=2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+\index{en\+Pess@{en\+Pess}!measure\+Quantities@{measure\+Quantities}}
+\index{measure\+Quantities@{measure\+Quantities}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Quantities(uni10\+::\+Uni\+Tensor$<$ T $>$ \&ham, double \&energy, vector$<$ vector$<$ double $>$$>$ \&spin\+Comp)}{measureQuantities(uni10::UniTensor< T > &ham, double &energy, vector< vector< double >> &spinComp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Pess}$<$ T $>$\+::measure\+Quantities (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double \&}]{energy, }
+\item[{vector$<$ vector$<$ double $>$$>$ \&}]{spin\+Comp}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_a5e1fbb61684a82a77073654cf597244c}{}\label{classenPess_a5e1fbb61684a82a77073654cf597244c}
+
+
+Measure physical quantities. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Three site hamiltonian acting on up or down triangle. \\
+\hline
+\mbox{\tt out}  & {\em energy} & Three site energy expectation value. \\
+\hline
+\mbox{\tt out}  & {\em spin\+Comp} & Spin component of each site. spin\+Comp = vector$<$vector$<$double$>$$>$ \{ S0, S1, S2\}, where Si = vector$<$double$>$ \{ Six, Siy, Siz\}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energy per-\/site. 
+\end{DoxyReturn}
+\index{en\+Pess@{en\+Pess}!measure\+Tri\+Site@{measure\+Tri\+Site}}
+\index{measure\+Tri\+Site@{measure\+Tri\+Site}!en\+Pess@{en\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Tri\+Site(uni10\+::\+Uni\+Tensor$<$ T $>$ \&three\+Site\+Op)}{measureTriSite(uni10::UniTensor< T > &threeSiteOp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Pess}$<$ T $>$\+::measure\+Tri\+Site (
+\begin{DoxyParamCaption}
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{three\+Site\+Op}
+\end{DoxyParamCaption}
+)}\hypertarget{classenPess_a748a84f5026dbfb3963f2f0b34fa37d6}{}\label{classenPess_a748a84f5026dbfb3963f2f0b34fa37d6}
+
+
+Measure three site expectation value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em isite} & Site being measured. 0$<$=isite$<$=2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pess/en\+Pess.\+h\item 
+pess/en\+Pess.\+cpp\end{DoxyCompactItemize}

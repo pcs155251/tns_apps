@@ -1,0 +1,92 @@
+\hypertarget{structparaPess}{}\section{para\+Pess Struct Reference}
+\label{structparaPess}\index{para\+Pess@{para\+Pess}}
+
+
+input parameters for P\+E\+SS  
+
+
+
+
+{\ttfamily \#include $<$para\+Pess.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structparaPess_a04ddd80fab5aa5e086b3e65ce47ab7d7}{para\+Pess} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})\hypertarget{structparaPess_a04ddd80fab5aa5e086b3e65ce47ab7d7}{}\label{structparaPess_a04ddd80fab5aa5e086b3e65ce47ab7d7}
+
+\begin{DoxyCompactList}\small\item\em Concstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{structparaPess_a48d47eb7923074634ff3733cbb800380}{root\+Folder}\hypertarget{structparaPess_a48d47eb7923074634ff3733cbb800380}{}\label{structparaPess_a48d47eb7923074634ff3733cbb800380}
+
+\begin{DoxyCompactList}\small\item\em Root folder. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structparaPess_a283485961707c20d8422ef821a758545}{load\+Folder}\hypertarget{structparaPess_a283485961707c20d8422ef821a758545}{}\label{structparaPess_a283485961707c20d8422ef821a758545}
+
+\begin{DoxyCompactList}\small\item\em Folder where wave function is loaded. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structparaPess_a7df3649e1d898438ca8185b630b87c5e}{envi\+Folder}\hypertarget{structparaPess_a7df3649e1d898438ca8185b630b87c5e}{}\label{structparaPess_a7df3649e1d898438ca8185b630b87c5e}
+
+\begin{DoxyCompactList}\small\item\em Folder where environment tensors are loaded. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{structparaPess_a1b88531c5cdfebf56e9c9caef458e03e}{save\+Folder}\hypertarget{structparaPess_a1b88531c5cdfebf56e9c9caef458e03e}{}\label{structparaPess_a1b88531c5cdfebf56e9c9caef458e03e}
+
+\begin{DoxyCompactList}\small\item\em Folder where data and tensors are saved. \end{DoxyCompactList}\item 
+int \hyperlink{structparaPess_a83bfff81364b40b0906bc54a6f1b916d}{if\+Gs}\hypertarget{structparaPess_a83bfff81364b40b0906bc54a6f1b916d}{}\label{structparaPess_a83bfff81364b40b0906bc54a6f1b916d}
+
+\begin{DoxyCompactList}\small\item\em Whether find ground state or not. \end{DoxyCompactList}\item 
+int \hyperlink{structparaPess_a26fc9b8d9b715f0b7c2890c6cc311523}{if\+En}\hypertarget{structparaPess_a26fc9b8d9b715f0b7c2890c6cc311523}{}\label{structparaPess_a26fc9b8d9b715f0b7c2890c6cc311523}
+
+\begin{DoxyCompactList}\small\item\em Whether find environment or not. \end{DoxyCompactList}\item 
+int \hyperlink{structparaPess_aaca789975128b3392acb642c31e56e31}{ctm\+Step}\hypertarget{structparaPess_aaca789975128b3392acb642c31e56e31}{}\label{structparaPess_aaca789975128b3392acb642c31e56e31}
+
+\begin{DoxyCompactList}\small\item\em Maximum iteration step of C\+TM. \end{DoxyCompactList}\item 
+int \hyperlink{structparaPess_a3c1ea82ae4543d1a21b2f32e5bae31ef}{edge\+DimN}\hypertarget{structparaPess_a3c1ea82ae4543d1a21b2f32e5bae31ef}{}\label{structparaPess_a3c1ea82ae4543d1a21b2f32e5bae31ef}
+
+\begin{DoxyCompactList}\small\item\em Number of boundary bond dimension. The boundary bond dimension is increase as (start+slope$\ast$i)$\ast$dim\+D$\ast$dimD, where i in range (0,edge\+DimN) \end{DoxyCompactList}\item 
+double {\bfseries start}\hypertarget{structparaPess_a4c29a878eb0bde695bfe11f00a551693}{}\label{structparaPess_a4c29a878eb0bde695bfe11f00a551693}
+
+\item 
+double {\bfseries slope}\hypertarget{structparaPess_aedf548e32229c59721bb64384fa82b1d}{}\label{structparaPess_aedf548e32229c59721bb64384fa82b1d}
+
+\item 
+int \hyperlink{structparaPess_adf1b3373be46411ef5b394cbeb5405f5}{ifsvd}\hypertarget{structparaPess_adf1b3373be46411ef5b394cbeb5405f5}{}\label{structparaPess_adf1b3373be46411ef5b394cbeb5405f5}
+
+\begin{DoxyCompactList}\small\item\em Whether use svd to find isometries in C\+TM or not. \end{DoxyCompactList}\item 
+int \hyperlink{structparaPess_a9f41ab90c8234fdbd8f163acabce9fd5}{gs\+Iter}\hypertarget{structparaPess_a9f41ab90c8234fdbd8f163acabce9fd5}{}\label{structparaPess_a9f41ab90c8234fdbd8f163acabce9fd5}
+
+\begin{DoxyCompactList}\small\item\em Maximum iteration step of simple update. \end{DoxyCompactList}\item 
+double \hyperlink{structparaPess_a98a8b87ee7c893eedcbc67ff6ae01028}{field}\hypertarget{structparaPess_a98a8b87ee7c893eedcbc67ff6ae01028}{}\label{structparaPess_a98a8b87ee7c893eedcbc67ff6ae01028}
+
+\begin{DoxyCompactList}\small\item\em DM strength. \end{DoxyCompactList}\item 
+double \hyperlink{structparaPess_ab464bb732582d90c0356626fefd81f9c}{edge\+Err}\hypertarget{structparaPess_ab464bb732582d90c0356626fefd81f9c}{}\label{structparaPess_ab464bb732582d90c0356626fefd81f9c}
+
+\begin{DoxyCompactList}\small\item\em Criterion of convergence with respect to boundary bond dimension. \end{DoxyCompactList}\item 
+double \hyperlink{structparaPess_aecfaefcf77fca1251d9d06ad7083a1fa}{gs\+Err}\hypertarget{structparaPess_aecfaefcf77fca1251d9d06ad7083a1fa}{}\label{structparaPess_aecfaefcf77fca1251d9d06ad7083a1fa}
+
+\begin{DoxyCompactList}\small\item\em Criterion of convergence of imaginary time evolution. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{structparaPess_abc0235b9265526a28a9b0c4f46b1f71c}{dim\+Ds}\hypertarget{structparaPess_abc0235b9265526a28a9b0c4f46b1f71c}{}\label{structparaPess_abc0235b9265526a28a9b0c4f46b1f71c}
+
+\begin{DoxyCompactList}\small\item\em Virtual bond dimensions being simulated. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{structparaPess_a8c8dcc3f8d434237e534b3886e8559c0}{taus}\hypertarget{structparaPess_a8c8dcc3f8d434237e534b3886e8559c0}{}\label{structparaPess_a8c8dcc3f8d434237e534b3886e8559c0}
+
+\begin{DoxyCompactList}\small\item\em A sequence of time step. \end{DoxyCompactList}\item 
+int {\bfseries dim\+Dload}\hypertarget{structparaPess_a0fac8adc69a920fcbe87ab3cd9593901}{}\label{structparaPess_a0fac8adc69a920fcbe87ab3cd9593901}
+
+\item 
+std\+::string {\bfseries tensor\+Folder}\hypertarget{structparaPess_a6ff632cc6adcc69772a08915ddb9afc5}{}\label{structparaPess_a6ff632cc6adcc69772a08915ddb9afc5}
+
+\item 
+std\+::string {\bfseries data\+Folder}\hypertarget{structparaPess_a73fe75602d19d89e16e82e8ff3b49aa1}{}\label{structparaPess_a73fe75602d19d89e16e82e8ff3b49aa1}
+
+\item 
+std\+::string {\bfseries field\+Sub\+Folder}\hypertarget{structparaPess_ab4f1b22586893569149feca7058177c5}{}\label{structparaPess_ab4f1b22586893569149feca7058177c5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+input parameters for P\+E\+SS 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pess/para\+Pess.\+h\item 
+pess/para\+Pess.\+cpp\end{DoxyCompactItemize}

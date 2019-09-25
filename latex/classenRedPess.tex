@@ -1,0 +1,206 @@
+\hypertarget{classenRedPess}{}\section{en\+Red\+Pess$<$ T $>$ Class Template Reference}
+\label{classenRedPess}\index{en\+Red\+Pess$<$ T $>$@{en\+Red\+Pess$<$ T $>$}}
+
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment with dimension reduction technique of 3-\/\+P\+E\+SS on kagome lattice.  
+
+
+
+
+{\ttfamily \#include $<$en\+Red\+Pess.\+h$>$}
+
+
+
+Inheritance diagram for en\+Red\+Pess$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for en\+Red\+Pess$<$ T $>$\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classenRedPess_a91399d7a90a88e81f936095386c339ec}{en\+Red\+Pess} (std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&core\+Tensors, std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&proj\+Tensors, const int edge\+Dim\+In, bool if\+Up)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+double \hyperlink{classenRedPess_ae9c6f4a82f9f96e71b9ba0996556a977}{ctm\+Iteration} (const int niter, const double err\+Tol, const Uni\+Tensor$<$ T $>$ \&up\+Ham, bool ifsvd)
+\begin{DoxyCompactList}\small\item\em Find the approximated environment iteratively by C\+TM technique. \end{DoxyCompactList}\item 
+double \hyperlink{classenRedPess_a44096759e82e808968dd89e44434e98d}{measure\+Quantities} (const Uni\+Tensor$<$ T $>$ \&ham, double \&energy, vector$<$ vector$<$ double $>$$>$ \&spin\+Comp)
+\begin{DoxyCompactList}\small\item\em Measure physical quantities. \end{DoxyCompactList}\item 
+double \hyperlink{classenRedPess_a5f2bd2c1e1a3c3d435edffd091da8546}{measure\+Norm} (const int isite)
+\begin{DoxyCompactList}\small\item\em Measure norm value. \end{DoxyCompactList}\item 
+double \hyperlink{classenRedPess_ace1d4b4eb833ca01442c1f6fc3b57ee7}{measure\+One\+Site} (const Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, const int i\+Site, const int posit)
+\begin{DoxyCompactList}\small\item\em Measure one site expectation value. \end{DoxyCompactList}\item 
+double \hyperlink{classenRedPess_a3ac7c1e96cc7de682a50ff230548aa67}{measure\+Tri\+Site} (const Uni\+Tensor$<$ T $>$ \&three\+Site\+Op, const int posit)
+\begin{DoxyCompactList}\small\item\em Measure three site expectation value. \end{DoxyCompactList}\item 
+void \hyperlink{classenRedPess_aa693be8cff16bf5daa039d2b58a395bc}{change\+Edge\+Dim} (const int new\+Dim)
+\begin{DoxyCompactList}\small\item\em Change the boundary bond dimension of C\+TM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class en\+Red\+Pess$<$ T $>$}
+
+A derived class of \hyperlink{classctmBase}{ctm\+Base} describing the environment with dimension reduction technique of 3-\/\+P\+E\+SS on kagome lattice. 
+
+The 3-\/\+P\+E\+SS ansatz with translational invariance is contracted to a 2D infinite T\+NS with 2 by 2 unit cell. The dimension reduction technique is empolyee such that the tensors within unit cell are b, i0, i1, b$^\wedge$\{\}. All the measurement is performed within the unit cell. \hyperlink{classenRedPess}{en\+Red\+Pess} is uesd in pess to measure the physical quantites. Methods defined in \hyperlink{classctmBase}{ctm\+Base} are employee to find the converged environment. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!en\+Red\+Pess@{en\+Red\+Pess}}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{en\+Red\+Pess(std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&core\+Tensors, std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&proj\+Tensors, const int edge\+Dim\+In, bool if\+Up)}{enRedPess(std::vector< uni10::UniTensor< T >> &coreTensors, std::vector< uni10::UniTensor< T >> &projTensors, const int edgeDimIn, bool ifUp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf en\+Red\+Pess}$<$ T $>$\+::{\bf en\+Red\+Pess} (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{core\+Tensors, }
+\item[{std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{proj\+Tensors, }
+\item[{const int}]{edge\+Dim\+In, }
+\item[{bool}]{if\+Up}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_a91399d7a90a88e81f936095386c339ec}{}\label{classenRedPess_a91399d7a90a88e81f936095386c339ec}
+
+
+Constructor. 
+
+The constructor initialized the environment by the parameters below. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em core\+Tensors} & Core tensors of 3-\/\+P\+E\+SS ansatz. \\
+\hline
+\mbox{\tt in}  & {\em proj\+Tensors} & Projected tensors of 3-\/\+P\+E\+SS ansatz. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim\+In} & Boundary bond dimension for the C\+TM environment. \\
+\hline
+\mbox{\tt in}  & {\em if\+Up} & Whether the environment is for the up triangle or down triangle. Since the unit cell can be defined by up triangle or down triangle, the environment for the two definition are different. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!change\+Edge\+Dim@{change\+Edge\+Dim}}
+\index{change\+Edge\+Dim@{change\+Edge\+Dim}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{change\+Edge\+Dim(const int new\+Dim)}{changeEdgeDim(const int newDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf en\+Red\+Pess}$<$ T $>$\+::change\+Edge\+Dim (
+\begin{DoxyParamCaption}
+\item[{const int}]{new\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_aa693be8cff16bf5daa039d2b58a395bc}{}\label{classenRedPess_aa693be8cff16bf5daa039d2b58a395bc}
+
+
+Change the boundary bond dimension of C\+TM. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+Dim} & New boundary bond dimension. \\
+\hline
+\end{DoxyParams}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!ctm\+Iteration@{ctm\+Iteration}}
+\index{ctm\+Iteration@{ctm\+Iteration}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{ctm\+Iteration(const int niter, const double err\+Tol, const Uni\+Tensor$<$ T $>$ \&up\+Ham, bool ifsvd)}{ctmIteration(const int niter, const double errTol, const UniTensor< T > &upHam, bool ifsvd)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Red\+Pess}$<$ T $>$\+::ctm\+Iteration (
+\begin{DoxyParamCaption}
+\item[{const int}]{niter, }
+\item[{const double}]{err\+Tol, }
+\item[{const Uni\+Tensor$<$ T $>$ \&}]{up\+Ham, }
+\item[{bool}]{ifsvd}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_ae9c6f4a82f9f96e71b9ba0996556a977}{}\label{classenRedPess_ae9c6f4a82f9f96e71b9ba0996556a977}
+
+
+Find the approximated environment iteratively by C\+TM technique. 
+
+\hyperlink{classctmBase_a0d0080d972d11b12bae089ecdcad81ea}{ctmrg\+Astep()} in \hyperlink{classctmBase}{ctm\+Base} is employee to perform the C\+TM procedure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em niter} & Maximum iteration step. \\
+\hline
+\mbox{\tt in}  & {\em err\+Tol} & Convergence criterion for C\+TM iteration. \\
+\hline
+\mbox{\tt in}  & {\em tri\+Site\+Ham} & Three site opertor acting on up triangle or down triangle. Used to compute the energy. \\
+\hline
+\mbox{\tt in}  & {\em ifsvd} & Whether S\+VD is employee when finding isometries for C\+TM. If it is set to false, QR decomposition is employee. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the C\+TM iteration is converged or not. 
+\end{DoxyReturn}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!measure\+Norm@{measure\+Norm}}
+\index{measure\+Norm@{measure\+Norm}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Norm(const int isite)}{measureNorm(const int isite)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Red\+Pess}$<$ T $>$\+::measure\+Norm (
+\begin{DoxyParamCaption}
+\item[{const int}]{isite}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_a5f2bd2c1e1a3c3d435edffd091da8546}{}\label{classenRedPess_a5f2bd2c1e1a3c3d435edffd091da8546}
+
+
+Measure norm value. 
+
+\begin{DoxyReturn}{Returns}
+norm value. 
+\end{DoxyReturn}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!measure\+One\+Site@{measure\+One\+Site}}
+\index{measure\+One\+Site@{measure\+One\+Site}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+One\+Site(const Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, const int i\+Site, const int posit)}{measureOneSite(const UniTensor< T > &oneSiteOp, const int iSite, const int posit)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Red\+Pess}$<$ T $>$\+::measure\+One\+Site (
+\begin{DoxyParamCaption}
+\item[{const Uni\+Tensor$<$ T $>$ \&}]{one\+Site\+Op, }
+\item[{const int}]{i\+Site, }
+\item[{const int}]{posit}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_ace1d4b4eb833ca01442c1f6fc3b57ee7}{}\label{classenRedPess_ace1d4b4eb833ca01442c1f6fc3b57ee7}
+
+
+Measure one site expectation value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em isite} & Site being measured. 0$<$=isite$<$=2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!measure\+Quantities@{measure\+Quantities}}
+\index{measure\+Quantities@{measure\+Quantities}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Quantities(const Uni\+Tensor$<$ T $>$ \&ham, double \&energy, vector$<$ vector$<$ double $>$$>$ \&spin\+Comp)}{measureQuantities(const UniTensor< T > &ham, double &energy, vector< vector< double >> &spinComp)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Red\+Pess}$<$ T $>$\+::measure\+Quantities (
+\begin{DoxyParamCaption}
+\item[{const Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double \&}]{energy, }
+\item[{vector$<$ vector$<$ double $>$$>$ \&}]{spin\+Comp}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_a44096759e82e808968dd89e44434e98d}{}\label{classenRedPess_a44096759e82e808968dd89e44434e98d}
+
+
+Measure physical quantities. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Three site hamiltonian acting on up or down triangle. \\
+\hline
+\mbox{\tt out}  & {\em energy} & Three site energy expectation value. \\
+\hline
+\mbox{\tt out}  & {\em spin\+Comp} & Spin component of each site. spin\+Comp = vector$<$vector$<$double$>$$>$ \{ S0, S1, S2\}, where Si = vector$<$double$>$ \{ Six, Siy, Siz\}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energy per-\/site. 
+\end{DoxyReturn}
+\index{en\+Red\+Pess@{en\+Red\+Pess}!measure\+Tri\+Site@{measure\+Tri\+Site}}
+\index{measure\+Tri\+Site@{measure\+Tri\+Site}!en\+Red\+Pess@{en\+Red\+Pess}}
+\subsubsection[{\texorpdfstring{measure\+Tri\+Site(const Uni\+Tensor$<$ T $>$ \&three\+Site\+Op, const int posit)}{measureTriSite(const UniTensor< T > &threeSiteOp, const int posit)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf en\+Red\+Pess}$<$ T $>$\+::measure\+Tri\+Site (
+\begin{DoxyParamCaption}
+\item[{const Uni\+Tensor$<$ T $>$ \&}]{three\+Site\+Op, }
+\item[{const int}]{posit}
+\end{DoxyParamCaption}
+)}\hypertarget{classenRedPess_a3ac7c1e96cc7de682a50ff230548aa67}{}\label{classenRedPess_a3ac7c1e96cc7de682a50ff230548aa67}
+
+
+Measure three site expectation value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em isite} & Site being measured. 0$<$=isite$<$=2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expectation value. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pess/en\+Red\+Pess.\+h\item 
+pess/en\+Red\+Pess.\+cpp\end{DoxyCompactItemize}

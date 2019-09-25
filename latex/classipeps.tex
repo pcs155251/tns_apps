@@ -1,0 +1,539 @@
+\hypertarget{classipeps}{}\section{ipeps$<$ T $>$ Class Template Reference}
+\label{classipeps}\index{ipeps$<$ T $>$@{ipeps$<$ T $>$}}
+
+
+An ipeps ansatz on square lattice. Optimization method such as full update and simple update is implemented. 2 by 2 unit cell with checkerboard pattern is assumed.  
+
+
+
+
+{\ttfamily \#include $<$ipeps.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classipeps_aa9ca488a31081cc0cf3cd29b495ec729}{ipeps} (int vir\+Dim)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_aa98bdc6097f41fc3dad78b7099088218}{simp\+Update} (Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter)
+\begin{DoxyCompactList}\small\item\em Perform simple update. \end{DoxyCompactList}\item 
+bool \hyperlink{classipeps_aee4f9d4f792368ca4ebc9fe1bcfa6a10}{full\+Update} (Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter, int iter\+En, double err\+En, int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Perform full udpate. \end{DoxyCompactList}\item 
+bool \hyperlink{classipeps_a6e5a0a36d56e201f5d83b10834c92997}{full\+Update\+Gauge} (Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter, int iter\+En, double err\+En, int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Perform full udpate with gauge fixing. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_a925e76b90c7c205b916fea4184f526f4}{change\+Edge\+Dim} (int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Change boundary bond dimension of environment. \end{DoxyCompactList}\item 
+T \hyperlink{classipeps_ae776b33296bd544cfdb7bd4f6666e5aa}{mea\+Simp\+Norm} (int idir)
+\begin{DoxyCompactList}\small\item\em Measure norm using simple environment (singular matrix). \end{DoxyCompactList}\item 
+T \hyperlink{classipeps_aff1c8f1d4c3b7fc3328ae40e4891ed86}{mea\+Simp\+Two\+Site\+Op} (Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int idir)
+\begin{DoxyCompactList}\small\item\em Measure two site operator using simple environment (singular matrix). \end{DoxyCompactList}\item 
+T \hyperlink{classipeps_a641b935ae8a17c7c665090688711d4d8}{mea\+Simp\+One\+Site\+Op} (Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite)
+\begin{DoxyCompactList}\small\item\em Measure one site operator using simple environment (singular matrix). \end{DoxyCompactList}\item 
+double \hyperlink{classipeps_ad6ec04a17a59b6d2df5990db8e19fbe9}{mea\+One\+Site\+Norm} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int isite) const 
+\begin{DoxyCompactList}\small\item\em Measure one site norm using full environment (obtained by C\+TM). \end{DoxyCompactList}\item 
+double \hyperlink{classipeps_ac730740d0e2d5521d6cdd6b5fb4d48db}{mea\+Two\+Site\+Norm} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int ibond) const 
+\begin{DoxyCompactList}\small\item\em Measure one site norm using full environment (obtained by C\+TM). \end{DoxyCompactList}\item 
+double \hyperlink{classipeps_a8e1b65e82ab0eeaed1518fd62171e639}{mea\+One\+Site\+Exp} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite) const 
+\begin{DoxyCompactList}\small\item\em Measure one site expecatation using full environment (obtained by C\+TM). \end{DoxyCompactList}\item 
+double \hyperlink{classipeps_a4ab01bf0e56036fac598c2e4e974c33f}{mea\+Two\+Site\+Exp} (const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int ibond) const 
+\begin{DoxyCompactList}\small\item\em Measure two site expecatation using full environment (obtained by C\+TM). \end{DoxyCompactList}\item 
+int \hyperlink{classipeps_aece2ea21be6ac1d89e0639036e4243a5}{get\+Vir\+Dim} () const 
+\begin{DoxyCompactList}\small\item\em Get virtual bond dimension of current ansatz. \end{DoxyCompactList}\item 
+vector$<$ Uni\+Tensor$<$ T $>$ $>$ \hyperlink{classipeps_a7e85b07e7113ef4cd1baabb7e2c0350b}{get\+Unit} ()
+\begin{DoxyCompactList}\small\item\em Get reduced tensors within unit cell. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_a86a62d87b673d7fbb3f457152f3ed478}{init\+En} (int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Initialize the environment tensors for C\+TM. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_a3d283c069a82522c1dacb46a3fdc9047}{compute\+En} (int edge\+Dim, int niter, double err\+Tol, Uni\+Tensor$<$ T $>$ \&ham)
+\begin{DoxyCompactList}\small\item\em Compute the environment by C\+TM. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_ad1c2af8452c060c63160cde93addbc75}{normalize\+Gamma} ()
+\begin{DoxyCompactList}\small\item\em Normalize gammas matrix (singular matrix obtained from svd of simple update). \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_a9e84409739b01bae594e7b9eabcf7809}{release\+En} ()\hypertarget{classipeps_a9e84409739b01bae594e7b9eabcf7809}{}\label{classipeps_a9e84409739b01bae594e7b9eabcf7809}
+
+\begin{DoxyCompactList}\small\item\em Release the memory used to stored the environment tensors. \end{DoxyCompactList}\item 
+const vector$<$ Uni\+Tensor$<$ T $>$ $>$ \& \hyperlink{classipeps_ae91a100e1aab3454e3f750907f206765}{get\+Gammas} ()
+\begin{DoxyCompactList}\small\item\em Get i\+P\+E\+PS ansatz tensors (A and B). \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_aab130d93c192c45e929182d62a5e7ec1}{save\+Tensors} (string folder, double field)
+\begin{DoxyCompactList}\small\item\em Save i\+P\+E\+PS ansatz tensors into given folder and field. \end{DoxyCompactList}\item 
+bool \hyperlink{classipeps_a026eacb53da1aa9f46568fa9e1bb78cb}{load\+Tensors} (string folder, double field)
+\begin{DoxyCompactList}\small\item\em Load i\+P\+E\+PS ansatz tensors from given folder and field. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_a6b597b40f82d23b3dc6277b2e863882b}{save\+En} (string folder, double field)
+\begin{DoxyCompactList}\small\item\em Save envionment tensors into given folder and field. \end{DoxyCompactList}\item 
+void \hyperlink{classipeps_addde49fef43d20baed94caaa1bc66555}{load\+En} (string folder, double field, int edge\+Dim)
+\begin{DoxyCompactList}\small\item\em Load envionment tensors from given folder and field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class ipeps$<$ T $>$}
+
+An ipeps ansatz on square lattice. Optimization method such as full update and simple update is implemented. 2 by 2 unit cell with checkerboard pattern is assumed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ipeps@{ipeps}!ipeps@{ipeps}}
+\index{ipeps@{ipeps}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{ipeps(int vir\+Dim)}{ipeps(int virDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf ipeps}$<$ T $>$\+::{\bf ipeps} (
+\begin{DoxyParamCaption}
+\item[{int}]{vir\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_aa9ca488a31081cc0cf3cd29b495ec729}{}\label{classipeps_aa9ca488a31081cc0cf3cd29b495ec729}
+
+
+Constructor. 
+
+public member functions
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vir\+Dim} & Virtual bond dimension of ansatz. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{ipeps@{ipeps}!change\+Edge\+Dim@{change\+Edge\+Dim}}
+\index{change\+Edge\+Dim@{change\+Edge\+Dim}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{change\+Edge\+Dim(int edge\+Dim)}{changeEdgeDim(int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::change\+Edge\+Dim (
+\begin{DoxyParamCaption}
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a925e76b90c7c205b916fea4184f526f4}{}\label{classipeps_a925e76b90c7c205b916fea4184f526f4}
+
+
+Change boundary bond dimension of environment. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em edge\+Dim} & New boundary bond dimension. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!compute\+En@{compute\+En}}
+\index{compute\+En@{compute\+En}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{compute\+En(int edge\+Dim, int niter, double err\+Tol, Uni\+Tensor$<$ T $>$ \&ham)}{computeEn(int edgeDim, int niter, double errTol, UniTensor< T > &ham)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::compute\+En (
+\begin{DoxyParamCaption}
+\item[{int}]{edge\+Dim, }
+\item[{int}]{niter, }
+\item[{double}]{err\+Tol, }
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ham}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a3d283c069a82522c1dacb46a3fdc9047}{}\label{classipeps_a3d283c069a82522c1dacb46a3fdc9047}
+
+
+Compute the environment by C\+TM. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em edge\+Dim} & Boundary bond dimension used for C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em niter} & Maximum iteration step of C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em err\+Tol} & Convergence criterion for C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em ham} & Two site hamiltonain. Used to measure the energy and monitor the convergence. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!full\+Update@{full\+Update}}
+\index{full\+Update@{full\+Update}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{full\+Update(\+Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter, int iter\+En, double err\+En, int edge\+Dim)}{fullUpdate(UniTensor< T > &ham, double tau, double evoStop, int maxIter, int iterEn, double errEn, int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf ipeps}$<$ T $>$\+::full\+Update (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double}]{tau, }
+\item[{double}]{evo\+Stop, }
+\item[{int}]{max\+Iter, }
+\item[{int}]{iter\+En, }
+\item[{double}]{err\+En, }
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_aee4f9d4f792368ca4ebc9fe1bcfa6a10}{}\label{classipeps_aee4f9d4f792368ca4ebc9fe1bcfa6a10}
+
+
+Perform full udpate. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Two site operator by which evolution operator is constructed. \\
+\hline
+\mbox{\tt in}  & {\em tau} & Time step of time evolution. \\
+\hline
+\mbox{\tt in}  & {\em evo\+Stop} & Convergence criterion for time evolution. When energy difference between two steps is smaller than evo\+Stop, tha state is considered converged the iteration stop. \\
+\hline
+\mbox{\tt in}  & {\em max\+Iter} & Maximum iteration step. \\
+\hline
+\mbox{\tt in}  & {\em iter\+En} & Maximum iteration step for environment convergence. \\
+\hline
+\mbox{\tt in}  & {\em err\+En} & Convergence critertion for computing environment by C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim} & Boundary bond dimension for environment (C\+TM). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the environment is converged by C\+TM of not after the wavefunction is updated. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!full\+Update\+Gauge@{full\+Update\+Gauge}}
+\index{full\+Update\+Gauge@{full\+Update\+Gauge}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{full\+Update\+Gauge(\+Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter, int iter\+En, double err\+En, int edge\+Dim)}{fullUpdateGauge(UniTensor< T > &ham, double tau, double evoStop, int maxIter, int iterEn, double errEn, int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf ipeps}$<$ T $>$\+::full\+Update\+Gauge (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double}]{tau, }
+\item[{double}]{evo\+Stop, }
+\item[{int}]{max\+Iter, }
+\item[{int}]{iter\+En, }
+\item[{double}]{err\+En, }
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a6e5a0a36d56e201f5d83b10834c92997}{}\label{classipeps_a6e5a0a36d56e201f5d83b10834c92997}
+
+
+Perform full udpate with gauge fixing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Two site operator by which evolution operator is constructed. \\
+\hline
+\mbox{\tt in}  & {\em tau} & Time step of time evolution. \\
+\hline
+\mbox{\tt in}  & {\em evo\+Stop} & Convergence criterion for time evolution. When energy difference between two steps is smaller than evo\+Stop, tha state is considered converged the iteration stop. \\
+\hline
+\mbox{\tt in}  & {\em max\+Iter} & Maximum iteration step. \\
+\hline
+\mbox{\tt in}  & {\em iter\+En} & Maximum iteration step for environment convergence. \\
+\hline
+\mbox{\tt in}  & {\em err\+En} & Convergence critertion for computing environment by C\+TM. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim} & Boundary bond dimension for environment (C\+TM). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the environment is converged by C\+TM of not after the wavefunction is updated. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!get\+Gammas@{get\+Gammas}}
+\index{get\+Gammas@{get\+Gammas}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{get\+Gammas()}{getGammas()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const vector$<$Uni\+Tensor$<$T$>$ $>$\& {\bf ipeps}$<$ T $>$\+::get\+Gammas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_ae91a100e1aab3454e3f750907f206765}{}\label{classipeps_ae91a100e1aab3454e3f750907f206765}
+
+
+Get i\+P\+E\+PS ansatz tensors (A and B). 
+
+\begin{DoxyReturn}{Returns}
+i\+P\+E\+PS ansatz tensors (A and B). 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!get\+Unit@{get\+Unit}}
+\index{get\+Unit@{get\+Unit}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{get\+Unit()}{getUnit()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ vector$<$ Uni\+Tensor$<$ T $>$ $>$ {\bf ipeps}$<$ T $>$\+::get\+Unit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a7e85b07e7113ef4cd1baabb7e2c0350b}{}\label{classipeps_a7e85b07e7113ef4cd1baabb7e2c0350b}
+
+
+Get reduced tensors within unit cell. 
+
+\begin{DoxyReturn}{Returns}
+current reduced tensors within unit cell. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!get\+Vir\+Dim@{get\+Vir\+Dim}}
+\index{get\+Vir\+Dim@{get\+Vir\+Dim}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{get\+Vir\+Dim() const }{getVirDim() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf ipeps}$<$ T $>$\+::get\+Vir\+Dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_aece2ea21be6ac1d89e0639036e4243a5}{}\label{classipeps_aece2ea21be6ac1d89e0639036e4243a5}
+
+
+Get virtual bond dimension of current ansatz. 
+
+\begin{DoxyReturn}{Returns}
+current virtual bond dimension. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!init\+En@{init\+En}}
+\index{init\+En@{init\+En}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{init\+En(int edge\+Dim)}{initEn(int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::init\+En (
+\begin{DoxyParamCaption}
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a86a62d87b673d7fbb3f457152f3ed478}{}\label{classipeps_a86a62d87b673d7fbb3f457152f3ed478}
+
+
+Initialize the environment tensors for C\+TM. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em edge\+Dim} & Boundary bond dimension used for C\+TM. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!load\+En@{load\+En}}
+\index{load\+En@{load\+En}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{load\+En(string folder, double field, int edge\+Dim)}{loadEn(string folder, double field, int edgeDim)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::load\+En (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field, }
+\item[{int}]{edge\+Dim}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_addde49fef43d20baed94caaa1bc66555}{}\label{classipeps_addde49fef43d20baed94caaa1bc66555}
+
+
+Load envionment tensors from given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where environment tensors are loaded. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter of hamiltonian. \\
+\hline
+\mbox{\tt in}  & {\em edge\+Dim} & Environment tensors are loaded from folder/field\+Sub\+Folder/edge\+Dim\+Sub\+Folder/ \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!load\+Tensors@{load\+Tensors}}
+\index{load\+Tensors@{load\+Tensors}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{load\+Tensors(string folder, double field)}{loadTensors(string folder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf ipeps}$<$ T $>$\+::load\+Tensors (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a026eacb53da1aa9f46568fa9e1bb78cb}{}\label{classipeps_a026eacb53da1aa9f46568fa9e1bb78cb}
+
+
+Load i\+P\+E\+PS ansatz tensors from given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensors are loaded. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter in hamiltonian. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!mea\+One\+Site\+Exp@{mea\+One\+Site\+Exp}}
+\index{mea\+One\+Site\+Exp@{mea\+One\+Site\+Exp}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+One\+Site\+Exp(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite) const }{meaOneSiteExp(const std::vector< uni10::UniTensor< T >> &gammas, uni10::UniTensor< T > &oneSiteOp, int isite) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf ipeps}$<$ T $>$\+::mea\+One\+Site\+Exp (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{one\+Site\+Op, }
+\item[{int}]{isite}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_a8e1b65e82ab0eeaed1518fd62171e639}{}\label{classipeps_a8e1b65e82ab0eeaed1518fd62171e639}
+
+
+Measure one site expecatation using full environment (obtained by C\+TM). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS ansatz being measured. \\
+\hline
+\mbox{\tt in}  & {\em isite} & Specify which site is being measured. left site -\/$>$ 0, right site -\/$>$ 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One site expecatation value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+One\+Site\+Norm@{mea\+One\+Site\+Norm}}
+\index{mea\+One\+Site\+Norm@{mea\+One\+Site\+Norm}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+One\+Site\+Norm(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int isite) const }{meaOneSiteNorm(const std::vector< uni10::UniTensor< T >> &gammas, int isite) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf ipeps}$<$ T $>$\+::mea\+One\+Site\+Norm (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{int}]{isite}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_ad6ec04a17a59b6d2df5990db8e19fbe9}{}\label{classipeps_ad6ec04a17a59b6d2df5990db8e19fbe9}
+
+
+Measure one site norm using full environment (obtained by C\+TM). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS ansatz being measured. \\
+\hline
+\mbox{\tt in}  & {\em isite} & Specify which site is being measured. left site -\/$>$ 0, right site -\/$>$ 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One site norm value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+Simp\+Norm@{mea\+Simp\+Norm}}
+\index{mea\+Simp\+Norm@{mea\+Simp\+Norm}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Simp\+Norm(int idir)}{meaSimpNorm(int idir)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf ipeps}$<$ T $>$\+::mea\+Simp\+Norm (
+\begin{DoxyParamCaption}
+\item[{int}]{idir}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_ae776b33296bd544cfdb7bd4f6666e5aa}{}\label{classipeps_ae776b33296bd544cfdb7bd4f6666e5aa}
+
+
+Measure norm using simple environment (singular matrix). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em idir} & Specify which direction of bond is being measured. Start from left -\/$>$ up -\/$>$ right -\/$>$ dn. 0 $<$= idir $<$= 3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Norm value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+Simp\+One\+Site\+Op@{mea\+Simp\+One\+Site\+Op}}
+\index{mea\+Simp\+One\+Site\+Op@{mea\+Simp\+One\+Site\+Op}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Simp\+One\+Site\+Op(\+Uni\+Tensor$<$ T $>$ \&one\+Site\+Op, int isite)}{meaSimpOneSiteOp(UniTensor< T > &oneSiteOp, int isite)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf ipeps}$<$ T $>$\+::mea\+Simp\+One\+Site\+Op (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{one\+Site\+Op, }
+\item[{int}]{isite}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a641b935ae8a17c7c665090688711d4d8}{}\label{classipeps_a641b935ae8a17c7c665090688711d4d8}
+
+
+Measure one site operator using simple environment (singular matrix). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em one\+Site\+Op} & One site operator being measured. \\
+\hline
+\mbox{\tt in}  & {\em idir} & Specify which direction of bond is being measured. Start from left -\/$>$ up -\/$>$ right -\/$>$ dn. 0 $<$= idir $<$= 3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One site expecatation value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+Simp\+Two\+Site\+Op@{mea\+Simp\+Two\+Site\+Op}}
+\index{mea\+Simp\+Two\+Site\+Op@{mea\+Simp\+Two\+Site\+Op}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Simp\+Two\+Site\+Op(\+Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int idir)}{meaSimpTwoSiteOp(UniTensor< T > &twoSiteOp, int idir)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf ipeps}$<$ T $>$\+::mea\+Simp\+Two\+Site\+Op (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{two\+Site\+Op, }
+\item[{int}]{idir}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_aff1c8f1d4c3b7fc3328ae40e4891ed86}{}\label{classipeps_aff1c8f1d4c3b7fc3328ae40e4891ed86}
+
+
+Measure two site operator using simple environment (singular matrix). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em two\+Site\+Op} & Two site operator being measured. \\
+\hline
+\mbox{\tt in}  & {\em idir} & Specify which direction of bond is being measured. Start from left -\/$>$ up -\/$>$ right -\/$>$ dn. 0 $<$= idir $<$= 3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+two site expecatation value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+Two\+Site\+Exp@{mea\+Two\+Site\+Exp}}
+\index{mea\+Two\+Site\+Exp@{mea\+Two\+Site\+Exp}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Two\+Site\+Exp(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, uni10\+::\+Uni\+Tensor$<$ T $>$ \&two\+Site\+Op, int ibond) const }{meaTwoSiteExp(const std::vector< uni10::UniTensor< T >> &gammas, uni10::UniTensor< T > &twoSiteOp, int ibond) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf ipeps}$<$ T $>$\+::mea\+Two\+Site\+Exp (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{uni10\+::\+Uni\+Tensor$<$ T $>$ \&}]{two\+Site\+Op, }
+\item[{int}]{ibond}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_a4ab01bf0e56036fac598c2e4e974c33f}{}\label{classipeps_a4ab01bf0e56036fac598c2e4e974c33f}
+
+
+Measure two site expecatation using full environment (obtained by C\+TM). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS ansatz being measured. \\
+\hline
+\mbox{\tt in}  & {\em idir} & Specify which direction of bond is being measured. Start from left -\/$>$ up -\/$>$ right -\/$>$ dn. 0 $<$= idir $<$= 3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+two site expecatation value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!mea\+Two\+Site\+Norm@{mea\+Two\+Site\+Norm}}
+\index{mea\+Two\+Site\+Norm@{mea\+Two\+Site\+Norm}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{mea\+Two\+Site\+Norm(const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&gammas, int ibond) const }{meaTwoSiteNorm(const std::vector< uni10::UniTensor< T >> &gammas, int ibond) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ double {\bf ipeps}$<$ T $>$\+::mea\+Two\+Site\+Norm (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uni10\+::\+Uni\+Tensor$<$ T $>$$>$ \&}]{gammas, }
+\item[{int}]{ibond}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classipeps_ac730740d0e2d5521d6cdd6b5fb4d48db}{}\label{classipeps_ac730740d0e2d5521d6cdd6b5fb4d48db}
+
+
+Measure one site norm using full environment (obtained by C\+TM). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em gammas} & i\+P\+E\+PS ansatz being measured. \\
+\hline
+\mbox{\tt in}  & {\em idir} & Specify which direction of bond is being measured. Start from left -\/$>$ up -\/$>$ right -\/$>$ dn. 0 $<$= idir $<$= 3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One site norm value. 
+\end{DoxyReturn}
+\index{ipeps@{ipeps}!normalize\+Gamma@{normalize\+Gamma}}
+\index{normalize\+Gamma@{normalize\+Gamma}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{normalize\+Gamma()}{normalizeGamma()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::normalize\+Gamma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_ad1c2af8452c060c63160cde93addbc75}{}\label{classipeps_ad1c2af8452c060c63160cde93addbc75}
+
+
+Normalize gammas matrix (singular matrix obtained from svd of simple update). 
+
+The matrix are normalized such that it has L2 norm equal to one. \index{ipeps@{ipeps}!save\+En@{save\+En}}
+\index{save\+En@{save\+En}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{save\+En(string folder, double field)}{saveEn(string folder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::save\+En (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_a6b597b40f82d23b3dc6277b2e863882b}{}\label{classipeps_a6b597b40f82d23b3dc6277b2e863882b}
+
+
+Save envionment tensors into given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where environment tensors are saved. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter of hamiltonian. A corresponding subfolder will be created. A subsubfolder indicating currentent boundary bond dimension will be created to save the environment tensors. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!save\+Tensors@{save\+Tensors}}
+\index{save\+Tensors@{save\+Tensors}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{save\+Tensors(string folder, double field)}{saveTensors(string folder, double field)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::save\+Tensors (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{double}]{field}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_aab130d93c192c45e929182d62a5e7ec1}{}\label{classipeps_aab130d93c192c45e929182d62a5e7ec1}
+
+
+Save i\+P\+E\+PS ansatz tensors into given folder and field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em folder} & The folder where tensors are saved. \\
+\hline
+\mbox{\tt in}  & {\em field} & A parameter in hamiltonian. A corresponding subfolder will be created to save the wave function evolved by the hamiltonian with specified field. \\
+\hline
+\end{DoxyParams}
+\index{ipeps@{ipeps}!simp\+Update@{simp\+Update}}
+\index{simp\+Update@{simp\+Update}!ipeps@{ipeps}}
+\subsubsection[{\texorpdfstring{simp\+Update(\+Uni\+Tensor$<$ T $>$ \&ham, double tau, double evo\+Stop, int max\+Iter)}{simpUpdate(UniTensor< T > &ham, double tau, double evoStop, int maxIter)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf ipeps}$<$ T $>$\+::simp\+Update (
+\begin{DoxyParamCaption}
+\item[{Uni\+Tensor$<$ T $>$ \&}]{ham, }
+\item[{double}]{tau, }
+\item[{double}]{evo\+Stop, }
+\item[{int}]{max\+Iter}
+\end{DoxyParamCaption}
+)}\hypertarget{classipeps_aa98bdc6097f41fc3dad78b7099088218}{}\label{classipeps_aa98bdc6097f41fc3dad78b7099088218}
+
+
+Perform simple update. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ham} & Two site operator by which evolution operator is constructed. \\
+\hline
+\mbox{\tt in}  & {\em tau} & Time step of time evolution. \\
+\hline
+\mbox{\tt in}  & {\em evo\+Stop} & Convergence criterion for time evolution. When energy difference between two steps is smaller than evo\+Stop, tha state is considered converged the iteration stop. \\
+\hline
+\mbox{\tt in}  & {\em max\+Iter} & Maximum iteration step. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ctm\+Base/ctm\+Base.\+h\item 
+ipeps/ipeps.\+h\item 
+ipeps/ipeps.\+cpp\end{DoxyCompactItemize}
