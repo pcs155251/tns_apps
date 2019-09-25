@@ -1,0 +1,21 @@
+rootFolder = ./
+#rootFolder = /home/pcs155251/Models/HeisWithDM_kagome/pess_simple/
+#rootFolder = /work/u11cyl03/Models/HeisWithDM_kagome/pess_simple/
+loadFolder = husimi_-4/
+@saveFolder = tmplate/
+@enviFolder = tmplate/
+ifGs       = 0
+ifEn       = 1
+taus       = 0.01 0.003 0.001
+gsIter     = 100000
+gsErr      = 1.0e-12
+@ctmStep   = 100
+@edgeDimN  = 10
+@edgeErr   = 1.0e-8
+@start     = 0.5
+@slope     = 0.25
+@field     = 0
+@dimDload  = 0
+@dimDs     = 2 3
+@ifsvd     = 1
+#iMode 0: no save after each step, 1: save after each step, 2: only measure

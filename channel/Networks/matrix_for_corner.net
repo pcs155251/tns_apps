@@ -1,0 +1,7 @@
+ISL:0;1,2
+ISR:3,5;4
+EVO:2,5,6,7;
+AL:7,0;9
+AR:8;6,4
+TOUT:9,8;1,3
+ORDER: (((AR ISR) EVO)(AL ISL))

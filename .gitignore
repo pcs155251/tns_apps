@@ -1,0 +1,7 @@
+*.[oea]
+*.out
+*.ten
+*.po*
+*.o*
+OutputT
+data

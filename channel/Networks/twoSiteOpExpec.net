@@ -1,0 +1,13 @@
+LTc: 1, 2
+RTc: 3, 4
+RBc: 5, 6
+LBc: 7, 8
+Lc: 15, 14, 13
+Tc: 2, 10, 3
+Rc: 4, 11, 5
+Bc: 6, 12, 7
+TaL: 16, 13; 1
+BaR: 8; 17, 15
+cluster: 14, 16, 10, 11, 12, 17
+TOUT:
+ORDER: ((((((((((Bc LBc) RBc) BaR) Lc) cluster) TaL) Rc) RTc) Tc) LTc)

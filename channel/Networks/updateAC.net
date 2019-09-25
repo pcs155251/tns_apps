@@ -1,0 +1,5 @@
+iL: 7 ;1, 4
+iR: 2, 5; 8
+evol: 3, 5, 6, 4
+TOUT: 6, 7, 8; 3, 1, 2
+ORDER: ((evol iR) iL)

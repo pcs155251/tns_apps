@@ -1,0 +1,6 @@
+cmat: 1; 2
+iL: 4; 1, 3
+iR: 2, 3; 5
+cdag: 4; 5
+TOUT: 
+ORDER: (((cdag iR) iL) cmat)

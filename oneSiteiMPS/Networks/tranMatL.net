@@ -1,0 +1,5 @@
+up: 3, 1; 2
+evol: 3, 5, 6, 4
+dn: 8; 6, 7
+TOUT: 1, 4, 7; 2, 5, 8
+ORDER: ((dn evol) up)
