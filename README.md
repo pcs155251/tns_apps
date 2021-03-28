@@ -1,4 +1,3 @@
-//!\mainpage 
 # TNS algorithms
 ## Introduction
 This is a collection of TNS algorithms, including:
